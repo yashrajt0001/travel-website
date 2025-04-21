@@ -104,7 +104,7 @@ export default function Testimonials() {
               </div>
               
               <blockquote className="italic text-lg text-center text-dark/80 mb-6">
-                "{testimonials[current].quote}"
+              &quot;{testimonials[current].quote}&quot;
               </blockquote>
             </motion.div>
           </AnimatePresence>
