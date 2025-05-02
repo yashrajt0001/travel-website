@@ -8,24 +8,6 @@ import { FiMenu, FiX } from 'react-icons/fi'
 const navLinks = [
   { title: 'Home', href: '/' },
   { title: 'Destinations', href: '/destinations' },
-  { 
-    title: 'Experiences', 
-    href: '/experiences',
-    submenu: [
-      { title: 'Wellness Retreats', href: '/experiences/wellness' },
-      { title: 'Adventure Tours', href: '/experiences/adventure' },
-      { title: 'Cultural Journeys', href: '/experiences/cultural' },
-    ] 
-  },
-  { 
-    title: 'Accommodations', 
-    href: '/accommodations',
-    submenu: [
-      { title: 'Luxury Resorts', href: '/accommodations/resorts' },
-      { title: 'Boutique Hotels', href: '/accommodations/boutique' },
-      { title: 'Private Villas', href: '/accommodations/villas' },
-    ]
-  },
   { title: 'About Us', href: '/about' },
   { title: 'Contact', href: '/contact' },
 ]
@@ -33,7 +15,6 @@ const navLinks = [
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [activeSubmenu, setActiveSubmenu] = useState<number | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,8 +41,6 @@ export default function Header() {
               <div 
                 key={index} 
                 className="relative group"
-                onMouseEnter={() => link.submenu && setActiveSubmenu(index)}
-                onMouseLeave={() => setActiveSubmenu(null)}
               >
                 <Link 
                   href={link.href}
@@ -71,23 +50,6 @@ export default function Header() {
                 >
                   {link.title}
                 </Link>
-                
-                {/* Submenu */}
-                {link.submenu && activeSubmenu === index && (
-                  <div className="absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg overflow-hidden z-50">
-                    <div className="py-2">
-                      {link.submenu.map((sublink, subindex) => (
-                        <Link 
-                          key={subindex} 
-                          href={sublink.href}
-                          className="block px-4 py-2 text-sm text-dark hover:bg-light hover:text-primary"
-                        >
-                          {sublink.title}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
               </div>
             ))}
           </nav>
@@ -147,21 +109,6 @@ export default function Header() {
                       {link.title}
                     </Link>
                     
-                    {/* Mobile Submenu */}
-                    {link.submenu && (
-                      <div className="pl-4 space-y-3">
-                        {link.submenu.map((sublink, subindex) => (
-                          <Link 
-                            key={subindex} 
-                            href={sublink.href}
-                            className="block text-sm text-white/80 hover:text-primary"
-                            onClick={() => setMobileMenuOpen(false)}
-                          >
-                            {sublink.title}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
                   </div>
                 ))}
               </nav>

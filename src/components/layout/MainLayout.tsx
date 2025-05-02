@@ -1,9 +1,10 @@
-import { ReactNode } from 'react'
-import Header from './Header'
-import Footer from './Footer'
+import { ReactNode } from "react";
+import Header from "./Header";
+import Footer from "./Footer";
+import EnquirySection from "../sections/EnquirySection";
 
 interface MainLayoutProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 export default function MainLayout({ children }: MainLayoutProps) {
@@ -11,7 +12,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
     <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-grow">{children}</main>
+      <EnquirySection />
       <Footer />
     </div>
-  )
-} 
+  );
+}
