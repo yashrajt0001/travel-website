@@ -67,7 +67,7 @@ export default function Testimonials() {
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-serif text-dark mb-3">
+          <h2 className="font-extrabold text-[var(--primary)] text-3xl md:text-4xl font-serif text-dark mb-3">
             Guest Testimonials
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
@@ -111,7 +111,7 @@ export default function Testimonials() {
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="currentColor"
-                      className="w-5 h-5 text-accent"
+                      className="w-5 h-5 text-[var(--secondary)]"
                     >
                       <path
                         fillRule="evenodd"

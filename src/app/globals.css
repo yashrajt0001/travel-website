@@ -1,11 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  --primary: #4A6741;
-  --secondary: #D9BD9C;
-  --accent: #CDA87E;
-  --light: #F8F5F0;
-  --dark: #1D1D1D;
+  /* Primary Colors - Green */
+  --primary: #618940;
+  --primary-dark: #4a6a32;
+  --primary-light: #84aa67;
+
+  /* Secondary Colors - Red */
+  --secondary: #e13861;
+  --secondary-dark: #c42e51;
+  --secondary-light: #e85c7f;
+
+  /* Supporting Colors */
+  --accent: #f4d03f;
+  --light: #f8f9fa;
+  --dark: #1a1a1a;
+  --gray: #6c757d;
+  --success: #84aa67;
+  --warning: #ffc107;
+  --danger: #e13861;
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -47,7 +60,12 @@ body {
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-serif);
 }
 
@@ -71,12 +89,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Hide scrollbar but allow scrolling */
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .scrollbar-hide::-webkit-scrollbar {
-  display: none;  /* Chrome, Safari, Opera */
+  display: none; /* Chrome, Safari, Opera */
 }
 
 /* Custom scrollbar */

@@ -69,10 +69,10 @@ export default function FeaturedDestinations() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-[var(--primary-light)]/5">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-serif text-dark mb-3">
+          <h2 className="font-extrabold text-[var(--primary)] text-3xl md:text-4xl font-serif text-dark mb-3">
             Featured Destinations
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>

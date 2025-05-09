@@ -33,7 +33,7 @@ export default function EnquirySection() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-serif text-primary mb-4">
+            <h2 className="font-extrabold text-[var(--primary)] text-3xl md:text-4xl font-serif mb-4">
               Have any enquiry?
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
@@ -105,7 +105,7 @@ export default function EnquirySection() {
             <div className="text-center flex justify-center space-x-4">
               <button
                 type="submit"
-                className="inline-flex cursor bg-sky-500 items-center px-6 py-3 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors"
+                className="inline-flex cursor bg-[var(--secondary)] items-center px-6 py-3 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors"
               >
                 <FiSend className="mr-2" />
                 Send Enquiry

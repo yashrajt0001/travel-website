@@ -58,7 +58,7 @@ export default function WellnessExperiences() {
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-serif text-dark mb-3">Wellness Experiences</h2>
+          <h2 className="font-extrabold text-[var(--primary)] text-3xl md:text-4xl font-serif text-dark mb-3">Wellness Experiences</h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
           <p className="text-lg text-dark/80 max-w-3xl mx-auto">
             Embark on a journey of self-discovery and rejuvenation with our curated wellness experiences 
@@ -71,9 +71,9 @@ export default function WellnessExperiences() {
           {experiences.map((exp) => (
             <button
               key={exp.id}
-              className={`px-6 py-3 rounded-full text-sm font-medium transition-colors ${
+              className={`px-6 py-3 font-extrabold text-[var(--primary)] rounded-full text-sm transition-colors ${
                 activeExperience === exp.id
-                  ? 'bg-primary text-white bg-black/60'
+                  ? 'bg-primary text-white bg-[var(--secondary)]'
                   : 'bg-white text-dark hover:bg-primary/10'
               }`}
               onClick={() => setActiveExperience(exp.id)}
@@ -103,7 +103,7 @@ export default function WellnessExperiences() {
 
           {/* Content */}
           <div className="space-y-6 order-1 lg:order-2">
-            <h3 className="text-3xl font-serif text-dark">{getCurrentExperience()?.title}</h3>
+            <h3 className="text-3xl font-serif text-dark font-extrabold text-[var(--primary)]">{getCurrentExperience()?.title}</h3>
             <div className="w-16 h-1 bg-primary"></div>
             <p className="text-lg leading-relaxed text-dark/80">
               {getCurrentExperience()?.description}

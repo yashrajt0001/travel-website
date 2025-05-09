@@ -84,7 +84,7 @@ export default function HeroSection() {
               transition={{ duration: 0.8 }}
               className="max-w-xl"
             >
-              <h1 className="text-4xl md:text-6xl font-serif mb-4 tracking-wide text-white">
+              <h1 className="font-extrabold text-[var(--secondary)] text-4xl md:text-6xl font-serif mb-4 tracking-wide">
                 {slides[current].title}
               </h1>
               <p className="text-lg md:text-xl text-white/90 mb-8 max-w-md">

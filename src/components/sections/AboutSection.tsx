@@ -31,7 +31,7 @@ export default function AboutSection() {
   };
 
   return (
-    <section className="py-20 bg-light">
+    <section className="py-20 bg-[var(--primary-light)]/5">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           ref={ref}
@@ -56,10 +56,10 @@ export default function AboutSection() {
           {/* Content Column */}
           <div className="space-y-6">
             <motion.div variants={itemVariants}>
-              <h2 className="text-3xl md:text-4xl font-serif text-dark mb-2">
+              <h2 className="font-extrabold text-[var(--primary)] text-3xl md:text-4xl font-serif text-dark mb-2">
                 Welcome to Travel
               </h2>
-              <div className="w-20 h-1 bg-primary mb-6"></div>
+              <div className="w-20 h-1 bg mb-6"></div>
             </motion.div>
 
             <motion.p

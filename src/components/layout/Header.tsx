@@ -37,7 +37,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/90 backdrop-blur-md shadow-sm py-3"
+          ? "bg-[var(--background)] backdrop-blur-md shadow-sm py-3"
           : "bg-transparent py-5"
       }`}
     >
@@ -47,10 +47,11 @@ export default function Header() {
           <Link href="/" className="relative z-10">
             <h1
               className={`text-2xl md:text-3xl font-serif font-bold ${
-                isScrolled ? "text-dark" : "text-white"
+                isScrolled ? "text-[var(--dark)]" : "text-[var(--light)]"
               }`}
             >
-              Travel
+              <span className="text-[var(--secondary)]">Travel</span>
+              <span className="text-[var(--primary)]">Hub</span>
             </h1>
           </Link>
 
@@ -65,8 +66,8 @@ export default function Header() {
               >
                 <Link
                   href={link.href}
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
-                    isScrolled ? "text-dark" : "text-white"
+                  className={`text-sm font-medium transition-colors hover:text-[var(--secondary)] ${
+                    isScrolled ? "text-[var(--dark)]" : "text-[var(--light)]"
                   }`}
                 >
                   {link.title}
@@ -79,7 +80,7 @@ export default function Header() {
 
                 {/* Dropdown Menu */}
                 {link.dropdownItems && activeDropdown === link.title && (
-                  <div className="absolute top-[calc(100%-0.5rem)] left-0 w-64 bg-white rounded-lg shadow-lg py-2 z-50">
+                  <div className="absolute top-[calc(100%+1rem)] left-0 w-64 bg-white rounded-lg shadow-lg py-2 z-50">
                     {link.dropdownItems.map((item, idx) => (
                       <Link
                         key={idx}
@@ -100,8 +101,8 @@ export default function Header() {
             href="/book"
             className={`hidden md:block px-6 py-2.5 rounded-full text-sm font-medium transition-all ${
               isScrolled
-                ? "bg-primary text-black hover:bg-primary/90 border-black/20 border-solid border bg-black/10 hover:bg-black/30"
-                : "bg-white/20 backdrop-blur-sm text-white border border-white/30 hover:bg-white/30"
+                ? "bg-[var(--secondary)] text-[var(--light)] hover:bg-[var(--secondary-dark)]"
+                : "bg-[var(--light)]/20 backdrop-blur-sm text-[var(--light)] hover:bg-[var(--light)]/30"
             }`}
           >
             Book Your Journey
@@ -126,7 +127,7 @@ export default function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-dark/90 z-50 lg:hidden"
+            className="fixed inset-0 bg-primary-dark/95 z-50 lg:hidden"
           >
             <div className="container mx-auto px-4 h-full flex flex-col">
               <div className="flex justify-between items-center py-4">

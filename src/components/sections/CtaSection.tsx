@@ -24,7 +24,7 @@ export default function CtaSection() {
           viewport={{ once: true, amount: 0.3 }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif mb-6">
+          <h2 className="font-extrabold text-[var(--primary)] text-3xl md:text-4xl lg:text-5xl font-serif mb-6">
             Begin Your Wellness Journey Today
           </h2>
           
@@ -36,14 +36,14 @@ export default function CtaSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/book"
-              className="px-8 py-3 bg-black/60 text-white font-medium rounded-full hover:bg-black/90 transition-colors"
+              className="px-8 py-3  text-white font-medium rounded-full bg-[var(--secondary)] transition-colors"
             >
               Book Your Journey
             </Link>
             
             <Link
               href="/contact"
-              className="px-8 py-3 bg-transparent border border-black/30 text-black font-medium rounded-full hover:bg-white/10 transition-colors"
+              className="px-8 py-3 bg-transparent border border-[var(--primary)] text-[var(--primary)] font-medium rounded-full hover:bg-white/10 transition-colors"
             >
               Contact Us
             </Link>
