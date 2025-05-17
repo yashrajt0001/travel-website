@@ -1,10 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+// Replace framer-motion imports with our wrapper
+import { motion, useInView } from "@/lib/motion";
 import Image from "next/image";
-import { useInView } from "framer-motion";
 import { useRef } from "react";
 import MainLayout from "@/components/layout/MainLayout";
+import Link from "next/link";
+import { FiArrowRight } from "react-icons/fi";
 
 export default function AboutPage() {
   return (
@@ -20,25 +22,24 @@ export default function AboutPage() {
 
 function HeroAbout() {
   return (
-    <section className="relative h-[60vh] min-h-[500px] bg-dark/10 overflow-hidden">
+    <section className="relative h-[60vh] min-h-[500px] bg-primary/90 overflow-hidden mt-15 pt-20">
       <Image
         src="/images/about.jpg"
         alt=" Travel Team"
         fill
-        className="object-cover opacity-90"
+        className="object-cover opacity-30"
         priority
       />
-      <div className="absolute inset-0 bg-dark/30" />
       <div className="absolute inset-0 flex items-center justify-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center text-white z-10 px-4"
+          className="text-center text-dark z-10 px-4 max-w-3xl mx-auto"
         >
-          <h1 className="text-4xl md:text-6xl font-serif mb-4">About Travel</h1>
-          <div className="h-1 w-40 bg-secondary mx-auto mb-6"></div>
-          <p className="text-lg md:text-xl max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-serif mb-6 font-extrabold text-[var(--secondary)]">About Travel</h1>
+          <div className="h-1 w-24 bg-[var(--secondary)] mx-auto mb-6"></div>
+          <p className="font-semibold text-xl max-w-2xl mx-auto">
             Crafting transformative journeys for the mindful traveler since 2010
           </p>
         </motion.div>
@@ -67,7 +68,7 @@ function OurStory() {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h2 className="text-3xl md:text-4xl font-serif text-dark mb-2">
+              <h2 className="text-3xl md:text-4xl font-serif mb-2 font-extrabold text-[var(--primary)]">
                 Our Story
               </h2>
               <div className="w-20 h-1 bg-primary mb-6"></div>
@@ -118,7 +119,7 @@ function OurStory() {
               isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }
             }
             transition={{ duration: 1, delay: 0.3 }}
-            className="relative h-[500px] rounded-lg overflow-hidden"
+            className="relative h-[500px] rounded-lg overflow-hidden shadow-lg"
           >
             <Image
               src="/images/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.webp"
@@ -173,10 +174,10 @@ function OurValues() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-serif text-dark mb-2">
+          <h2 className="text-3xl md:text-4xl font-serif mb-3 font-extrabold text-[var(--primary)]">
             Our Core Values
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
+          <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
           <p className="text-lg max-w-3xl mx-auto text-dark/80">
             These principles guide every experience we create and every decision
             we make
@@ -190,10 +191,10 @@ function OurValues() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.2 * index }}
-              className="bg-light p-8 rounded-lg shadow-sm border border-secondary/10 hover:shadow-md transition-shadow"
+              className="bg-light p-8 rounded-lg shadow-sm border border-[var(--primary)] hover:shadow-md transition-shadow"
             >
               <div className="text-4xl mb-4">{card.icon}</div>
-              <h3 className="text-xl font-serif text-primary mb-3">
+              <h3 className="text-xl font-serif text-[var(--primary)] mb-3 font-bold">
                 {card.title}
               </h3>
               <p className="text-dark/80">{card.description}</p>
@@ -239,24 +240,24 @@ function OurTeam() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-serif text-dark mb-2">
+          <h2 className="text-3xl md:text-4xl font-serif mb-3 font-extrabold text-[var(--primary)]">
             Meet Our Team
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
+          <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
           <p className="text-lg max-w-3xl mx-auto text-dark/80">
             Passionate travel enthusiasts dedicated to creating your perfect
             journey
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.name}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.2 * index }}
-              className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+              className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
             >
               <div className="relative h-72">
                 <Image
@@ -267,10 +268,10 @@ function OurTeam() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-serif text-primary">
+                <h3 className="text-xl font-serif text-[var(--primary)] font-bold">
                   {member.name}
                 </h3>
-                <p className="text-accent font-medium mb-3">{member.role}</p>
+                <p className="text-[var(--secondary)] font-medium mb-3">{member.role}</p>
                 <p className="text-dark/80">{member.bio}</p>
               </div>
             </motion.div>
@@ -286,7 +287,7 @@ function JoinUs() {
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
-    <section ref={ref} className="py-20 bg-primary text-black">
+    <section ref={ref} className="py-20 bg-primary/90 text-black">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0 }}
@@ -298,16 +299,18 @@ function JoinUs() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-3xl md:text-4xl font-serif mb-6"
+            className="text-3xl md:text-4xl font-serif mb-6 font-extrabold text-[var(--secondary)]"
           >
             Join Our Growing Team
           </motion.h2>
+          
+          <div className="w-24 h-1 bg-[var(--secondary)] mx-auto mb-6"></div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-lg mb-8"
+            className="text-lg mb-8 font-semibold"
           >
             Passionate about travel and wellness? We&apos;re always looking for
             talented individuals to join our mission of creating transformative
@@ -318,13 +321,15 @@ function JoinUs() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex justify-center"
           >
-            <a
+            <Link
               href="/careers"
-              className="inline-block bg-white text-primary px-8 py-3 rounded-lg font-medium hover:bg-secondary hover:text-dark transition-colors"
+              className="inline-flex items-center gap-2 bg-[var(--secondary)] text-white px-8 py-3 rounded-full font-medium hover:bg-[var(--secondary-dark)] transition-colors"
             >
               View Open Positions
-            </a>
+              <FiArrowRight />
+            </Link>
           </motion.div>
         </motion.div>
       </div>

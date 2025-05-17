@@ -1,12 +1,18 @@
-import MainLayout from "@/components/layout/MainLayout";
-import JobListing from "../../components/sections/JobListing";
+ "use client"
+ 
+ import MainLayout from "@/components/layout/MainLayout";
+import JobListing from "@/components/sections/JobListing";
 import { Metadata } from "next";
+// Replace framer-motion import with our wrapper
+import { motion } from "@/lib/motion";
+import Link from "next/link";
+import Image from "next/image";
 
-export const metadata: Metadata = {
-  title: "Careers | Travel",
-  description:
-    "Join our team at Travel and help create transformative travel experiences for our clients.",
-};
+// export const metadata: Metadata = {
+//   title: "Careers | Travel",
+//   description:
+//     "Join our team at Travel and help create transformative travel experiences for our clients.",
+// };
 
 // Job data - in a real application, this would likely come from a CMS or database
 const jobListings = [
@@ -99,20 +105,34 @@ const jobListings = [
 
 export default function CareersPage() {
   return (
-    <MainLayout>
+    <MainLayout staticStyle>
       <div className="bg-light">
         {/* Hero Section */}
-        <div className="bg-primary/90 text-white py-20">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-serif mb-6">
+        <div className="relative bg-primary/90 text-white py-20 mt-15 pt-20">
+          <div className="absolute inset-0 opacity-20 z-0">
+            <Image
+              src="/images/istockphoto-517188688-1024x1024.jpg"
+              alt="Team working"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="container mx-auto px-4 md:px-6 relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="max-w-3xl mx-auto text-center"
+            >
+              <h1 className="text-4xl md:text-5xl font-serif mb-6 font-extrabold text-[var(--secondary)]">
                 Join Our Team
               </h1>
-              <p className="text-lg md:text-xl">
+              <div className="h-1 w-24 bg-[var(--secondary)] mx-auto mb-6"></div>
+              <p className="text-xl font-semibold text-black">
                 Help us create transformative travel experiences that rejuvenate
                 mind, body, and spirit.
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
 
@@ -120,7 +140,7 @@ export default function CareersPage() {
         <div className="py-16 bg-white">
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-serif text-dark mb-4">
+              <h2 className="text-3xl md:text-4xl font-serif text-[var(--primary)] mb-4 font-extrabold">
                 Why Work With Us
               </h2>
               <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
@@ -131,7 +151,13 @@ export default function CareersPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              <div className="bg-light p-6 rounded-lg text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                viewport={{ once: true }}
+                className="bg-light p-6 rounded-lg text-center border border-[var(--primary)] shadow-sm hover:shadow-md transition-shadow"
+              >
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -139,7 +165,7 @@ export default function CareersPage() {
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="w-8 h-8 text-primary"
+                    className="w-8 h-8 text-[var(--primary)]"
                   >
                     <path
                       strokeLinecap="round"
@@ -148,14 +174,20 @@ export default function CareersPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-medium mb-2">Global Impact</h3>
+                <h3 className="text-xl font-serif font-bold text-[var(--primary)] mb-2">Global Impact</h3>
                 <p className="text-dark/70">
                   Make a difference in people&apos;s lives by creating
                   transformative travel experiences around the world.
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="bg-light p-6 rounded-lg text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="bg-light p-6 rounded-lg text-center border border-[var(--primary)] shadow-sm hover:shadow-md transition-shadow"
+              >
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -163,7 +195,7 @@ export default function CareersPage() {
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="w-8 h-8 text-primary"
+                    className="w-8 h-8 text-[var(--primary)]"
                   >
                     <path
                       strokeLinecap="round"
@@ -172,14 +204,20 @@ export default function CareersPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-medium mb-2">Employee Wellness</h3>
+                <h3 className="text-xl font-serif font-bold text-[var(--primary)] mb-2">Employee Wellness</h3>
                 <p className="text-dark/70">
                   We practice what we preach with employee wellness programs,
                   flexible work options, and travel perks.
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="bg-light p-6 rounded-lg text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="bg-light p-6 rounded-lg text-center border border-[var(--primary)] shadow-sm hover:shadow-md transition-shadow"
+              >
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -187,7 +225,7 @@ export default function CareersPage() {
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="w-8 h-8 text-primary"
+                    className="w-8 h-8 text-[var(--primary)]"
                   >
                     <path
                       strokeLinecap="round"
@@ -196,23 +234,43 @@ export default function CareersPage() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-medium mb-2">
+                <h3 className="text-xl font-serif font-bold text-[var(--primary)] mb-2">
                   Growth & Development
                 </h3>
                 <p className="text-dark/70">
                   Continuous learning opportunities and a supportive environment
                   that encourages professional growth.
                 </p>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+
+        {/* Team Culture Image Section */}
+        <div className="py-16 bg-light/50 overflow-hidden">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="relative h-[300px] md:h-[400px] rounded-xl overflow-hidden shadow-lg mx-auto max-w-5xl">
+              <Image 
+                src="/images/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.webp"
+                alt="Our team culture"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/10 flex items-end">
+                <div className="p-8 text-white">
+                  <h3 className="text-2xl font-serif font-bold mb-2">Our Team Culture</h3>
+                  <p className="max-w-lg">We believe in supporting each other, celebrating diversity, and bringing passion to everything we do. When you join our team, you become part of a global family dedicated to creating meaningful travel experiences.</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Open Positions Section */}
-        <div className="py-16 bg-light">
+        <div className="py-16 bg-white">
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-3xl mx-auto text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-serif text-dark mb-4">
+              <h2 className="text-3xl md:text-4xl font-serif text-[var(--primary)] mb-4 font-extrabold">
                 Open Positions
               </h2>
               <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
@@ -224,13 +282,27 @@ export default function CareersPage() {
 
             {/* Job Listings */}
             <div className="max-w-4xl mx-auto">
-              {jobListings.map((job) => (
-                <JobListing key={job.id} job={job} />
+              {jobListings.map((job, index) => (
+                <motion.div
+                  key={job.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                >
+                  <JobListing job={job} />
+                </motion.div>
               ))}
 
               {/* Application Info */}
-              <div className="mt-16 bg-white p-8 rounded-lg shadow-md">
-                <h3 className="text-2xl font-serif text-primary mb-6 text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="mt-16 bg-light p-8 rounded-lg shadow-md border border-[var(--primary)]/20"
+              >
+                <h3 className="text-2xl font-serif text-[var(--primary)] mb-6 text-center font-bold">
                   How to Apply
                 </h3>
 
@@ -242,14 +314,14 @@ export default function CareersPage() {
                   </p>
 
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-[var(--primary)]/10 rounded-full flex items-center justify-center flex-shrink-0">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                         strokeWidth={1.5}
                         stroke="currentColor"
-                        className="w-6 h-6 text-primary"
+                        className="w-6 h-6 text-[var(--primary)]"
                       >
                         <path
                           strokeLinecap="round"
@@ -259,14 +331,14 @@ export default function CareersPage() {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="text-lg font-medium text-dark">
+                      <h4 className="text-lg font-medium text-[var(--primary)]">
                         Email Us
                       </h4>
                       <p className="text-dark/70">
                         Send your resume and cover letter to{" "}
                         <a
                           href="mailto:careers@travel.com"
-                          className="text-primary hover:underline"
+                          className="text-[var(--secondary)] hover:underline"
                         >
                           careers@travel.com
                         </a>{" "}
@@ -276,14 +348,14 @@ export default function CareersPage() {
                   </div>
 
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-[var(--primary)]/10 rounded-full flex items-center justify-center flex-shrink-0">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                         strokeWidth={1.5}
                         stroke="currentColor"
-                        className="w-6 h-6 text-primary"
+                        className="w-6 h-6 text-[var(--primary)]"
                       >
                         <path
                           strokeLinecap="round"
@@ -293,13 +365,13 @@ export default function CareersPage() {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="text-lg font-medium text-dark">Call Us</h4>
+                      <h4 className="text-lg font-medium text-[var(--primary)]">Call Us</h4>
                       <p className="text-dark/70">
                         For questions about a specific position, call our HR
                         department at{" "}
                         <a
                           href="tel:+18001234567"
-                          className="text-primary hover:underline"
+                          className="text-[var(--secondary)] hover:underline"
                         >
                           +1 (800) 123-4567
                         </a>
@@ -307,8 +379,39 @@ export default function CareersPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="py-16 bg-primary/90 text-white">
+          <div className="container mx-auto px-4 md:px-6">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="max-w-3xl mx-auto text-center"
+            >
+              <h2 className="text-3xl md:text-4xl font-serif mb-6 font-extrabold text-[var(--secondary)]">
+                Ready to Begin Your Journey With Us?
+              </h2>
+              <div className="w-24 h-1 bg-[var(--secondary)] mx-auto mb-6"></div>
+              <p className="text-lg mb-8 font-semibold">
+                Whether you&apos;re an experienced travel professional or just starting your career, 
+                we&apos;d love to hear from you if you share our passion for transformative travel experiences.
+              </p>
+              <Link 
+                href="mailto:careers@travel.com" 
+                className="inline-flex items-center gap-2 bg-[var(--secondary)] text-white px-8 py-3 rounded-full font-medium hover:bg-[var(--secondary-dark)] transition-colors"
+              >
+                Apply Today
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
+            </motion.div>
           </div>
         </div>
       </div>
