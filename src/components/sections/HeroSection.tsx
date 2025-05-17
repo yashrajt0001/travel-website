@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
+import { HiExternalLink } from "react-icons/hi";
 
 const slides = [
   {
@@ -92,9 +93,9 @@ export default function HeroSection() {
               </p>
               <Link
                 href={slides[current].cta.link}
-                className="inline-block pr-8 py-3 bg-primary text-white rounded-full text-lg font-medium hover:bg-primary/90 transition-colors"
-              >
-                {slides[current].cta.text}
+                className=" flex items-center text-white pr-8 py-3 bg-primary rounded-full text-lg font-medium hover:bg-primary/90 transition-colors"
+              > 
+                {slides[current].cta.text} <HiExternalLink className='ml-2 h-5 w-5 my-auto'/>
               </Link>
             </motion.div>
           </AnimatePresence>

@@ -8,7 +8,7 @@ import MainLayout from "@/components/layout/MainLayout";
 
 export default function AboutPage() {
   return (
-    <MainLayout>
+    <MainLayout staticStyle>
       <HeroAbout />
       <OurStory />
       <OurValues />

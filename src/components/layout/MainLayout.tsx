@@ -1,18 +1,20 @@
 import { ReactNode } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import EnquirySection from "../sections/EnquirySection";
 
 interface MainLayoutProps {
   children: ReactNode;
+  staticStyle?: boolean;
 }
 
-export default function MainLayout({ children }: MainLayoutProps) {
+export default function MainLayout({
+  children,
+  staticStyle = false,
+}: MainLayoutProps) {
   return (
     <div className="flex min-h-screen flex-col bg-[var(--primary-light)]/5">
-      <Header />
+      <Header staticStyle={staticStyle} />
       <main className="flex-grow">{children}</main>
-      <EnquirySection />
       <Footer />
     </div>
   );

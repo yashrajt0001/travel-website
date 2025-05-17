@@ -3,7 +3,13 @@
 import { useState } from "react";
 import { FiSend } from "react-icons/fi";
 
-export default function EnquirySection() {
+export default function EnquirySection({
+  title,
+  description,
+}: {
+  title?: string;
+  description?: string;
+}) {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -29,19 +35,19 @@ export default function EnquirySection() {
   };
 
   return (
-    <section className="bg-secondary/10 py-16">
+    <section className="py-16">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="font-extrabold text-[var(--primary)] text-3xl md:text-4xl font-serif mb-4">
-              Have any enquiry?
+              {title ? title : "Have any enquiry?"}
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Have questions about our wellness travel experiences? Fill out the
-              form below and our travel experts will get back to you shortly.
+              {description
+                ? description
+                : "Have questions about our wellness travel experiences? Fill out the form below and our travel experts will get back to you shortly."}
             </p>
           </div>
-
           <form
             onSubmit={handleSubmit}
             className="bg-white p-6 md:p-8 rounded-lg shadow-md"

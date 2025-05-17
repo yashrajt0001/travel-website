@@ -7,19 +7,19 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        primary: "#618940",
-        primaryDark: "#4a6a32",
-        primaryLight: "#7aa359",
-        secondary: {
-          DEFAULT: "#e13861", // Red from logo
-          dark: "#c42e51",
-          light: "#e85c7f",
-        },
-        accent: "#f4d03f", // Complementary gold color
-        light: "#F8F5F0",
-        dark: "#1D1D1D",
-      },
+      // colors: {
+      //   primary: "#618940",
+      //   primaryDark: "#4a6a32",
+      //   primaryLight: "#7aa359",
+      //   secondary: {
+      //     DEFAULT: "#e13861", // Red from logo
+      //     dark: "#c42e51",
+      //     light: "#e85c7f",
+      //   },
+      //   accent: "#f4d03f", // Complementary gold color
+      //   light: "#F8F5F0",
+      //   dark: "#1D1D1D",
+      // },
       fontFamily: {
         sans: ["var(--font-geist-sans)", "sans-serif"],
         serif: ["var(--font-playfair)", "serif"],
