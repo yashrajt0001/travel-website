@@ -5,63 +5,64 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { FiMapPin } from "react-icons/fi";
+import ParallaxImage from '@/components/ui/ParallaxImage';
 
 const destinations = [
   {
     id: 1,
-    name: " Bali",
-    location: "Ubud, Bali",
+    name: "Meghalaya",
+    location: "The Abode of Clouds",
     description:
-      "A tranquil sanctuary nestled in the lush forests of Ubud, offering yoga retreats and spa treatments.",
+      "Verdant hills draped in mist, living root bridges woven by time, and rains that sing on tin rooftops—Meghalaya is poetry in motion. The Khasi and Garo traditions echo in every drumbeat, every woven pattern, every smile.",
     image:
       "/images/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.webp",
-    link: "/destinations/bali",
+    link: "/destinations/meghalaya",
   },
   {
     id: 2,
-    name: "Himalayan Retreat",
-    location: "Rishikesh, India",
+    name: "Kerala",
+    location: "The Land of Backwaters and Beyond",
     description:
-      "Immerse yourself in yoga and meditation in the birthplace of these ancient practices.",
+      "A gentle dance of sea and spice, Kathakali eyes and Theyyam flames, Kerala is a sanctuary of balance—between body, spirit, and earth. From its lush backwaters to soulful temple chants, every experience here is soaked in story.",
     image: "/images/istockphoto-517188688-1024x1024.jpg",
-    link: "/destinations/himalayas",
+    link: "/destinations/kerala",
   },
   {
     id: 3,
-    name: "Costa Rica Wellness",
-    location: "Nosara, Costa Rica",
+    name: "Rajasthan",
+    location: "Desert Palaces and Infinite Skies",
     description:
-      "Connect with nature in this eco-friendly wellness resort surrounded by tropical rainforest.",
+      "A land of golden sands, mirror-worked textiles, and music that rises like incense. Rajasthan's opulence is matched only by its grit. Forts rise like poems from the earth, and each village tells a tale in color and dust.",
     image:
       "/images/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.webp",
-    link: "/destinations/costa-rica",
+    link: "/destinations/rajasthan",
   },
   {
     id: 4,
-    name: "Mediterranean Escape",
-    location: "Santorini, Greece",
+    name: "Banaras (Varanasi)",
+    location: "The City of Eternal Flame",
     description:
-      "Experience the healing properties of the Aegean Sea in this cliffside luxury retreat.",
+      "Where the sacred and the mundane flow side by side, Banaras is a river of time. Ghats soaked in devotion, ancient chants, burning lamps, and the constant presence of the Ganga—this city is a living canvas of faith and transformation.",
     image: "/images/images.jpeg",
-    link: "/destinations/santorini",
+    link: "/destinations/varanasi",
   },
   {
     id: 5,
-    name: "Desert Oasis",
-    location: "Sedona, Arizona",
+    name: "Uttarakhand",
+    location: "Land of Sacred Peaks and Silent Forests",
     description:
-      "Find spiritual renewal in the red rock landscapes known for their powerful energy vortexes.",
+      "Home to holy rivers and Himalayan stillness, Uttarakhand is a space of spiritual ascent and grounding presence. Villages perched on cliffs, temple bells echoing through pine forests, and paths that whisper to the sky.",
     image: "/images/istockphoto-517188688-1024x1024.jpg",
-    link: "/destinations/sedona",
+    link: "/destinations/uttarakhand",
   },
   {
     id: 6,
-    name: "Alpine Wellness",
-    location: "Swiss Alps, Switzerland",
+    name: "Spiti",
+    location: "The Cold Desert of Light and Silence",
     description:
-      "Rejuvenate in the pure mountain air with thermal spas and panoramic views.",
+      "Raw, vast, and humbling—Spiti is a monastery of the soul. Stupas stand still against cobalt skies, and prayer flags carry your breath across the mountains. Art here emerges not from noise but from stillness.",
     image: "/images/images (1).jpeg",
-    link: "/destinations/swiss-alps",
+    link: "/destinations/spiti",
   },
 ];
 
@@ -73,12 +74,12 @@ export default function FeaturedDestinations() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="font-extrabold text-[var(--primary)] text-3xl md:text-4xl font-serif text-dark mb-3">
-            Featured Destinations
+            Destination Edition <span className="text-[var(--secondary)]">2025-2026</span>
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
           <p className="text-lg text-dark/80 max-w-3xl mx-auto">
-            Discover our handpicked wellness destinations around the world, each
-            offering unique experiences to nourish your mind, body, and soul.
+            Embark on artistic journeys through India's most evocative landscapes. Each destination 
+            is a canvas for your creativity, waiting to inspire your next masterpiece.
           </p>
         </div>
 
@@ -86,7 +87,7 @@ export default function FeaturedDestinations() {
           {destinations.map((destination, index) => (
             <motion.div
               key={destination.id}
-              className="group relative bg-white rounded-lg overflow-hidden shadow-md h-[400px]"
+              className="group relative bg-white rounded-lg overflow-hidden shadow-md h-[400px] transform transition-all duration-500 hover:shadow-xl hover:-translate-y-1"
               onHoverStart={() => setHoveredIndex(index)}
               onHoverEnd={() => setHoveredIndex(null)}
               initial={{ opacity: 0, y: 20 }}
@@ -94,13 +95,27 @@ export default function FeaturedDestinations() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true, amount: 0.3 }}
             >
-              <div className="absolute inset-0 bg-dark/30 z-10"></div>
-              <Image
+              {/* Decorative corner element - artistic touch */}
+              <div className="absolute top-0 right-0 w-24 h-24 z-20 opacity-80 group-hover:opacity-100 transition-opacity duration-500">
+                <svg viewBox="0 0 100 100" className="w-full h-full fill-[var(--secondary)] opacity-70">
+                  <path d="M0,0 L100,0 L100,100 Q70,70 0,0 Z" />
+                </svg>
+              </div>
+              
+              {/* Gradient overlay with brand colors */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-[var(--primary-dark)]/40 to-transparent z-10 transition-all duration-500 opacity-70 group-hover:opacity-95"></div>
+              
+              {/* Use ParallaxImage component for subtle in-card parallax */}
+              <ParallaxImage
                 src={destination.image}
                 alt={destination.name}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                speed={0.1} // Subtle parallax effect
+                direction="up"
+                className="absolute inset-0"
               />
+              
+              {/* Decorative line element */}
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--secondary)] to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 z-20"></div>
 
               <div className="absolute inset-0 flex flex-col justify-end p-6 z-20">
                 <div
@@ -110,26 +125,26 @@ export default function FeaturedDestinations() {
                       : "translate-y-8 opacity-0"
                   }`}
                 >
-                  <div className="flex items-center text-white/90 mb-2">
+                  <div className="flex items-center text-white mb-2">
                     <FiMapPin className="mr-1" />
-                    <span className="text-sm">{destination.location}</span>
+                    <span className="text-sm font-medium">{destination.location}</span>
                   </div>
-                  <p className="text-white/90 mb-4">
+                  <p className="text-white mb-4 font-medium">
                     {destination.description}
                   </p>
                 </div>
 
-                <h3 className="text-2xl font-serif text-white mb-2">
+                <h3 className="text-2xl font-serif text-white mb-2 font-bold">
                   {destination.name}
                 </h3>
 
                 <Link
-                  href={destination.link}
-                  className={`inline-block px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/30 text-white rounded-full hover:bg-primary hover:border-primary transition-all duration-300 text-sm ${
+                  href={`/destinations?location=${destination.name.toLowerCase()}`}
+                  className={`inline-block px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 text-white rounded-full hover:bg-[var(--secondary)] hover:border-[var(--secondary)] transition-all duration-300 text-sm font-medium ${
                     hoveredIndex === index ? "opacity-100" : "opacity-0"
                   }`}
                 >
-                  Explore Destination
+                  Discover {destination.name}
                 </Link>
               </div>
             </motion.div>
@@ -141,7 +156,7 @@ export default function FeaturedDestinations() {
             href="/destinations"
             className="inline-block px-8 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors"
           >
-            View All Destinations
+            Explore All Destinations
           </Link>
         </div>
       </div>

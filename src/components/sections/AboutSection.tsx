@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import ParallaxImage from '@/components/ui/ParallaxImage';
 
 export default function AboutSection() {
   const ref = useRef(null);
@@ -40,24 +41,25 @@ export default function AboutSection() {
           animate={isInView ? "visible" : "hidden"}
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
         >
-          {/* Image Column */}
+          {/* Image Column - Make sure ParallaxImage works properly */}
           <motion.div
             variants={itemVariants}
             className="relative h-[500px] rounded-lg overflow-hidden"
+            style={{ position: 'relative' }}
           >
-            <Image
+            <ParallaxImage
               src="/images/istockphoto-517188688-1024x1024.jpg"
               alt="Tranquil luxury retreat"
-              fill
-              className="object-cover"
+              speed={0.15}
+              direction="up"
             />
           </motion.div>
 
           {/* Content Column */}
           <div className="space-y-6">
             <motion.div variants={itemVariants}>
-              <h2 className="font-extrabold text-[var(--primary)] text-3xl md:text-4xl font-serif text-dark mb-2">
-                Welcome to Travel
+              <h2 className="text-[var(--primary)] font-extrabold text-3xl md:text-4xl font-serif text-dark mb-2">
+                Welcome to <span className="text-[var(--secondary)]">Antarabodh</span>
               </h2>
               <div className="w-20 h-1 bg mb-6"></div>
             </motion.div>
@@ -66,23 +68,13 @@ export default function AboutSection() {
               variants={itemVariants}
               className="text-lg leading-relaxed text-dark/80"
             >
-              Travel is a premier luxury travel company specializing in curated
-              wellness retreats and transformative travel experiences. Founded
-              with the belief that travel should nourish the mind, body, and
-              spirit, we craft journeys that combine breathtaking destinations
-              with rejuvenating experiences.
+              Antarabodh is a travel and art retreat program designed for seekers, dreamers, and creators.
+              We believe that art is not just something we make—but something we live. Through slow,
+              intentional travel and deep creative practices, Antarabodh invites you to reconnect with yourself,
+              nature, and community. Each retreat is a passage—into new landscapes, cultures, and the quiet
+              depths of your own imagination.
             </motion.p>
 
-            <motion.p
-              variants={itemVariants}
-              className="text-lg leading-relaxed text-dark/80"
-            >
-              Our philosophy is centered around the harmony between nature,
-              luxury, and well-being. Every destination we select and every
-              experience we design is carefully chosen to provide our guests
-              with a perfect balance of adventure, relaxation, cultural
-              immersion, and personal growth.
-            </motion.p>
 
             <motion.div
               variants={itemVariants}
@@ -93,8 +85,9 @@ export default function AboutSection() {
                   Our Mission
                 </h3>
                 <p className="text-dark/80">
-                  To create transformative travel experiences that rejuvenate
-                  the soul.
+                  To create immersive, soul-nourishing experiences that blend travel, artistic expression, and
+                  inner exploration—helping people reconnect with their creative essence and live more
+                  meaningful, artful lives.
                 </p>
               </div>
 
@@ -103,8 +96,9 @@ export default function AboutSection() {
                   Our Vision
                 </h3>
                 <p className="text-dark/80">
-                  To be the leading provider of luxury wellness travel
-                  worldwide.
+                  To build a global community where art and travel become tools for transformation, healing, and
+                  human connection—awakening a deeper sense of purpose, wonder, and belonging in all who
+                  journey with us.
                 </p>
               </div>
             </motion.div>

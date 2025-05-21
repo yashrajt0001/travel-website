@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { FiPhone, FiMail, FiMapPin, FiSend } from "react-icons/fi";
 import {
   FaFacebookF,
@@ -26,9 +27,17 @@ export default function Footer() {
     <footer className="bg-[var(--primary-dark)] text-[var(--light)]/80 pt-16 pb-8">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Brand Column */}
+          {/* Brand Column - Replace text with logo image */}
           <div className="space-y-4">
-            <h2 className="text-2xl text-white font-serif">Travel</h2>
+            <div className="relative h-10 w-32">
+              <Image 
+                src="/images/logo.png" 
+                alt="Travel Logo" 
+                fill 
+                className="object-contain brightness-0 invert" 
+                priority 
+              />
+            </div>
             <p className="text-[var(--light)]/80 max-w-xs">
               Experience the journey of a lifetime with our curated luxury
               travel experiences, tailored to rejuvenate your mind, body, and

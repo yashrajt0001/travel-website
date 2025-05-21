@@ -5,16 +5,16 @@ import Image from "next/image";
 import MainLayout from "@/components/layout/MainLayout";
 import BookingModal from "@/components/modals/BookingModal";
 import { motion, useScroll, useTransform } from "@/lib/motion";
-import { FiStar, FiCalendar, FiMapPin, FiSun, FiCloudRain, FiUsers, FiCheckCircle, FiClock, FiAward, FiCamera } from "react-icons/fi";
+import { FiStar, FiMapPin, FiSun, FiUsers, FiCheckCircle, FiClock, FiAward, FiCamera } from "react-icons/fi";
 import { use } from "react";
-import Link from "next/link";
+import ParallaxImage from '@/components/ui/ParallaxImage';
 
 // Expand destination data
 const destinations = {
   "meghalaya-2025": {
-    title: "Meghalaya Edition 2025",
+    title: "Meghalaya – The Abode of Clouds",
     description:
-      "Experience the magical living root bridges and crystal-clear waters of Meghalaya.",
+      "Verdant hills draped in mist, living root bridges woven by time, and rains that sing on tin rooftops—Meghalaya is poetry in motion. The Khasi and Garo traditions echo in every drumbeat, every woven pattern, every smile.",
     longDescription:
       "Embark on a journey to the mystical land of clouds where ancient living root bridges weave through lush rainforests and pristine waterfalls cascade into emerald pools. Meghalaya, meaning 'abode of clouds', offers an unparalleled blend of natural wonders and cultural heritage.",
     image:
@@ -111,6 +111,506 @@ const destinations = {
       humidity: "80-90%"
     }
   },
+  "kerala-2025": {
+    title: "Kerala – The Land of Backwaters and Beyond",
+    description:
+      "A gentle dance of sea and spice, Kathakali eyes and Theyyam flames, Kerala is a sanctuary of balance—between body, spirit, and earth. From its lush backwaters to soulful temple chants, every experience here is soaked in story. A place where you can write by the sea, paint with coconut palms, and awaken to Ayurveda.",
+    longDescription:
+      "Embark on a journey to the mystical land of clouds where ancient living root bridges weave through lush rainforests and pristine waterfalls cascade into emerald pools. Meghalaya, meaning 'abode of clouds', offers an unparalleled blend of natural wonders and cultural heritage.",
+    image:
+      "/images/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.webp",
+    gallery: [
+      "/images/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.webp",
+      "/images/images.jpeg",
+      "/images/images (1).jpeg",
+      "/images/istockphoto-517188688-1024x1024.jpg",
+    ],
+    highlights: [
+      "Trek to Double Decker Living Root Bridge",
+      "Visit the cleanest village in Asia - Mawlynnong",
+      "Explore crystal clear waters of Dawki",
+      "Experience local Khasi culture",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Shillong",
+        activities: [
+          "Airport pickup",
+          "Welcome dinner",
+          "Cultural orientation",
+        ],
+      },
+      {
+        day: 2,
+        title: "Living Root Bridges",
+        activities: [
+          "Trek to Double Decker Bridge",
+          "Local village visit",
+          "Traditional lunch",
+        ],
+      },
+      // ...existing itinerary days...
+    ],
+    travelTips: [
+      "Best time to visit: October to May",
+      "Carry rain gear as weather can be unpredictable",
+      "Comfortable trekking shoes are essential",
+      "Respect local customs and dress modestly",
+    ],
+    packages: [
+      {
+        id: "travel",
+        name: "Travel",
+        price: 24999,
+        features: [
+          "4 Nights Stay",
+          "Local Transportation",
+          "Guided Tours",
+          "Basic Photography Tips",
+        ],
+        color: "#618940",
+        icon: "📷",
+        popular: false,
+      },
+      {
+        id: "travel-art",
+        name: "Travel x Art",
+        price: 29999,
+        features: [
+          "All Travel Package Features",
+          "Art Workshops",
+          "Art Supplies",
+          "Creative Sessions",
+        ],
+        color: "#5e7e3e",
+        icon: "🎨",
+        popular: true,
+      },
+      {
+        id: "travel-art-create",
+        name: "Travel x Art x Create",
+        price: 34999,
+        features: [
+          "All Travel x Art Features",
+          "Content Creation Workshop",
+          "Personal Branding Session",
+          "Professional Photoshoot",
+        ],
+        color: "#4a6a32",
+        icon: "✨",
+        popular: false,
+      },
+    ],
+    duration: "5 Days / 4 Nights",
+    groupSize: "8-12 people",
+    difficulty: "Moderate",
+    weather: {
+      condition: "Mostly cloudy with occasional rain",
+      temp: "18-24°C",
+      humidity: "80-90%"
+    }
+  },
+  "rajasthan-2025": {
+    title: "Rajasthan – Desert Palaces and Infinite Skies",
+    description:
+      "A land of golden sands, mirror-worked textiles, and music that rises like incense. Rajasthan’s opulence is matched only by its grit. Forts rise like poems from the earth, and each village tells a tale in color and dust. A place to create bold art, dance with shadows, and taste the silence between folk songs.",
+    longDescription:
+      "Embark on a journey to the mystical land of clouds where ancient living root bridges weave through lush rainforests and pristine waterfalls cascade into emerald pools. Meghalaya, meaning 'abode of clouds', offers an unparalleled blend of natural wonders and cultural heritage.",
+    image:
+      "/images/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.webp",
+    gallery: [
+      "/images/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.webp",
+      "/images/images.jpeg",
+      "/images/images (1).jpeg",
+      "/images/istockphoto-517188688-1024x1024.jpg",
+    ],
+    highlights: [
+      "Trek to Double Decker Living Root Bridge",
+      "Visit the cleanest village in Asia - Mawlynnong",
+      "Explore crystal clear waters of Dawki",
+      "Experience local Khasi culture",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Shillong",
+        activities: [
+          "Airport pickup",
+          "Welcome dinner",
+          "Cultural orientation",
+        ],
+      },
+      {
+        day: 2,
+        title: "Living Root Bridges",
+        activities: [
+          "Trek to Double Decker Bridge",
+          "Local village visit",
+          "Traditional lunch",
+        ],
+      },
+      // ...existing itinerary days...
+    ],
+    travelTips: [
+      "Best time to visit: October to May",
+      "Carry rain gear as weather can be unpredictable",
+      "Comfortable trekking shoes are essential",
+      "Respect local customs and dress modestly",
+    ],
+    packages: [
+      {
+        id: "travel",
+        name: "Travel",
+        price: 24999,
+        features: [
+          "4 Nights Stay",
+          "Local Transportation",
+          "Guided Tours",
+          "Basic Photography Tips",
+        ],
+        color: "#618940",
+        icon: "📷",
+        popular: false,
+      },
+      {
+        id: "travel-art",
+        name: "Travel x Art",
+        price: 29999,
+        features: [
+          "All Travel Package Features",
+          "Art Workshops",
+          "Art Supplies",
+          "Creative Sessions",
+        ],
+        color: "#5e7e3e",
+        icon: "🎨",
+        popular: true,
+      },
+      {
+        id: "travel-art-create",
+        name: "Travel x Art x Create",
+        price: 34999,
+        features: [
+          "All Travel x Art Features",
+          "Content Creation Workshop",
+          "Personal Branding Session",
+          "Professional Photoshoot",
+        ],
+        color: "#4a6a32",
+        icon: "✨",
+        popular: false,
+      },
+    ],
+    duration: "5 Days / 4 Nights",
+    groupSize: "8-12 people",
+    difficulty: "Moderate",
+    weather: {
+      condition: "Mostly cloudy with occasional rain",
+      temp: "18-24°C",
+      humidity: "80-90%"
+    }
+  },
+  "banaras-2025": {
+    title: "Banaras – The City of Eternal Flame",
+    description:
+      "Where the sacred and the mundane flow side by side, Banaras is a river of time. Ghats soaked in devotion, ancient chants, burning lamps, and the constant presence of the Ganga—this city is a living canvas of faith and transformation. A place to write soulfully, sketch timeless rituals, and surrender to creative flow.",
+    longDescription:
+      "Embark on a journey to the mystical land of clouds where ancient living root bridges weave through lush rainforests and pristine waterfalls cascade into emerald pools. Meghalaya, meaning 'abode of clouds', offers an unparalleled blend of natural wonders and cultural heritage.",
+    image:
+      "/images/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.webp",
+    gallery: [
+      "/images/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.webp",
+      "/images/images.jpeg",
+      "/images/images (1).jpeg",
+      "/images/istockphoto-517188688-1024x1024.jpg",
+    ],
+    highlights: [
+      "Trek to Double Decker Living Root Bridge",
+      "Visit the cleanest village in Asia - Mawlynnong",
+      "Explore crystal clear waters of Dawki",
+      "Experience local Khasi culture",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Shillong",
+        activities: [
+          "Airport pickup",
+          "Welcome dinner",
+          "Cultural orientation",
+        ],
+      },
+      {
+        day: 2,
+        title: "Living Root Bridges",
+        activities: [
+          "Trek to Double Decker Bridge",
+          "Local village visit",
+          "Traditional lunch",
+        ],
+      },
+      // ...existing itinerary days...
+    ],
+    travelTips: [
+      "Best time to visit: October to May",
+      "Carry rain gear as weather can be unpredictable",
+      "Comfortable trekking shoes are essential",
+      "Respect local customs and dress modestly",
+    ],
+    packages: [
+      {
+        id: "travel",
+        name: "Travel",
+        price: 24999,
+        features: [
+          "4 Nights Stay",
+          "Local Transportation",
+          "Guided Tours",
+          "Basic Photography Tips",
+        ],
+        color: "#618940",
+        icon: "📷",
+        popular: false,
+      },
+      {
+        id: "travel-art",
+        name: "Travel x Art",
+        price: 29999,
+        features: [
+          "All Travel Package Features",
+          "Art Workshops",
+          "Art Supplies",
+          "Creative Sessions",
+        ],
+        color: "#5e7e3e",
+        icon: "🎨",
+        popular: true,
+      },
+      {
+        id: "travel-art-create",
+        name: "Travel x Art x Create",
+        price: 34999,
+        features: [
+          "All Travel x Art Features",
+          "Content Creation Workshop",
+          "Personal Branding Session",
+          "Professional Photoshoot",
+        ],
+        color: "#4a6a32",
+        icon: "✨",
+        popular: false,
+      },
+    ],
+    duration: "5 Days / 4 Nights",
+    groupSize: "8-12 people",
+    difficulty: "Moderate",
+    weather: {
+      condition: "Mostly cloudy with occasional rain",
+      temp: "18-24°C",
+      humidity: "80-90%"
+    }
+  },
+  "uttarakhand-2025": {
+    title: "Uttarakhand – Land of Sacred Peaks and Silent Forests",
+    description:
+      "Home to holy rivers and Himalayan stillness, Uttarakhand is a space of spiritual ascent and grounding presence. Villages perched on cliffs, temple bells echoing through pine forests, and paths that whisper to the sky. A place to meditate, journal, and create in quiet communion with nature.",
+    longDescription:
+      "Embark on a journey to the mystical land of clouds where ancient living root bridges weave through lush rainforests and pristine waterfalls cascade into emerald pools. Meghalaya, meaning 'abode of clouds', offers an unparalleled blend of natural wonders and cultural heritage.",
+    image:
+      "/images/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.webp",
+    gallery: [
+      "/images/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.webp",
+      "/images/images.jpeg",
+      "/images/images (1).jpeg",
+      "/images/istockphoto-517188688-1024x1024.jpg",
+    ],
+    highlights: [
+      "Trek to Double Decker Living Root Bridge",
+      "Visit the cleanest village in Asia - Mawlynnong",
+      "Explore crystal clear waters of Dawki",
+      "Experience local Khasi culture",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Shillong",
+        activities: [
+          "Airport pickup",
+          "Welcome dinner",
+          "Cultural orientation",
+        ],
+      },
+      {
+        day: 2,
+        title: "Living Root Bridges",
+        activities: [
+          "Trek to Double Decker Bridge",
+          "Local village visit",
+          "Traditional lunch",
+        ],
+      },
+      // ...existing itinerary days...
+    ],
+    travelTips: [
+      "Best time to visit: October to May",
+      "Carry rain gear as weather can be unpredictable",
+      "Comfortable trekking shoes are essential",
+      "Respect local customs and dress modestly",
+    ],
+    packages: [
+      {
+        id: "travel",
+        name: "Travel",
+        price: 24999,
+        features: [
+          "4 Nights Stay",
+          "Local Transportation",
+          "Guided Tours",
+          "Basic Photography Tips",
+        ],
+        color: "#618940",
+        icon: "📷",
+        popular: false,
+      },
+      {
+        id: "travel-art",
+        name: "Travel x Art",
+        price: 29999,
+        features: [
+          "All Travel Package Features",
+          "Art Workshops",
+          "Art Supplies",
+          "Creative Sessions",
+        ],
+        color: "#5e7e3e",
+        icon: "🎨",
+        popular: true,
+      },
+      {
+        id: "travel-art-create",
+        name: "Travel x Art x Create",
+        price: 34999,
+        features: [
+          "All Travel x Art Features",
+          "Content Creation Workshop",
+          "Personal Branding Session",
+          "Professional Photoshoot",
+        ],
+        color: "#4a6a32",
+        icon: "✨",
+        popular: false,
+      },
+    ],
+    duration: "5 Days / 4 Nights",
+    groupSize: "8-12 people",
+    difficulty: "Moderate",
+    weather: {
+      condition: "Mostly cloudy with occasional rain",
+      temp: "18-24°C",
+      humidity: "80-90%"
+    }
+  },
+  "spiti-2025": {
+    title: "Spiti – The Cold Desert of Light and Silence",
+    description:
+      "Raw, vast, and humbling—Spiti is a monastery of the soul. Stupas stand still against cobalt skies, and prayer flags carry your breath across the mountains. Art here emerges not from noise but from stillness. A place to draw with the wind, paint with shadows, and find meaning in the stark and sacred.",
+    longDescription:
+      "Embark on a journey to the mystical land of clouds where ancient living root bridges weave through lush rainforests and pristine waterfalls cascade into emerald pools. Meghalaya, meaning 'abode of clouds', offers an unparalleled blend of natural wonders and cultural heritage.",
+    image:
+      "/images/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.webp",
+    gallery: [
+      "/images/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.webp",
+      "/images/images.jpeg",
+      "/images/images (1).jpeg",
+      "/images/istockphoto-517188688-1024x1024.jpg",
+    ],
+    highlights: [
+      "Trek to Double Decker Living Root Bridge",
+      "Visit the cleanest village in Asia - Mawlynnong",
+      "Explore crystal clear waters of Dawki",
+      "Experience local Khasi culture",
+    ],
+    itinerary: [
+      {
+        day: 1,
+        title: "Arrival in Shillong",
+        activities: [
+          "Airport pickup",
+          "Welcome dinner",
+          "Cultural orientation",
+        ],
+      },
+      {
+        day: 2,
+        title: "Living Root Bridges",
+        activities: [
+          "Trek to Double Decker Bridge",
+          "Local village visit",
+          "Traditional lunch",
+        ],
+      },
+      // ...existing itinerary days...
+    ],
+    travelTips: [
+      "Best time to visit: October to May",
+      "Carry rain gear as weather can be unpredictable",
+      "Comfortable trekking shoes are essential",
+      "Respect local customs and dress modestly",
+    ],
+    packages: [
+      {
+        id: "travel",
+        name: "Travel",
+        price: 24999,
+        features: [
+          "4 Nights Stay",
+          "Local Transportation",
+          "Guided Tours",
+          "Basic Photography Tips",
+        ],
+        color: "#618940",
+        icon: "📷",
+        popular: false,
+      },
+      {
+        id: "travel-art",
+        name: "Travel x Art",
+        price: 29999,
+        features: [
+          "All Travel Package Features",
+          "Art Workshops",
+          "Art Supplies",
+          "Creative Sessions",
+        ],
+        color: "#5e7e3e",
+        icon: "🎨",
+        popular: true,
+      },
+      {
+        id: "travel-art-create",
+        name: "Travel x Art x Create",
+        price: 34999,
+        features: [
+          "All Travel x Art Features",
+          "Content Creation Workshop",
+          "Personal Branding Session",
+          "Professional Photoshoot",
+        ],
+        color: "#4a6a32",
+        icon: "✨",
+        popular: false,
+      },
+    ],
+    duration: "5 Days / 4 Nights",
+    groupSize: "8-12 people",
+    difficulty: "Moderate",
+    weather: {
+      condition: "Mostly cloudy with occasional rain",
+      temp: "18-24°C",
+      humidity: "80-90%"
+    }
+  }
   // Add other destinations similarly
 };
 
@@ -138,45 +638,46 @@ export default function DestinationPage({
         className="relative h-[80vh] min-h-[600px]"
         style={{ opacity: headerOpacity }}
       >
-        <Image
+        <ParallaxImage
           src={destination.image}
           alt={destination.title}
-          fill
-          className="object-cover"
-          priority
+          speed={0.2}
+          direction="down"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/30" />
+        {/* Darker, more opaque gradient overlay for better text visibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/60 z-10" />
         
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="absolute inset-0 flex items-center justify-center text-center text-white"
+          className="absolute inset-0 flex items-center justify-center text-center text-white z-20"
         >
           <div className="max-w-4xl px-4">
             <div className="flex justify-center items-center gap-2 mb-3">
               <FiMapPin className="text-[var(--secondary)]" />
               <span className="text-lg text-white/90">India</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-serif font-extrabold mb-6">
+            {/* Enhanced text with text shadow for better readability */}
+            <h1 className="text-5xl md:text-7xl font-serif font-extrabold mb-6 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               {destination.title}
             </h1>
             <div className="w-24 h-1 bg-[var(--secondary)] mx-auto mb-6"></div>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto font-light">
-              {destination.longDescription}
+            <p className="text-xl md:text-2xl max-w-3xl mx-auto font-light drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
+              {destination.description}
             </p>
             
-            {/* Trip Stats */}
+            {/* Trip Stats - Made more visible with increased contrast */}
             <div className="flex flex-wrap justify-center gap-6 mt-8">
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+              <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full">
                 <FiClock className="text-[var(--secondary)]" />
                 <span>{destination.duration}</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+              <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full">
                 <FiUsers className="text-[var(--secondary)]" />
                 <span>{destination.groupSize}</span>
               </div>
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+              <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full">
                 <FiSun className="text-[var(--secondary)]" />
                 <span>{destination.difficulty}</span>
               </div>
@@ -304,11 +805,11 @@ export default function DestinationPage({
                 viewport={{ once: true }}
                 className="relative aspect-square rounded-lg overflow-hidden group"
               >
-                <Image
+                <ParallaxImage
                   src={image}
                   alt={`Gallery image ${index + 1}`}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  speed={0.1}
+                  direction={index % 2 === 0 ? "up" : "down"}
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                   <span className="bg-white/20 backdrop-blur-sm rounded-full px-4 py-2 text-white text-sm">

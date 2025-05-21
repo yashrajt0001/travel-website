@@ -4,17 +4,22 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
+import Image from "next/image";
 
 const navLinks = [
   { title: "Home", href: "/" },
   {
     title: "Destinations",
     dropdownItems: [
-      { title: "Meghalaya Edition 2025", href: "/destinations/meghalaya-2025" },
-      { title: "Spiti Edition 2025", href: "/destinations/spiti-2025" },
-      { title: "Rajasthan Edition 2025", href: "/destinations/rajasthan-2025" },
+      { title: "Meghalaya – The Abode of Clouds", href: "/destinations/meghalaya-2025" },
+      { title: "Kerala – The Land of Backwaters", href: "/destinations/kerala-2025" },
+      { title: "Rajasthan – Desert Palaces", href: "/destinations/rajasthan-2025" },
+      { title: "Banaras – The City of Eternal Flame", href: "/destinations/banaras-2025" },
+      { title: "Uttarakhand – Sacred Peaks & Forests", href: "/destinations/uttarakhand-2025" },
+      { title: "Spiti – The Cold Desert", href: "/destinations/spiti-2025" },
     ],
   },
+  { title: "Experiences", href: "/experiences" },
   { title: "About Us", href: "/about" },
   { title: "FAQ", href: "/faq" },
   { title: "Contact", href: "/contact" },
@@ -37,6 +42,9 @@ export default function Header({
     if (!staticStyle) {
       window.addEventListener("scroll", handleScroll);
       return () => window.removeEventListener("scroll", handleScroll);
+    } else {
+      // If staticStyle is true, always set isScrolled to true
+      setIsScrolled(true);
     }
   }, [staticStyle]);
 
@@ -46,26 +54,22 @@ export default function Header({
         staticStyle
           ? "bg-white py-3 shadow-sm"
           : isScrolled
-          ? "bg-[var(--background)] backdrop-blur-md shadow-sm py-3"
+          ? "bg-white backdrop-blur-md shadow-sm py-3" // Changed to bg-white for consistent mobile behavior
           : "bg-transparent py-5"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <Link href="/" className="relative z-10">
-            <h1
-              className={`text-2xl md:text-3xl font-serif font-bold ${
-                staticStyle
-                  ? "text-[var(--dark)]"
-                  : isScrolled
-                  ? "text-[var(--dark)]"
-                  : "text-[var(--light)]"
-              }`}
-            >
-              <span className="text-[var(--secondary)]">Travel</span>
-              <span className="text-[var(--primary)]">Hub</span>
-            </h1>
+            <div className="relative h-10 w-32">
+              <Image 
+                src="/images/logo.png" 
+                alt="Travel Logo" 
+                fill 
+                className="object-contain" 
+                priority
+              />
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -149,9 +153,7 @@ export default function Header({
           <Link
             href="/book"
             className={`hidden md:block px-6 py-2.5 rounded-full text-sm font-medium transition-all ${
-              staticStyle
-                ? "bg-[var(--secondary)] text-[var(--light)] hover:bg-[var(--secondary-dark)]"
-                : isScrolled
+              staticStyle || isScrolled
                 ? "bg-[var(--secondary)] text-[var(--light)] hover:bg-[var(--secondary-dark)]"
                 : "bg-[var(--light)]/20 backdrop-blur-sm text-[var(--light)] hover:bg-[var(--light)]/30"
             }`}
@@ -163,8 +165,9 @@ export default function Header({
           <button
             className="lg:hidden p-2 rounded-md focus:outline-none"
             onClick={() => setMobileMenuOpen(true)}
+            aria-label="Open mobile menu"
           >
-            <FiMenu className={`w-6 h-6 text-[var(--dark)]`} />
+            <FiMenu className={`w-6 h-6 ${isScrolled ? "text-[var(--dark)]" : "text-white"}`} />
           </button>
         </div>
       </div>
@@ -176,23 +179,30 @@ export default function Header({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-white z-50 lg:hidden" // Changed from bg-primary-dark/95
+            className="fixed inset-0 bg-white z-50 lg:hidden"
           >
-            <div className="container mx-auto px-4 h-full flex flex-col">
-              <div className="flex justify-between items-center py-4">
+            <div className="container bg-white mx-auto px-4 h-full flex flex-col">
+              <div className="flex justify-between bg-white items-center py-4">
+                {/* Mobile Logo - Also replace with image */}
                 <Link
                   href="/"
                   className="relative z-10"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <h1 className="text-2xl font-serif text-[var(--dark)]">
-                    <span className="text-[var(--secondary)]">Travel</span>
-                    <span className="text-[var(--primary)]">Hub</span>
-                  </h1>
+                  <div className="relative h-8 w-28">
+                    <Image 
+                      src="/images/logo.png" 
+                      alt="Travel Logo" 
+                      fill 
+                      className="object-contain" 
+                      priority
+                    />
+                  </div>
                 </Link>
                 <button
                   className="p-2 rounded-md text-[var(--dark)]"
                   onClick={() => setMobileMenuOpen(false)}
+                  aria-label="Close mobile menu"
                 >
                   <FiX className="w-6 h-6" />
                 </button>
@@ -280,7 +290,7 @@ export default function Header({
               <div className="py-6">
                 <Link
                   href="/book"
-                  className="block w-full text-center px-6 py-3 rounded-full bg-[var(--secondary)] text-white font-medium hover:bg-[var(--secondary-dark)]"
+                  className="block w-full text-center px-6 py-3 bg-[var(--secondary)] text-white rounded-full shadow-md hover:bg-[var(--secondary-dark)]"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Book Your Journey

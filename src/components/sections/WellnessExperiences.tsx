@@ -3,42 +3,43 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import ParallaxImage from '@/components/ui/ParallaxImage'
 
 const experiences = [
   {
-    id: 'yoga',
-    title: 'Yoga & Meditation',
-    description: 'Connect with your inner self through traditional yoga practices and guided meditation sessions led by experienced practitioners.',
+    id: 'locations',
+    title: 'Act in Beautiful, Real Locations',
+    description: 'Perform in short films, cinematic scenes, and immersive exercises set against breathtaking backdrops — from mountains to temples to coastlines.',
     image: '/images/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.webp',
   },
   {
-    id: 'spa',
-    title: 'Holistic Spa Treatments',
-    description: 'Indulge in rejuvenating spa therapies inspired by ancient healing traditions from around the world.',
+    id: 'films',
+    title: 'Create Short Films & Showreels',
+    description: 'Work with filmmakers and mentors to co-create powerful short films and performance reels, perfect for YouTube, portfolios, and auditions.',
     image: '/images/images.jpeg',
   },
   {
-    id: 'nutrition',
-    title: 'Healthy Cuisine',
-    description: 'Savor nutritious and delicious meals prepared with fresh, organic ingredients tailored to support your wellness journey.',
+    id: 'presence',
+    title: 'Build Your On-Camera Presence',
+    description: 'Explore character, emotion, and authenticity through daily screen acting workshops, movement, voice, and improvisation.',
     image: '/images/istockphoto-517188688-1024x1024.jpg',
   },
   {
-    id: 'mindfulness',
-    title: 'Mindfulness Retreats',
-    description: 'Learn techniques to cultivate presence and awareness in serene natural settings guided by mindfulness experts.',
+    id: 'collaborate',
+    title: 'Collaborate Like a Creative Family',
+    description: 'Actors, filmmakers, writers, and editors come together to ideate, shoot, and edit in real time — nurturing trust, vision, and experimentation.',
     image: '/images/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.webp',
   },
   {
-    id: 'adventure',
-    title: 'Conscious Adventures',
-    description: 'Engage in eco-friendly outdoor activities that connect you with nature while respecting the environment.',
+    id: 'portfolio',
+    title: 'Take Home a Professional Body of Work',
+    description: 'Leave with finished short films, performance videos, and behind-the-scenes footage — tangible proof of your craft and growth.',
     image: '/images/images (1).jpeg',
   },
 ]
 
 export default function WellnessExperiences() {
-  const [activeExperience, setActiveExperience] = useState('yoga')
+  const [activeExperience, setActiveExperience] = useState('locations')
 
   const getCurrentExperience = () => {
     return experiences.find(exp => exp.id === activeExperience)
@@ -58,11 +59,10 @@ export default function WellnessExperiences() {
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="font-extrabold text-[var(--primary)] text-3xl md:text-4xl font-serif text-dark mb-3">Wellness Experiences</h2>
+          <h2 className="font-extrabold text-[var(--primary)] text-3xl md:text-4xl font-serif text-dark mb-3">What Will You Experience</h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
           <p className="text-lg text-dark/80 max-w-3xl mx-auto">
-            Embark on a journey of self-discovery and rejuvenation with our curated wellness experiences 
-            designed to nurture your mind, body, and spirit.
+            Well curated packages to help you Create Soulful Art while immersing yourself in beautiful locations and collaborative environments.
           </p>
         </div>
 
@@ -91,13 +91,13 @@ export default function WellnessExperiences() {
           transition={{ duration: 0.5 }}
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
         >
-          {/* Image */}
+          {/* Image with parallax effect */}
           <div className="relative h-[400px] rounded-lg overflow-hidden shadow-xl order-2 lg:order-1">
-            <Image
+            <ParallaxImage
               src={getCurrentExperience()?.image || ''}
               alt={getCurrentExperience()?.title || ''}
-              fill
-              className="object-cover"
+              speed={0.2}
+              direction="down"
             />
           </div>
 
@@ -108,27 +108,9 @@ export default function WellnessExperiences() {
             <p className="text-lg leading-relaxed text-dark/80">
               {getCurrentExperience()?.description}
             </p>
-            <ul className="space-y-3 text-dark/80">
-              <li className="flex items-start">
-                <span className="inline-block w-2 h-2 mt-2 mr-2 bg-primary rounded-full"></span>
-                <span>Personalized programs tailored to your needs</span>
-              </li>
-              <li className="flex items-start">
-                <span className="inline-block w-2 h-2 mt-2 mr-2 bg-primary rounded-full"></span>
-                <span>Expert practitioners with years of experience</span>
-              </li>
-              <li className="flex items-start">
-                <span className="inline-block w-2 h-2 mt-2 mr-2 bg-primary rounded-full"></span>
-                <span>Authentic practices rooted in traditional wisdom</span>
-              </li>
-              <li className="flex items-start">
-                <span className="inline-block w-2 h-2 mt-2 mr-2 bg-primary rounded-full"></span>
-                <span>Serene environments that enhance your experience</span>
-              </li>
-            </ul>
           </div>
         </motion.div>
       </div>
     </section>
   )
-} 
+}

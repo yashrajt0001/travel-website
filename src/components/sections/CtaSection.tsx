@@ -2,19 +2,20 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import ParallaxImage from '@/components/ui/ParallaxImage'
 
 export default function CtaSection() {
   return (
     <section className="relative py-20 bg-primary text-white overflow-hidden">
       <div
         className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: 'url("/images/images (1).jpeg")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      />
+      >
+        <ParallaxImage 
+          src="/images/images (1).jpeg"
+          alt="Background"
+          speed={0.1}
+        />
+      </div>
       
       <div className="container mx-auto px-4 md:px-6 relative z-10 text-black">
         <motion.div
@@ -59,4 +60,4 @@ export default function CtaSection() {
       </div>
     </section>
   )
-} 
+}

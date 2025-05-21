@@ -8,4 +8,9 @@ export { useScroll } from 'framer-motion';
 export { useTransform } from 'framer-motion';
 export type { Transition, Variants } from 'framer-motion';
 
+// Add parallax scroll components
+export { useSpring } from 'framer-motion';
+export { useMotionValueEvent } from 'framer-motion';
+export { useMotionValue } from 'framer-motion';
+
 // Add more exports as needed

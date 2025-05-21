@@ -1,6 +1,5 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
     domains: ['storage.googleapis.com'], // Allow images from Google Storage
     remotePatterns: [
@@ -11,8 +10,9 @@ const nextConfig: NextConfig = {
         pathname: '/gtv-videos-bucket/**',
       },
     ],
-    unoptimized: process.env.NODE_ENV === 'development', // For local development
+    // Only use unoptimized in development if needed
+    unoptimized: process.env.NODE_ENV === 'development', 
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

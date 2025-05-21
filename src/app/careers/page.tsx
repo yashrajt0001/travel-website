@@ -1,12 +1,13 @@
- "use client"
+"use client"
  
- import MainLayout from "@/components/layout/MainLayout";
+import MainLayout from "@/components/layout/MainLayout";
 import JobListing from "@/components/sections/JobListing";
 import { Metadata } from "next";
 // Replace framer-motion import with our wrapper
 import { motion } from "@/lib/motion";
 import Link from "next/link";
 import Image from "next/image";
+import ParallaxImage from '@/components/ui/ParallaxImage';
 
 // export const metadata: Metadata = {
 //   title: "Careers | Travel",
@@ -110,11 +111,10 @@ export default function CareersPage() {
         {/* Hero Section */}
         <div className="relative bg-primary/90 text-white py-20 mt-15 pt-20">
           <div className="absolute inset-0 opacity-20 z-0">
-            <Image
+            <ParallaxImage
               src="/images/istockphoto-517188688-1024x1024.jpg"
               alt="Team working"
-              fill
-              className="object-cover"
+              speed={0.1}
             />
           </div>
           <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -250,11 +250,11 @@ export default function CareersPage() {
         <div className="py-16 bg-light/50 overflow-hidden">
           <div className="container mx-auto px-4 md:px-6">
             <div className="relative h-[300px] md:h-[400px] rounded-xl overflow-hidden shadow-lg mx-auto max-w-5xl">
-              <Image 
+              <ParallaxImage 
                 src="/images/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.webp"
                 alt="Our team culture"
-                fill
-                className="object-cover"
+                speed={0.15}
+                direction="up"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/10 flex items-end">
                 <div className="p-8 text-white">

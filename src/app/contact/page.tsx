@@ -5,6 +5,7 @@ import { FiMapPin, FiPhone, FiMail, FiClock, FiMessageSquare, FiUsers, FiGlobe }
 import EnquirySection from "@/components/sections/EnquirySection";
 import { motion } from "@/lib/motion";
 import Image from "next/image";
+import ParallaxImage from '@/components/ui/ParallaxImage';
 
 export default function ContactPage() {
   return (
@@ -12,11 +13,10 @@ export default function ContactPage() {
       {/* Hero Section */}
       <section className="relative h-[40vh] min-h-[400px] bg-primary/90 overflow-hidden mt-15 pt-20">
         <div className="absolute inset-0 opacity-20 z-0">
-          <Image
+          <ParallaxImage
             src="/images/istockphoto-517188688-1024x1024.jpg"
             alt="Contact us background"
-            fill
-            className="object-cover"
+            speed={0.15}
           />
         </div>
         <div className="absolute inset-0 flex items-center justify-center">
@@ -236,11 +236,11 @@ export default function ContactPage() {
               viewport={{ once: true }}
               className="relative h-[400px] rounded-lg overflow-hidden shadow-lg"
             >
-              <Image
+              <ParallaxImage
                 src="/images/images.jpeg"
                 alt="Our travel experts"
-                fill
-                className="object-cover"
+                speed={0.2}
+                direction="up"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
                 <h3 className="text-white text-xl font-medium">Travel Specialists</h3>
