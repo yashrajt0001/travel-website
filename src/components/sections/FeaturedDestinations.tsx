@@ -77,7 +77,7 @@ export default function FeaturedDestinations() {
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
           <p className="text-lg text-dark/80 max-w-3xl mx-auto">
-            Embark on artistic journeys through India's most evocative landscapes. Each destination 
+            Embark on artistic journeys through India&apos;s most evocative landscapes. Each destination 
             is a canvas for your creativity, waiting to inspire your next masterpiece.
           </p>
         </div>
