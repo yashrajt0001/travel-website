@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import ParallaxImage from '@/components/ui/ParallaxImage';

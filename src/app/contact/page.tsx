@@ -4,7 +4,6 @@ import MainLayout from "@/components/layout/MainLayout";
 import { FiMapPin, FiPhone, FiMail, FiClock, FiMessageSquare, FiUsers, FiGlobe } from "react-icons/fi";
 import EnquirySection from "@/components/sections/EnquirySection";
 import { motion } from "@/lib/motion";
-import Image from "next/image";
 import ParallaxImage from '@/components/ui/ParallaxImage';
 
 export default function ContactPage() {
@@ -192,7 +191,7 @@ export default function ContactPage() {
               <h2 className="text-3xl font-serif font-extrabold text-[var(--primary)]">Our Travel Team</h2>
               <div className="w-16 h-1 bg-primary mb-4"></div>
               <p className="text-dark/80 text-lg">
-                Our experienced team of travel specialists is dedicated to creating the perfect wellness journey for you. With extensive knowledge of destinations worldwide and a passion for transformative travel, we're here to turn your travel dreams into reality.
+                Our experienced team of travel specialists is dedicated to creating the perfect wellness journey for you. With extensive knowledge of destinations worldwide and a passion for transformative travel, we&apos;re here to turn your travel dreams into reality.
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">

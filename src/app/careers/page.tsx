@@ -2,11 +2,8 @@
  
 import MainLayout from "@/components/layout/MainLayout";
 import JobListing from "@/components/sections/JobListing";
-import { Metadata } from "next";
-// Replace framer-motion import with our wrapper
 import { motion } from "@/lib/motion";
 import Link from "next/link";
-import Image from "next/image";
 import ParallaxImage from '@/components/ui/ParallaxImage';
 
 // export const metadata: Metadata = {

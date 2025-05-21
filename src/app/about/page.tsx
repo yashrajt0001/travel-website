@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import MainLayout from "@/components/layout/MainLayout";
 import ParallaxImage from '@/components/ui/ParallaxImage';
@@ -61,14 +60,14 @@ export default function AboutPage() {
             
             <div className="prose prose-lg max-w-none text-dark/80">
               <p>
-                I'm an actor, trained at FTII — someone who has always chased truth through performance. But
+                I&apos;m an actor, trained at FTII — someone who has always chased truth through performance. But
                 somewhere along the way, life pulled me into a different direction. I found myself working at an
                 edtech company as an IT counsellor — a world far from art, yet strangely fulfilling. I hustled
                 without pause, worked through weekends, missed moments — and still, I gave it everything.
               </p>
               
               <p>
-                And I realized something profound: If I can pour myself into something that isn't my calling,
+                And I realized something profound: If I can pour myself into something that isn&apos;t my calling,
                 imagine what I can do when I follow what truly moves me.
               </p>
               
@@ -81,7 +80,7 @@ export default function AboutPage() {
               <p>
                 Through travelling with artists, living with local communities, and immersing ourselves in culture,
                 I want to bring back what the world needs more of — empathy, beauty, and deeper
-                understanding. Antarabodh isn't just a retreat. It's a return — to yourself, to storytelling, to life.
+                understanding. Antarabodh isn&apos;t just a retreat. It&apos;s a return — to yourself, to storytelling, to life.
               </p>
             </div>
           </motion.div>

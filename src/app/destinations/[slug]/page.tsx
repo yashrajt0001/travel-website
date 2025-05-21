@@ -960,7 +960,7 @@ export default function DestinationPage({
                   </div>
                 </div>
                 <p className="text-dark/80 italic">
-                  "The Meghalaya trip was absolutely breathtaking! The living root bridges were unlike anything I've ever seen. Our guide was knowledgeable, and the entire experience was well-organized. I'll definitely book another trip with you all!"
+                  &quot;The Meghalaya trip was absolutely breathtaking! The living root bridges were unlike anything I&apos;ve ever seen. Our guide was knowledgeable, and the entire experience was well-organized. I&apos;ll definitely book another trip with you all!&quot;
                 </p>
               </div>
             </div>
