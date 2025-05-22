@@ -50,18 +50,18 @@ export default function Header({
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed px-10 md:px-20 top-0 left-0 w-full z-50 transition-all duration-300 ${
         staticStyle
-          ? "bg-white py-3 shadow-sm"
+          ? "bg-white py-1 shadow-sm"
           : isScrolled
-          ? "bg-white backdrop-blur-md shadow-sm py-3" // Changed to bg-white for consistent mobile behavior
-          : "bg-transparent py-5"
+          ? "bg-white backdrop-blur-md shadow-sm" // Changed to bg-white for consistent mobile behavior
+          : "bg-transparent py-2"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           <Link href="/" className="relative z-10">
-            <div className="relative h-10 w-32">
+            <div className="relative h-26 w-26"> {/* Increased from h-10 w-32 to h-12 w-40 */}
               <Image 
                 src="/images/logo.png" 
                 alt="Travel Logo" 
@@ -189,7 +189,7 @@ export default function Header({
                   className="relative z-10"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <div className="relative h-8 w-28">
+                  <div className="relative h-10 w-36"> {/* Increased from h-8 w-28 to h-10 w-36 */}
                     <Image 
                       src="/images/logo.png" 
                       alt="Travel Logo" 

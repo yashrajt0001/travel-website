@@ -151,8 +151,10 @@ export default function HeroSection() {
                 className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full"
                 style={{ top: '35vh' }}
               >
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold font-serif text-white text-center flex flex-col md:flex-row items-center justify-center gap-2 md:gap-1">
-                  Travel <StarIcon /> Art <StarIcon /> Create
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold font-serif text-center flex flex-col md:flex-row items-center justify-center gap-2 md:gap-1">
+                  <span className="text-[var(--primary)]">Travel</span> <StarIcon /> 
+                  <span className="text-[var(--secondary)]">Art</span> <StarIcon /> 
+                  <span className="text-[var(--primary)]">Create</span>
                 </h1>
               </motion.div>
             ) : (
@@ -162,10 +164,12 @@ export default function HeroSection() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 20 }}
                 transition={{ duration: 0.8 }}
-                className="max-w-xl"
+                className="max-w-xl px-8 md:px-18"
               >
-                <h1 className="font-extrabold text-[var(--secondary)] text-4xl md:text-6xl font-serif mb-4 tracking-wide">
-                  {slides[current].title}
+                <h1 className="font-extrabold font-serif mb-4 tracking-wide text-4xl md:text-6xl">
+                  {slides[current].id === 1 && <span className="text-[var(--primary)]">Travel</span>}
+                  {slides[current].id === 2 && <span className="text-[var(--secondary)]">Art</span>}
+                  {slides[current].id === 3 && <span className="text-[var(--primary)]">Create</span>}
                 </h1>
                 <p className="text-lg md:text-xl text-white/90 mb-8 max-w-md">
                   {slides[current].subtitle}
