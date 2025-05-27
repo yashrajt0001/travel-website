@@ -5,7 +5,7 @@ import Image from "next/image";
 import MainLayout from "@/components/layout/MainLayout";
 import BookingModal from "@/components/modals/BookingModal";
 import { motion, useScroll, useTransform } from "@/lib/motion";
-import { FiStar, FiMapPin, FiSun, FiUsers, FiCheckCircle, FiClock, FiAward, FiCamera } from "react-icons/fi";
+import { FiStar, FiMapPin, FiSun, FiUsers, FiCheckCircle, FiAward, FiCamera } from "react-icons/fi";
 import { use } from "react";
 import ParallaxImage from '@/components/ui/ParallaxImage';
 
