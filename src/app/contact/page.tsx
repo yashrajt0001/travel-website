@@ -64,11 +64,11 @@ export default function ContactPage() {
                 Visit Us
               </h3>
               <p className="text-dark/80">
-                123 Wellness Way
+                S. no. 81/1/1, Road no. b2,
                 <br />
-                Paradise City, 10001
+                Dighi, Pune, Maharashtra
                 <br />
-                United States
+                411015, India
               </p>
             </motion.div>
 
@@ -87,17 +87,10 @@ export default function ContactPage() {
               </h3>
               <p className="text-dark/80">
                 <a
-                  href="tel:+18001234567"
+                  href="tel:+916361420321"
                   className="hover:text-[var(--secondary)]"
                 >
-                  +1 (800) 123-4567
-                </a>
-                <br />
-                <a
-                  href="tel:+18009876543"
-                  className="hover:text-[var(--secondary)]"
-                >
-                  +1 (800) 987-6543
+                  +91 6361 420 321
                 </a>
               </p>
             </motion.div>
@@ -117,17 +110,10 @@ export default function ContactPage() {
               </h3>
               <p className="text-dark/80">
                 <a
-                  href="mailto:info@travel.com"
+                  href="mailto:antarabodh@gmail.com"
                   className="hover:text-[var(--secondary)]"
                 >
-                  info@travel.com
-                </a>
-                <br />
-                <a
-                  href="mailto:support@travel.com"
-                  className="hover:text-[var(--secondary)]"
-                >
-                  support@travel.com
+                  antarabodh@gmail.com
                 </a>
               </p>
             </motion.div>
@@ -146,9 +132,9 @@ export default function ContactPage() {
                 Office Hours
               </h3>
               <p className="text-dark/80">
-                Monday - Friday
+                Monday - Sunday
                 <br />
-                9:00 AM - 6:00 PM EST
+                11:00 AM - 8:00 PM IST
               </p>
             </motion.div>
           </div>
@@ -163,7 +149,7 @@ export default function ContactPage() {
             <div className="w-16 h-1 bg-primary mx-auto mb-10"></div>
             <div className="aspect-[16/9] w-full bg-white rounded-lg overflow-hidden shadow-lg border border-[var(--primary)]/20">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.3059353029!2d-74.25986548435542!3d40.69714941932609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1644132035859!5m2!1sen!2s"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.8930300573383!2d73.87445937597327!3d18.621025982726134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c71bffffffffb%3A0xb8f9fc3f2aafffff!2sDighi%2C%20Pune%2C%20Maharashtra%20411015!5e0!3m2!1sen!2sin!4v1701234567890!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

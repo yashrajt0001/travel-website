@@ -8,44 +8,49 @@ import EnquirySection from "@/components/sections/EnquirySection";
 
 const faqs = [
   {
-    question: "What makes Travel different from other travel companies?",
+    question: "What makes Our Travel & Art Retreat different from other travel companies?",
     answer:
-      "We specialize in mindful, transformative travel experiences that combine luxury with wellness. Our carefully curated journeys focus on personal growth, cultural immersion, and rejuvenation, setting us apart from traditional tourism.",
+      "We specialize in curating an intriguing blend of travel and art where we provide slow, mindful, experiential, transformative travel experiences that combine luxury with Artistic & Creative Immersion. Our carefully curated journeys focus on personal growth, cultural immersion, and rejuvenation, setting us apart from traditional tourism.",
+  },
+  {
+    question: "What will you include in the retreat?",
+    answer:
+      "We have well curated adventurous activities based on location and cities like paragliding, bungee-jumping, cliff-jumping, canyoning, boating, kayaking, caving along with artistic workshops like watercolor painting, photography workshops, storytelling sessions, journaling and jamming with local folk artists, musician and dancers.",
   },
   {
     question: "How far in advance should I book my journey?",
     answer:
-      "We recommend booking at least 3-6 months in advance for most destinations. Popular retreats and peak season dates may require 6-12 months advance booking to ensure availability.",
+      "We recommend booking at least 7 days to 1 month in advance for most destinations. Popular retreats and peak season dates may require 2-3 months advance booking to ensure availability.",
   },
   {
-    question: "Are your trips suitable for solo travelers?",
+    question: "Are your trips suitable for solo travelers or females?",
     answer:
-      "Absolutely! Many of our guests are solo travelers. We create a welcoming environment and offer both private journeys and small group experiences where you can connect with like-minded travelers.",
+      "Absolutely! Many of our guests are solo travelers. We create a welcoming and safe environment and offer both private journeys and small group experiences where you can connect with like-minded travelers. We are also coming up with quick chatbot integration for the guests to give us updates instantly in case of any emergency.",
   },
   {
     question: "What is included in the trip price?",
     answer:
-      "Our packages typically include accommodation, planned activities, most meals, local transportation, and expert guides. The exact inclusions vary by journey and are clearly listed in each trip's details.",
+      "Our packages typically include accommodation, planned activities, breakfast meals, local transportation, and expert local guides, trip captains. The exact inclusions vary by journey and are clearly listed in each trip's details.",
   },
   {
-    question: "Do you cater to dietary requirements?",
+    question: "What is excluded in the trip price?",
     answer:
-      "Yes, we accommodate various dietary requirements including vegetarian, vegan, gluten-free, and other specific needs. Please inform us during booking so we can make appropriate arrangements.",
+      "Flight tickets, lunch & dinner, any extra activities apart from the one mentioned in the itinerary and explained by Travel experts over the call or whatsapp. (Note: we might add these services soon.)",
   },
   {
-    question: "What is your cancellation policy?",
+    question: "What is your cancellation or refund policy?",
     answer:
-      "Our standard policy allows full refunds up to 60 days before departure, 50% refund 30-59 days before departure, and no refund within 30 days. We recommend travel insurance for unexpected circumstances.",
+      "Our standard policy allows full refunds up to 7 days from the date of booking and no refund after 7 days but we can carry forward the trip amount for the next trip with us. We don't provide travel insurance as of now. We will be adding it very soon but we have local guides and a trip captain in case of any help needed.",
   },
   {
     question: "Do you offer travel insurance?",
     answer:
-      "While we don't provide insurance directly, we partner with reputable travel insurance providers and strongly recommend coverage for all journeys. We can assist in finding appropriate coverage for your trip.",
+      "We don't provide travel insurance as of now. We will be adding it very soon but we have local guides and a trip captain in case of any help needed.",
   },
   {
     question: "What size are your group trips?",
     answer:
-      "Our group sizes typically range from 8-16 participants to ensure personal attention and intimate experiences. Some specialty retreats may have different size limits, which will be specified in the journey details.",
+      "Our group sizes typically range from 8-12 participants to ensure personal attention and intimate experiences. Some specialty retreats may have different size limits, which will be specified in the journey details.",
   },
 ];
 

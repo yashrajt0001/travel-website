@@ -19,9 +19,9 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Travel | Luxury Wellness Retreats & Journeys",
-  description: "Experience transformative wellness journeys and luxury travel experiences tailored to rejuvenate your mind, body, and soul.",
-  keywords: "wellness travel, luxury retreats, yoga retreats, meditation, spa resorts, mindfulness",
+  title: "Travel | Luxury Journeys",
+  description: "Experience transformative journeys and luxury travel experiences tailored to rejuvenate your mind, body, and soul.",
+  keywords: "travel, luxury retreats, yoga retreats, meditation, spa resorts, mindfulness",
 };
 
 export default function RootLayout({

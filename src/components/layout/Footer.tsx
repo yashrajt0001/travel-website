@@ -30,12 +30,12 @@ export default function Footer() {
           {/* Brand Column - Replace text with logo image */}
           <div className="space-y-4">
             <div className="relative h-10 w-32">
-              <Image 
-                src="/images/logo.png" 
-                alt="Travel Logo" 
-                fill 
-                className="object-contain brightness-0 invert" 
-                priority 
+              <Image
+                src="/images/logo.png"
+                alt="Travel Logo"
+                fill
+                className="object-contain brightness-0 invert"
+                priority
               />
             </div>
             <p className="text-[var(--light)]/80 max-w-xs">
@@ -142,30 +142,35 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact Information */}
           <div className="space-y-4">
             <h3 className="text-lg text-white font-medium border-b border-white/20 pb-2">
               Contact Us
             </h3>
-            <ul className="space-y-3">
-              <li className="flex items-start space-x-3">
-                <FiMapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span>123 Serene Avenue, Paradise City, 10001</span>
-              </li>
-              <li className="flex items-center space-x-3">
-                <FiPhone className="w-5 h-5 flex-shrink-0" />
-                <span>+1 (800) 123-4567</span>
-              </li>
-              <li className="flex items-center space-x-3">
-                <FiMail className="w-5 h-5 flex-shrink-0" />
-                <a
-                  href="mailto:info@travel.com"
-                  className="hover:text-secondary transition-colors"
-                >
-                  info@travel.com
-                </a>
-              </li>
-            </ul>
+            <div className="flex items-start space-x-3">
+              <FiMapPin className="w-5 h-5 text-primary mt-1" />
+              <p className="text-light/80">
+                S. no. 81/1/1, Road no. b2, Dighi, Pune, Maharashtra 411015
+              </p>
+            </div>
+            <div className="flex items-start space-x-3">
+              <FiPhone className="w-5 h-5 text-primary mt-1" />
+              <a
+                href="tel:+916361420321"
+                className="text-light/80 hover:text-primary"
+              >
+                +91 6361 420 321
+              </a>
+            </div>
+            <div className="flex items-start space-x-3">
+              <FiMail className="w-5 h-5 text-primary mt-1" />
+              <a
+                href="mailto:antarabodh@gmail.com"
+                className="text-light/80 hover:text-primary"
+              >
+                antarabodh@gmail.com
+              </a>
+            </div>
           </div>
 
           {/* Newsletter */}

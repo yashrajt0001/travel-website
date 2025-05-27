@@ -26,7 +26,7 @@ export default function CtaSection() {
           className="max-w-4xl mx-auto text-center"
         >
           <h2 className="font-extrabold text-[var(--primary)] text-3xl md:text-4xl lg:text-5xl font-serif mb-6">
-            Begin Your Wellness Journey Today
+            Begin Your Travel & Art Retreat Journey Today
           </h2>
           
           <p className="text-lg md:text-xl font-semibold text-black/70 mb-8 max-w-2xl mx-auto">

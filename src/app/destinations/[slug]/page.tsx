@@ -102,11 +102,9 @@ const destinations = {
         popular: false,
       },
     ],
-    duration: "5 Days / 4 Nights",
-    groupSize: "8-12 people",
-    difficulty: "Moderate",
+    goodFor: "Perfect for adventure-seekers, art-lovers, and anyone looking for slow and experiential travel",
     weather: {
-      condition: "Mostly cloudy with occasional rain",
+      condition: "Condition Mostly cloudy with frequent rains",
       temp: "18-24°C",
       humidity: "80-90%"
     }
@@ -202,9 +200,7 @@ const destinations = {
         popular: false,
       },
     ],
-    duration: "5 Days / 4 Nights",
-    groupSize: "8-12 people",
-    difficulty: "Moderate",
+    goodFor: "Ideal for wellness enthusiasts, nature lovers, and those interested in ancient cultural traditions",
     weather: {
       condition: "Mostly cloudy with occasional rain",
       temp: "18-24°C",
@@ -302,9 +298,7 @@ const destinations = {
         popular: false,
       },
     ],
-    duration: "5 Days / 4 Nights",
-    groupSize: "8-12 people",
-    difficulty: "Moderate",
+    goodFor: "Perfect for history buffs, photographers, and art collectors interested in vibrant culture",
     weather: {
       condition: "Mostly cloudy with occasional rain",
       temp: "18-24°C",
@@ -402,9 +396,7 @@ const destinations = {
         popular: false,
       },
     ],
-    duration: "5 Days / 4 Nights",
-    groupSize: "8-12 people",
-    difficulty: "Moderate",
+    goodFor: "Ideal for spiritual seekers, artists, writers, and photographers drawn to ancient rituals",
     weather: {
       condition: "Mostly cloudy with occasional rain",
       temp: "18-24°C",
@@ -502,9 +494,7 @@ const destinations = {
         popular: false,
       },
     ],
-    duration: "5 Days / 4 Nights",
-    groupSize: "8-12 people",
-    difficulty: "Moderate",
+    goodFor: "Perfect for nature enthusiasts, spiritual travelers, and adventure seekers in the Himalayas",
     weather: {
       condition: "Mostly cloudy with occasional rain",
       temp: "18-24°C",
@@ -602,9 +592,7 @@ const destinations = {
         popular: false,
       },
     ],
-    duration: "5 Days / 4 Nights",
-    groupSize: "8-12 people",
-    difficulty: "Moderate",
+    goodFor: "Ideal for adventurous souls, photographers, and mindful travelers seeking solitude",
     weather: {
       condition: "Mostly cloudy with occasional rain",
       temp: "18-24°C",
@@ -666,22 +654,6 @@ export default function DestinationPage({
             <p className="text-xl md:text-2xl max-w-3xl mx-auto font-light drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
               {destination.description}
             </p>
-            
-            {/* Trip Stats - Made more visible with increased contrast */}
-            <div className="flex flex-wrap justify-center gap-6 mt-8">
-              <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full">
-                <FiClock className="text-[var(--secondary)]" />
-                <span>{destination.duration}</span>
-              </div>
-              <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full">
-                <FiUsers className="text-[var(--secondary)]" />
-                <span>{destination.groupSize}</span>
-              </div>
-              <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full">
-                <FiSun className="text-[var(--secondary)]" />
-                <span>{destination.difficulty}</span>
-              </div>
-            </div>
           </div>
         </motion.div>
       </motion.section>
@@ -700,6 +672,15 @@ export default function DestinationPage({
             <div className="space-y-6">
               <h2 className="text-3xl font-serif font-extrabold text-[var(--primary)]">Trip Overview</h2>
               <div className="w-16 h-1 bg-primary mb-6"></div>
+              
+              {/* Good For Card */}
+              <div className="bg-light p-6 rounded-lg shadow-sm border border-[var(--primary)]/10 mb-6">
+                <h3 className="font-bold text-[var(--primary)] mb-4 flex items-center gap-2">
+                  <FiUsers className="text-[var(--secondary)]" /> 
+                  Good For
+                </h3>
+                <p className="text-dark/80">{destination.goodFor}</p>
+              </div>
               
               {/* Weather Info Card */}
               <div className="bg-light p-6 rounded-lg shadow-sm border border-[var(--primary)]/10">
