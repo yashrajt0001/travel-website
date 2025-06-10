@@ -119,10 +119,9 @@ export default function HeroSection() {
   }, []) // Empty dependency array ensures this runs once on mount
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
-      {/* Background Video */}
+    <section className="relative h-screen w-full overflow-hidden">      {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/60 z-10"></div>
+        <div className="absolute inset-0 bg-black/70 z-10"></div>
         <video 
           autoPlay 
           muted 
@@ -134,10 +133,8 @@ export default function HeroSection() {
           <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-      </div>
-
-      {/* Content */}
-      <div className="relative h-full flex flex-col justify-between z-10">
+      </div>      {/* Content */}
+      <div className="relative h-full flex flex-col justify-between z-20">
         {/* Text content */}
         <div className="container mx-auto px-4 md:px-6 pt-32 md:pt-40 relative">
           <AnimatePresence mode="wait">
@@ -150,12 +147,11 @@ export default function HeroSection() {
                 transition={{ duration: 0.8 }}
                 className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full"
                 style={{ top: '35vh' }}
-              >
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold font-serif text-center flex flex-col md:flex-row items-center justify-center gap-2 md:gap-1">
-                  <span className="text-[var(--primary)]">Travel</span> <StarIcon /> 
+              >                <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold font-serif text-center flex flex-col md:flex-row items-center justify-center gap-2 md:gap-1 relative">                  <span className="text-[var(--primary)]">Travel</span> <StarIcon /> 
                   <span className="text-[var(--secondary)]">Art</span> <StarIcon /> 
                   <span className="text-[var(--primary)]">Create</span>
                 </h1>
+                <div className="w-24 h-1 bg-[var(--secondary)] mx-auto mt-8 relative" />
               </motion.div>
             ) : (
               <motion.div
@@ -165,15 +161,13 @@ export default function HeroSection() {
                 exit={{ opacity: 0, x: 20 }}
                 transition={{ duration: 0.8 }}
                 className="max-w-xl px-8 md:px-18"
-              >
-                <h1 className="font-extrabold font-serif mb-4 tracking-wide text-4xl md:text-6xl">
+              >                <h1 className="font-extrabold font-serif mb-4 tracking-wide text-4xl md:text-6xl relative">
                   {slides[current].id === 1 && <span className="text-[var(--primary)]">Travel</span>}
                   {slides[current].id === 2 && <span className="text-[var(--secondary)]">Art</span>}
                   {slides[current].id === 3 && <span className="text-[var(--primary)]">Create</span>}
-                </h1>
-                <p className="text-lg md:text-xl text-white/90 mb-8 max-w-md">
+                </h1><p className="text-lg md:text-xl text-white/90 mb-8 max-w-md relative">
                   {slides[current].subtitle}
-                </p>
+                </p>                <div className="w-24 h-1 bg-[var(--secondary)] mb-6 relative"></div>
                 <Link
                   href={slides[current].cta.link}
                   className="flex items-center text-white pr-8 py-3 bg-primary rounded-full text-lg font-medium hover:bg-primary/90 transition-colors"

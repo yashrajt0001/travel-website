@@ -11,63 +11,73 @@ const experiences = [
     id: "art-retreats",
     title: "Art Retreats",
     description: "Immerse yourself in the creative process through guided art workshops in stunning natural settings. Learn new techniques, experiment with different mediums, and create meaningful art inspired by local landscapes and traditions.",
-    image: "/images/art-retreat.jpg",
+    image: "/images/experience/2769c93aafdac76c86fd60bb2eb7acd0.jpg",
   },
   {
     id: "filmmaking",
     title: "Filmmaking & Acting",
     description: "Create short films and cinematic scenes in breathtaking locations. Work with professional directors, cinematographers, and fellow actors to build your portfolio while exploring beautiful destinations.",
-    image: "/images/filmmaking.jpg",
+    image: "/images/experience/67ba7250410dab8cf89dd141aadff893.jpg",
   },
   {
     id: "writing",
     title: "Creative Writing",
     description: "Find your voice through travel writing, poetry, and storytelling workshops. Capture the essence of each destination through words, guided by experienced mentors.",
-    image: "/images/writing.jpg",
+    image: "/images/experience/279808440ab34a48d235603459201fe5.jpg",
   },
   {
     id: "photography",
     title: "Photography Journeys",
     description: "Develop your visual eye and technical skills through photography excursions. Capture stunning landscapes, authentic cultural moments, and compelling portraits.",
-    image: "/images/photography.jpg",
+    image: "/images/experience/31e2a7ffafdb883d2e23d5966114dc90.jpg",
   },
   {
     id: "mindfulness",
     title: "Mindfulness & Creativity",
     description: "Combine meditation, yoga, and creative expression. Learn how presence and mindfulness can enhance your artistic process and lead to more authentic work.",
-    image: "/images/mindfulness.jpg",
+    image: "/images/experience/b4780d440fdf711201ef9c8c22b8c02a.jpg",
   },
   {
     id: "cultural",
     title: "Cultural Immersion",
     description: "Connect with local artists, craftspeople, and communities. Learn traditional art forms and incorporate these influences into your own creative practice.",
-    image: "/images/cultural.jpg",
+    image: "/images/experience/e81af7557f1f54a7839a7536051ba13b.jpg",
   },
 ];
 
 export default function ExperiencesPage() {
   return (
     <MainLayout>
-      {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[500px]">
+      {/* Enhanced Hero Section with Parallax */}
+      <motion.section
+        className="relative h-[80vh] min-h-[600px]"
+      >
         <ParallaxImage
-          src="/images/experiences-hero.jpg"
+          src="/images/experience/1dd49d42a79e1ddb6f998a12a8e321b8.jpg"
           alt="Creative Experiences"
           speed={0.2}
+          direction="down"
         />
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white font-bold mb-6">
+        {/* Darker, more opaque gradient overlay for better text visibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/60 z-10" />
+        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="absolute inset-0 flex items-center justify-center text-center text-white z-20"
+        >
+          <div className="max-w-4xl px-4">
+            <h1 className="text-5xl md:text-7xl font-serif font-extrabold mb-6 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               Creative Experiences
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
+            <div className="w-24 h-1 bg-[var(--secondary)] mx-auto mb-6"></div>
+            <p className="text-xl md:text-2xl max-w-3xl mx-auto font-light drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
               Transform your journey into art, stories, and meaningful creations
             </p>
-            <div className="w-24 h-1 bg-[var(--secondary)] mx-auto mt-8" />
           </div>
-        </div>
-      </section>
+        </motion.div>
+      </motion.section>
 
       {/* Experiences Grid */}
       <section className="py-20 bg-white">
@@ -77,11 +87,11 @@ export default function ExperiencesPage() {
               Our Creative Offerings
             </h2>
             <p className="text-lg text-dark/80">
-              Each experience is carefully crafted to inspire creativity, foster connection, 
+              Each experience is carefully crafted to inspire creativity, foster connection,
               and create meaningful art while exploring beautiful destinations
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {experiences.map((exp, index) => (
               <motion.div
@@ -122,7 +132,7 @@ export default function ExperiencesPage() {
           </div>
         </div>
       </section>
-      
+
       {/* CTA Section */}
       <section className="py-16 bg-[var(--primary)]/10">
         <div className="container mx-auto px-4">
@@ -131,7 +141,7 @@ export default function ExperiencesPage() {
               Ready to Create Something Meaningful?
             </h2>
             <p className="text-lg text-dark/80 mb-8">
-              Join us for a transformative journey where travel meets creativity. 
+              Join us for a transformative journey where travel meets creativity.
               Discover new landscapes, cultures, and artistic expressions.
             </p>
             <Link
