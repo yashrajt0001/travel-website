@@ -1041,7 +1041,7 @@ export default function DestinationPage({
                           </div>
                           {variant.features && (
                             <ul className="text-sm text-dark/70">
-                              {variant.features.map((feat: any, fidx: any) => (
+                              {variant.features.map((feat: string, fidx: number) => (
                                 <li key={fidx} className="flex items-start">
                                   <FiCheckCircle className="w-3.5 h-3.5 text-[var(--secondary)] mr-2 mt-0.5" />
                                   {feat}
