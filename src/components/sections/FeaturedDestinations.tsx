@@ -14,8 +14,8 @@ const destinations = [
     description:
       "Verdant hills draped in mist, living root bridges woven by time, and rains that sing on tin rooftops—Meghalaya is poetry in motion. The Khasi and Garo traditions echo in every drumbeat, every woven pattern, every smile.",
     image:
-      "/images/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.webp",
-    link: "/destinations/meghalaya",
+      "/images/meghalaya/4b1c2c0a9a5fac5f51982e358c731ece.jpg",
+    link: "/destinations/meghalaya-2025",
   },
   {
     id: 2,
@@ -23,8 +23,8 @@ const destinations = [
     location: "The Land of Backwaters and Beyond",
     description:
       "A gentle dance of sea and spice, Kathakali eyes and Theyyam flames, Kerala is a sanctuary of balance—between body, spirit, and earth. From its lush backwaters to soulful temple chants, every experience here is soaked in story.",
-    image: "/images/istockphoto-517188688-1024x1024.jpg",
-    link: "/destinations/kerala",
+    image: "/images/kerala/5ba3b0c48122c4216a23f05a257a4bba.jpg",
+    link: "/destinations/kerala-2025",
   },
   {
     id: 3,
@@ -33,8 +33,8 @@ const destinations = [
     description:
       "A land of golden sands, mirror-worked textiles, and music that rises like incense. Rajasthan's opulence is matched only by its grit. Forts rise like poems from the earth, and each village tells a tale in color and dust.",
     image:
-      "/images/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.webp",
-    link: "/destinations/rajasthan",
+      "/images/rajasthan/7cf9a4e798828e604ba5bc7f3ef2bec4.jpg",
+    link: "/destinations/rajasthan-2025",
   },
   {
     id: 4,
@@ -42,8 +42,8 @@ const destinations = [
     location: "The City of Eternal Flame",
     description:
       "Where the sacred and the mundane flow side by side, Banaras is a river of time. Ghats soaked in devotion, ancient chants, burning lamps, and the constant presence of the Ganga—this city is a living canvas of faith and transformation.",
-    image: "/images/images.jpeg",
-    link: "/destinations/varanasi",
+    image: "/images/banaras/07ee68942057c4bb7bc6e690ff697b2f.jpg",
+    link: "/destinations/banaras-2025",
   },
   {
     id: 5,
@@ -51,8 +51,8 @@ const destinations = [
     location: "Land of Sacred Peaks and Silent Forests",
     description:
       "Home to holy rivers and Himalayan stillness, Uttarakhand is a space of spiritual ascent and grounding presence. Villages perched on cliffs, temple bells echoing through pine forests, and paths that whisper to the sky.",
-    image: "/images/istockphoto-517188688-1024x1024.jpg",
-    link: "/destinations/uttarakhand",
+    image: "/images/uttarakhand/471430b468f840c3b500bbe9aee44eac.jpg",
+    link: "/destinations/uttarakhand-2025",
   },
   {
     id: 6,
@@ -60,8 +60,8 @@ const destinations = [
     location: "The Cold Desert of Light and Silence",
     description:
       "Raw, vast, and humbling—Spiti is a monastery of the soul. Stupas stand still against cobalt skies, and prayer flags carry your breath across the mountains. Art here emerges not from noise but from stillness.",
-    image: "/images/images (1).jpeg",
-    link: "/destinations/spiti",
+    image: "/images/spiti/3cd0025246c28b974c10897ceffaa1fc.jpg",
+    link: "/destinations/spiti-2025",
   },
 ];
 
@@ -138,7 +138,7 @@ export default function FeaturedDestinations() {
                 </h3>
 
                 <Link
-                  href={`/destinations?location=${destination.name.toLowerCase()}`}
+                  href={destination.link}
                   className={`inline-block px-4 py-2 bg-white/20 backdrop-blur-sm border border-white/30 text-white rounded-full hover:bg-[var(--secondary)] hover:border-[var(--secondary)] transition-all duration-300 text-sm font-medium ${
                     hoveredIndex === index ? "opacity-100" : "opacity-0"
                   }`}

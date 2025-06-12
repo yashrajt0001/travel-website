@@ -17,7 +17,7 @@ const experiences = [
     id: "filmmaking",
     title: "Filmmaking & Acting",
     description: "Create short films and cinematic scenes in breathtaking locations. Work with professional directors, cinematographers, and fellow actors to build your portfolio while exploring beautiful destinations.",
-    image: "/images/experience/67ba7250410dab8cf89dd141aadff893.jpg",
+    image: "/images/experience/31e2a7ffafdb883d2e23d5966114dc90.jpg",
   },
   {
     id: "writing",
@@ -29,13 +29,13 @@ const experiences = [
     id: "photography",
     title: "Photography Journeys",
     description: "Develop your visual eye and technical skills through photography excursions. Capture stunning landscapes, authentic cultural moments, and compelling portraits.",
-    image: "/images/experience/31e2a7ffafdb883d2e23d5966114dc90.jpg",
+    image: "/images/experience/b4780d440fdf711201ef9c8c22b8c02a.jpg",
   },
   {
     id: "mindfulness",
     title: "Mindfulness & Creativity",
     description: "Combine meditation, yoga, and creative expression. Learn how presence and mindfulness can enhance your artistic process and lead to more authentic work.",
-    image: "/images/experience/b4780d440fdf711201ef9c8c22b8c02a.jpg",
+    image: "/images/experience/67ba7250410dab8cf89dd141aadff893.jpg",
   },
   {
     id: "cultural",

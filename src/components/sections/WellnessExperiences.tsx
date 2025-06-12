@@ -14,7 +14,7 @@ const experiences = [
 			'Experience "art as process," not perfection',
 			'Be guided through prompts that awaken imagination and inner stories',
 		],
-		image: '/images/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.webp',
+		image: '/images/others/creative.jpg',
 	},
 	{
 		id: 'nature-connection',
@@ -24,7 +24,7 @@ const experiences = [
 			'Use natural surroundings as inspiration (painting with leaves, nature mandalas, etc.)',
 			'Practice slowing down — listening, noticing, breathing',
 		],
-		image: '/images/images.jpeg',
+		image: '/images/others/deep connection.jpg',
 	},
 	{
 		id: 'cultural-immersion',
@@ -34,7 +34,7 @@ const experiences = [
 			'Meet and learn from artisans, storytellers, or community elders',
 			"Stay in locally owned spaces that reflect the region's heritage",
 		],
-		image: '/images/istockphoto-517188688-1024x1024.jpg',
+		image: '/images/others/cultural immersion.jpg',
 	},
 	{
 		id: 'supportive-community',
@@ -44,7 +44,7 @@ const experiences = [
 			'Share stories in circles or workshops',
 			'Experience connection without social pressure',
 		],
-		image: '/images/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.webp',
+		image: '/images/others/supportive.jpg',
 	},
 	{
 		id: 'slow-living',
@@ -54,7 +54,7 @@ const experiences = [
 			'Long lunches, early sunsets, and digital detox',
 			'Emphasis on rest, presence, and spaciousness ⸻',
 		],
-		image: '/images/images (1).jpeg',
+		image: '/images/others/slow living.jpg',
 	},
 	{
 		id: 'exploration',
@@ -64,7 +64,7 @@ const experiences = [
 			'Explore with intention — walking, sketching, listening',
 			'Often includes storytelling walks, local hikes, village visits',
 		],
-		image: '/images/istockphoto-517188688-1024x1024.jpg',
+		image: '/images/others/exploration.jpg',
 	},
 	{
 		id: 'soulful-art',
@@ -76,7 +76,7 @@ const experiences = [
 			'Collaborate Like a Creative Family',
 			'Take Home a Professional Body of Work',
 		],
-		image: '/images/beautiful-rain-forest-ang-ka-nature-trail-doi-inthanon-national-park-thailand-36703721.webp',
+		image: '/images/others/create soulful art.jpg',
 	},
 ]
 

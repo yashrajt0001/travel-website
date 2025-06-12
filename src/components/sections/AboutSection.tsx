@@ -47,7 +47,7 @@ export default function AboutSection() {
             style={{ position: 'relative' }}
           >
             <ParallaxImage
-              src="/images/istockphoto-517188688-1024x1024.jpg"
+              src="/images/logo.png"
               alt="Tranquil luxury retreat"
               speed={0.15}
               direction="up"
@@ -73,8 +73,6 @@ export default function AboutSection() {
               nature, and community. Each retreat is a passage—into new landscapes, cultures, and the quiet
               depths of your own imagination.
             </motion.p>
-
-
             <motion.div
               variants={itemVariants}
               className="grid grid-cols-2 gap-4 pt-4"

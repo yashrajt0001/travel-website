@@ -1123,6 +1123,7 @@ export default function DestinationPage({
             <div className="flex flex-col md:flex-row gap-6 items-center">
               <div className="relative w-20 h-20 rounded-full overflow-hidden flex-shrink-0">
                 <Image src="/images/images.jpeg" alt="Reviewer" fill className="object-cover" />
+
               </div>
               <div className="flex-1">
                 <div className="flex justify-between items-center mb-2">
