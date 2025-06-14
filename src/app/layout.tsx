@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Playfair_Display } from "next/font/google";
-import Script from "next/script"; // ⬅️ Import Script from next/script
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   title: "Travel | Luxury Journeys",
   description: "Experience transformative journeys and luxury travel experiences tailored to rejuvenate your mind, body, and soul.",
   keywords: "travel, luxury retreats, yoga retreats, meditation, spa resorts, mindfulness",
+  icons: {
+    icon: '/images/logo.png', // Add favicon here
+  },
 };
 
 export default function RootLayout({
@@ -32,6 +35,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/images/logo.png" /> {/* Add fallback for older browsers */}
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} antialiased`}
       >

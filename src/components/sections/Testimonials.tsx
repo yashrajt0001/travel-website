@@ -8,29 +8,38 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 const testimonials = [
   {
     id: 1,
-    name: "Emma Thompson",
-    location: "London, UK",
+    name: "Aanya Sharma",
+    location: "Mumbai, India",
     quote:
-      "My experience with  Travel was truly transformative. The Himalayan Retreat provided the perfect balance of relaxation and cultural immersion. The yoga sessions overlooking the mountains were simply breathtaking.",
-    image: "/images/images.jpeg",
+      "My journey to Meghalaya was absolutely magical! The living root bridges and crystal-clear waters of Dawki left me speechless. The Travel team arranged everything perfectly, and our local guide shared fascinating stories that brought the Khasi culture to life.",
+    image: "/images/people/person1.jpeg",
     rating: 5,
   },
   {
     id: 2,
-    name: "David Chen",
-    location: "San Francisco, USA",
+    name: "Vikram Mehta",
+    location: "Bangalore, India",
     quote:
-      "The attention to detail in every aspect of my Bali wellness journey was remarkable. From the organic cuisine to the traditional healing treatments, everything was authentic and rejuvenating.",
-    image: "/images/images (1).jpeg",
+      "The Spiti Valley adventure was beyond my expectations. Staying in traditional homestays and visiting ancient monasteries gave me a deep appreciation for the Buddhist culture. The night sky there was unlike anything I've seen - truly a photographer's paradise!",
+    image: "/images/people/person2.jpeg",
     rating: 5,
   },
   {
     id: 3,
-    name: "Sofia Rodriguez",
-    location: "Barcelona, Spain",
+    name: "Priya Patel",
+    location: "Delhi, India",
     quote:
-      "My Mediterranean retreat exceeded all expectations. The accommodations were luxurious, the staff was attentive, and the wellness programs were expertly designed to leave me feeling renewed and inspired.",
-    image: "/images/istockphoto-517188688-1024x1024.jpg",
+      "Kerala's backwaters offered the perfect balance of relaxation and cultural immersion. The houseboat experience was unforgettable, and the Ayurvedic treatments rejuvenated both my body and spirit. I'm already planning my next trip with Travel!",
+    image: "/images/people/person3.jpeg",
+    rating: 5,
+  },
+  {
+    id: 4,
+    name: "Arjun Reddy",
+    location: "Hyderabad, India",
+    quote:
+      "Exploring Rajasthan's magnificent forts and experiencing the vibrant desert culture was a dream come true. The Travel x Art package allowed me to learn traditional block printing from local artisans, adding a creative dimension to my travel experience.",
+    image: "/images/people/person4.jpeg",
     rating: 5,
   },
 ];
