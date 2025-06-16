@@ -47,7 +47,7 @@ export default function AboutSection() {
             style={{ position: 'relative' }}
           >
             <ParallaxImage
-              src="/images/logo.png"
+              src="/images/LogoHero.png"
               alt="Tranquil luxury retreat"
               speed={0.15}
               direction="up"

@@ -104,7 +104,7 @@ const jobListings = [
 export default function CareersPage() {
   return (
     <MainLayout staticStyle>
-      <div className="bg-light">
+      <div className="bg-[var(--primary-extraLight)]">
         {/* Hero Section */}
         <div className="relative bg-primary/90 text-white py-20 mt-15 pt-20">
           <div className="absolute inset-0 opacity-20 z-0">
@@ -153,7 +153,7 @@ export default function CareersPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
                 viewport={{ once: true }}
-                className="bg-light p-6 rounded-lg text-center border border-[var(--primary)] shadow-sm hover:shadow-md transition-shadow"
+                className="bg-[var(--primary-extraLight)] p-6 rounded-lg text-center border border-[var(--primary)] shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg
@@ -183,7 +183,7 @@ export default function CareersPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="bg-light p-6 rounded-lg text-center border border-[var(--primary)] shadow-sm hover:shadow-md transition-shadow"
+                className="bg-[var(--primary-extraLight)] p-6 rounded-lg text-center border border-[var(--primary)] shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg
@@ -213,7 +213,7 @@ export default function CareersPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
                 viewport={{ once: true }}
-                className="bg-light p-6 rounded-lg text-center border border-[var(--primary)] shadow-sm hover:shadow-md transition-shadow"
+                className="bg-[var(--primary-extraLight)] p-6 rounded-lg text-center border border-[var(--primary)] shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg
@@ -244,7 +244,7 @@ export default function CareersPage() {
         </div>
 
         {/* Team Culture Image Section */}
-        <div className="py-16 bg-light/50 overflow-hidden">
+        <div className="py-16 bg-[var(--primary-extraLight)]/50 overflow-hidden">
           <div className="container mx-auto px-4 md:px-6">
             <div className="relative h-[300px] md:h-[400px] rounded-xl overflow-hidden shadow-lg mx-auto max-w-5xl">
               <ParallaxImage 
@@ -297,7 +297,7 @@ export default function CareersPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
-                className="mt-16 bg-light p-8 rounded-lg shadow-md border border-[var(--primary)]/20"
+                className="mt-16 bg-[var(--primary-extraLight)] p-8 rounded-lg shadow-md border border-[var(--primary)]/20"
               >
                 <h3 className="text-2xl font-serif text-[var(--primary)] mb-6 text-center font-bold">
                   How to Apply

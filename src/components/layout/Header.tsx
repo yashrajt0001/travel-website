@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { FiMenu, FiX } from "react-icons/fi";
+import { FiMenu, FiX, FiChevronDown } from "react-icons/fi";
 import Image from "next/image";
 
 const navLinks = [
@@ -33,7 +33,7 @@ export default function Header({
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+  const [activeMobileDropdown, setActiveMobileDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,20 +48,41 @@ export default function Header({
     }
   }, [staticStyle]);
 
+  // Prevent scrolling when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
+  // Handle mobile dropdown toggle
+  const toggleMobileDropdown = (title: string) => {
+    if (activeMobileDropdown === title) {
+      setActiveMobileDropdown(null);
+    } else {
+      setActiveMobileDropdown(title);
+    }
+  };
+
   return (
     <header
-      className={`fixed px-10 md:px-20 top-0 left-0 w-full z-50 transition-all duration-300 ${
-        staticStyle
-          ? "bg-white py-1 shadow-sm"
-          : isScrolled
-          ? "bg-white backdrop-blur-md shadow-sm" // Changed to bg-white for consistent mobile behavior
-          : "bg-transparent py-2"
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 px-2 md:px-6 lg:px-16 ${
+        staticStyle || isScrolled
+        ? "bg-white py-5 shadow-sm" // Increased from py-5 to py-7
+        : "bg-transparent py-7" // Increased from py-7 to py-10
       }`}
     >
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto">
         <div className="flex items-center justify-between">
+          {/* Logo */}
           <Link href="/" className="relative z-10">
-            <div className="relative h-26 w-26"> {/* Increased from h-10 w-32 to h-12 w-40 */}
+            <div className="relative h-16 w-46 md:h-18 md:w-50"> {/* Further increased logo size */}
               <Image 
                 src="/images/logo.png" 
                 alt="Travel Logo" 
@@ -85,9 +106,7 @@ export default function Header({
                   <Link
                     href={link.href}
                     className={`text-sm font-medium transition-colors hover:text-[var(--secondary)] ${
-                      staticStyle
-                        ? "text-[var(--dark)]"
-                        : isScrolled
+                      staticStyle || isScrolled
                         ? "text-[var(--dark)]"
                         : "text-[var(--light)]"
                     }`}
@@ -96,15 +115,14 @@ export default function Header({
                   </Link>
                 ) : (
                   <div
-                    className={`text-sm font-medium transition-colors hover:text-[var(--secondary)] ${
-                      staticStyle
-                        ? "text-[var(--dark)]"
-                        : isScrolled
+                    className={`text-sm font-medium transition-colors hover:text-[var(--secondary)] cursor-pointer flex items-center ${
+                      staticStyle || isScrolled
                         ? "text-[var(--dark)]"
                         : "text-[var(--light)]"
                     }`}
                   >
                     {link.title}
+                    <FiChevronDown className="ml-1 h-3 w-3" />
                   </div>
                 )}
 
@@ -152,7 +170,7 @@ export default function Header({
           {/* Book Now Button */}
           <Link
             href="/book"
-            className={`hidden md:block px-6 py-2.5 rounded-full text-sm font-medium transition-all ${
+            className={`hidden md:block px-7 py-4 rounded-full text-base font-medium transition-all ${
               staticStyle || isScrolled
                 ? "bg-[var(--secondary)] text-[var(--light)] hover:bg-[var(--secondary-dark)]"
                 : "bg-[var(--light)]/20 backdrop-blur-sm text-[var(--light)] hover:bg-[var(--light)]/30"
@@ -163,11 +181,11 @@ export default function Header({
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 rounded-md focus:outline-none"
+            className="lg:hidden p-2 focus:outline-none"
             onClick={() => setMobileMenuOpen(true)}
             aria-label="Open mobile menu"
           >
-            <FiMenu className={`w-6 h-6 ${isScrolled ? "text-[var(--dark)]" : "text-white"}`} />
+            <FiMenu className={`w-7 h-7 ${staticStyle || isScrolled ? "text-[var(--dark)]" : "text-white"}`} />
           </button>
         </div>
       </div>
@@ -179,17 +197,18 @@ export default function Header({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-white z-50 lg:hidden"
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 bg-white z-50 lg:hidden overflow-y-auto"
           >
-            <div className="container bg-white mx-auto px-4 h-full flex flex-col">
-              <div className="flex justify-between bg-white items-center py-4">
-                {/* Mobile Logo - Also replace with image */}
+            <div className="container mx-auto px-4 py-5 flex flex-col min-h-screen">
+              {/* Mobile menu header */}
+              <div className="flex justify-between items-center mb-6">
                 <Link
                   href="/"
                   className="relative z-10"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <div className="relative h-10 w-36"> {/* Increased from h-8 w-28 to h-10 w-36 */}
+                  <div className="relative h-14 w-44"> {/* Increased size */}
                     <Image 
                       src="/images/logo.png" 
                       alt="Travel Logo" 
@@ -200,21 +219,22 @@ export default function Header({
                   </div>
                 </Link>
                 <button
-                  className="p-2 rounded-md text-[var(--dark)]"
+                  className="p-2 text-[var(--dark)]"
                   onClick={() => setMobileMenuOpen(false)}
                   aria-label="Close mobile menu"
                 >
-                  <FiX className="w-6 h-6" />
+                  <FiX className="w-7 h-7" />
                 </button>
               </div>
 
-              <nav className="flex-1 flex flex-col justify-center space-y-8 py-8">
+              {/* Mobile Navigation Links */}
+              <nav className="flex-1 flex flex-col">
                 {navLinks.map((link, index) => (
-                  <div key={index} className="flex flex-col space-y-4">
+                  <div key={index} className="border-b border-gray-100 py-5">
                     {link.href ? (
                       <Link
                         href={link.href}
-                        className="text-xl font-medium text-[var(--dark)] hover:text-[var(--primary)]"
+                        className="block text-xl font-medium text-[var(--dark)] hover:text-[var(--primary)]"
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         {link.title}
@@ -222,62 +242,40 @@ export default function Header({
                     ) : (
                       <div>
                         <button
-                          onClick={() =>
-                            setMobileDropdownOpen(!mobileDropdownOpen)
-                          }
-                          className="text-xl font-medium text-[var(--dark)] hover:text-[var(--primary)] flex items-center"
+                          onClick={() => toggleMobileDropdown(link.title)}
+                          className="flex w-full justify-between items-center text-xl font-medium text-[var(--dark)] hover:text-[var(--primary)]"
                         >
                           {link.title}
-                          <motion.svg
-                            animate={{ rotate: mobileDropdownOpen ? 180 : 0 }}
+                          <motion.div
+                            animate={{ rotate: activeMobileDropdown === link.title ? 180 : 0 }}
                             transition={{ duration: 0.3 }}
-                            className="w-4 h-4 ml-2"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
                           >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M19 9l-7 7-7-7"
-                            />
-                          </motion.svg>
+                            <FiChevronDown className="w-5 h-5" />
+                          </motion.div>
                         </button>
+                        
                         {/* Mobile Dropdown Menu */}
                         <AnimatePresence>
-                          {mobileDropdownOpen && link.dropdownItems && (
+                          {activeMobileDropdown === link.title && link.dropdownItems && (
                             <motion.div
                               initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: "auto" }}
+                              animate={{ opacity: 1, height: 'auto' }}
                               exit={{ opacity: 0, height: 0 }}
-                              transition={{ duration: 0.3, ease: "easeInOut" }}
-                              className="overflow-hidden"
+                              transition={{ duration: 0.3 }}
+                              className="overflow-hidden bg-gray-50 mt-2 rounded-md"
                             >
-                              <motion.div
-                                initial={{ y: -10 }}
-                                animate={{ y: 0 }}
-                                exit={{ y: -10 }}
-                                className="mt-4 ml-4 space-y-4"
-                              >
+                              <div className="py-2">
                                 {link.dropdownItems.map((item, idx) => (
-                                  <motion.div
+                                  <Link
                                     key={idx}
-                                    initial={{ opacity: 0, x: -10 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    exit={{ opacity: 0, x: -10 }}
-                                    transition={{ delay: idx * 0.1 }}
+                                    href={item.href}
+                                    className="block px-5 py-3.5 text-base text-[var(--dark)]/80 hover:text-[var(--primary)] hover:bg-gray-100"
+                                    onClick={() => setMobileMenuOpen(false)}
                                   >
-                                    <Link
-                                      href={item.href}
-                                      className="block text-[var(--dark)]/80 hover:text-[var(--primary)]"
-                                      onClick={() => setMobileMenuOpen(false)}
-                                    >
-                                      {item.title}
-                                    </Link>
-                                  </motion.div>
+                                    {item.title}
+                                  </Link>
                                 ))}
-                              </motion.div>
+                              </div>
                             </motion.div>
                           )}
                         </AnimatePresence>
@@ -287,10 +285,11 @@ export default function Header({
                 ))}
               </nav>
 
-              <div className="py-6">
+              {/* Mobile Book Now Button */}
+              <div className="mt-8 mb-4">
                 <Link
                   href="/book"
-                  className="block w-full text-center px-6 py-3 bg-[var(--secondary)] text-white rounded-full shadow-md hover:bg-[var(--secondary-dark)]"
+                  className="block w-full text-center px-6 py-5 bg-[var(--secondary)] text-white rounded-full shadow-md hover:bg-[var(--secondary-dark)] text-lg"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Book Your Journey

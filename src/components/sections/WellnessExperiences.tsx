@@ -88,7 +88,7 @@ export default function WellnessExperiences() {
 	}
 
 	return (
-		<section className="py-20 bg-light relative overflow-hidden">
+		<section className="py-20 bg-[var(--primary-extraLight)] relative overflow-hidden">
 			<div
 				className="absolute inset-0 opacity-10"
 				style={{

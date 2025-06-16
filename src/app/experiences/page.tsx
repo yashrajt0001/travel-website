@@ -100,7 +100,7 @@ export default function ExperiencesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-light rounded-xl overflow-hidden shadow-sm group"
+                className="bg-[var(--primary-extraLight)] rounded-xl overflow-hidden shadow-sm group"
               >
                 <div className="relative h-64 w-full overflow-hidden">
                   <ParallaxImage

@@ -828,7 +828,7 @@ export default function DestinationPage({
               <div className="w-16 h-1 bg-primary mb-6"></div>
               
               {/* Good For Card */}
-              <div className="bg-light p-6 rounded-lg shadow-sm border border-[var(--primary)]/10 mb-6">
+              <div className="bg-[var(--primary-extraLight)] p-6 rounded-lg shadow-sm border border-[var(--primary)]/10 mb-6">
                 <h3 className="font-bold text-[var(--primary)] mb-4 flex items-center gap-2">
                   <FiUsers className="text-[var(--secondary)]" /> 
                   Good For
@@ -837,7 +837,7 @@ export default function DestinationPage({
               </div>
               
               {/* Weather Info Card */}
-              <div className="bg-light p-6 rounded-lg shadow-sm border border-[var(--primary)]/10">
+              <div className="bg-[var(--primary-extraLight)] p-6 rounded-lg shadow-sm border border-[var(--primary)]/10">
                 <h3 className="font-bold text-[var(--primary)] mb-3 flex items-center gap-2">
                   <FiSun className="text-[var(--secondary)]" /> 
                   Weather & Climate
@@ -864,7 +864,7 @@ export default function DestinationPage({
               
               {/* Trip Extras */}
               <div className="grid grid-cols-2 gap-4 mt-6">
-                <div className="bg-light p-4 rounded-lg flex items-center gap-3">
+                <div className="bg-[var(--primary-extraLight)] p-4 rounded-lg flex items-center gap-3">
                   <div className="w-10 h-10 bg-[var(--primary)]/10 rounded-full flex items-center justify-center">
                     <FiCamera className="text-[var(--primary)]" />
                   </div>
@@ -873,7 +873,7 @@ export default function DestinationPage({
                     <p className="text-sm text-gray-600">Perfect for photographers</p>
                   </div>
                 </div>
-                <div className="bg-light p-4 rounded-lg flex items-center gap-3">
+                <div className="bg-[var(--primary-extraLight)] p-4 rounded-lg flex items-center gap-3">
                   <div className="w-10 h-10 bg-[var(--primary)]/10 rounded-full flex items-center justify-center">
                     <FiAward className="text-[var(--primary)]" />
                   </div>
@@ -897,7 +897,7 @@ export default function DestinationPage({
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="flex items-start space-x-3 p-4 bg-light rounded-lg border-l-4 border-[var(--secondary)]"
+                    className="flex items-start space-x-3 p-4 bg-[var(--primary-extraLight)] rounded-lg border-l-4 border-[var(--secondary)]"
                   >
                     <FiCheckCircle className="w-5 h-5 text-[var(--secondary)] mt-1" />
                     <p>{highlight}</p>
@@ -918,7 +918,7 @@ export default function DestinationPage({
           </motion.div>
         </div>
       </section>      {/* Gallery Section */}
-      <section id="gallery" className="py-20 bg-light">
+      <section id="gallery" className="py-20 bg-[var(--primary-extraLight)]">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-serif font-extrabold text-[var(--primary)] mb-3">Destination Gallery</h2>
@@ -1034,7 +1034,7 @@ export default function DestinationPage({
                     <div className="mt-4 mb-6 space-y-4">
                       <h4 className="font-medium text-[var(--primary)]">Package Options:</h4>
                       {pkg.variants.map((variant, idx) => (
-                        <div key={idx} className="bg-light/50 p-3 rounded-lg">
+                        <div key={idx} className="bg-[var(--primary-extraLight)]/50 p-3 rounded-lg">
                           <div className="flex justify-between mb-2">
                             <span className="font-medium">{variant.name}</span>
                             <span className="text-[var(--primary)] font-semibold">₹{variant.price}</span>
@@ -1067,7 +1067,7 @@ export default function DestinationPage({
                     className={`w-full py-3 rounded-lg font-medium transition-all ${
                       selectedPackage === pkg.id
                       ? "bg-[var(--secondary)] text-white"
-                      : "bg-light text-[var(--primary)] border border-[var(--primary)]/20 hover:bg-[var(--primary)]/5"
+                      : "bg-[var(--primary-extraLight)] text-[var(--primary)] border border-[var(--primary)]/20 hover:bg-[var(--primary)]/5"
                     }`}
                     disabled={pkg.comingSoon}
                   >
@@ -1084,7 +1084,7 @@ export default function DestinationPage({
               animate={{ opacity: 1, y: 0 }}
               className="mt-12 text-center space-y-6"
             >
-              <div className="p-6 bg-light inline-block rounded-lg">
+              <div className="p-6 bg-[var(--primary-extraLight)] inline-block rounded-lg">
                 <h3 className="mb-2 text-[var(--primary)] font-bold">Package Selected:</h3>
                 <p className="text-lg font-medium">
                   {destination.packages.find(p => p.id === selectedPackage)?.name} - 
@@ -1112,7 +1112,7 @@ export default function DestinationPage({
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-light">
+      <section className="py-20 bg-[var(--primary-extraLight)]">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-serif font-extrabold text-[var(--primary)] mb-3">Traveler Reviews</h2>

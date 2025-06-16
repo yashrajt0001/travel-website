@@ -57,7 +57,7 @@ export default function Packages() {
   const [hoveredId, setHoveredId] = useState<number | null>(null);
 
   return (
-    <section className="py-20 bg-light">
+    <section className="py-20 bg-[var(--primary-extraLight)]">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-serif text-dark mb-3">
