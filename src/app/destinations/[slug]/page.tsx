@@ -775,9 +775,9 @@ export default function DestinationPage({
 
   return (
     <MainLayout>
-      {/* Enhanced Hero Section with Parallax */}
+      {/* Enhanced Hero Section with Parallax - Fixed for Mobile */}
       <motion.section
-        className="relative h-[80vh] min-h-[600px]"
+        className="relative h-[100vh] min-h-[600px] mt-[60px] md:mt-0" // Added top margin for mobile to prevent header overlap
         style={{ opacity: headerOpacity }}
       >
         <ParallaxImage
@@ -793,19 +793,19 @@ export default function DestinationPage({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="absolute inset-0 flex items-center justify-center text-center text-white z-20"
+          className="absolute inset-0 flex items-center justify-center text-center text-white z-20 px-4" // Added padding for mobile
         >
-          <div className="max-w-4xl px-4">
+          <div className="max-w-4xl">
             <div className="flex justify-center items-center gap-2 mb-3">
               <FiMapPin className="text-[var(--secondary)]" />
               <span className="text-lg text-white/90">India</span>
             </div>
-            {/* Enhanced text with text shadow for better readability */}
-            <h1 className="text-5xl md:text-7xl font-serif font-extrabold mb-6 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+            {/* Enhanced text with text shadow for better readability - adjusted for mobile */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-extrabold mb-4 md:mb-6 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               {destination.title}
             </h1>
-            <div className="w-24 h-1 bg-[var(--secondary)] mx-auto mb-6"></div>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto font-light drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
+            <div className="w-16 md:w-24 h-1 bg-[var(--secondary)] mx-auto mb-4 md:mb-6"></div>
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto font-light drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
               {destination.description}
             </p>
           </div>
