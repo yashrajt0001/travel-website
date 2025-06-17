@@ -777,7 +777,7 @@ export default function DestinationPage({
     <MainLayout>
       {/* Enhanced Hero Section with Parallax - Fixed for Mobile */}
       <motion.section
-        className="relative h-[100vh] min-h-[600px] mt-[60px] md:mt-0" // Added top margin for mobile to prevent header overlap
+        className="relative h-[100vh] min-h-[600px]  md:mt-0" // Added top margin for mobile to prevent header overlap
         style={{ opacity: headerOpacity }}
       >
         <ParallaxImage
