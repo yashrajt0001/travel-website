@@ -133,7 +133,15 @@ export default function HeroSection() {
         // Fallback for browsers with strict autoplay policies
         const handleUserInteraction = () => {
           if (videoRef.current) {
-            videoRef.current.play();
+            videoRef.current.play()
+              .then(() => {
+                // Unmute the video after successful play
+                videoRef.current!.muted = false;
+              })
+              .catch(err => {
+                console.log("Video play after interaction failed:", err);
+              });
+            
             // Remove event listeners once video starts
             ['click', 'touchstart'].forEach(event => {
               document.removeEventListener(event, handleUserInteraction);
@@ -149,6 +157,30 @@ export default function HeroSection() {
     };
     
     playVideo();
+    
+    // Add a separate listener for unmuting after initial autoplay
+    const handleUnmute = () => {
+      if (videoRef.current && videoRef.current.muted) {
+        videoRef.current.muted = false;
+        
+        // Remove event listeners once unmuted
+        ['click', 'touchstart'].forEach(event => {
+          document.removeEventListener(event, handleUnmute);
+        });
+      }
+    };
+    
+    // Add event listeners for unmuting on user interaction
+    ['click', 'touchstart'].forEach(event => {
+      document.addEventListener(event, handleUnmute);
+    });
+    
+    // Cleanup function
+    return () => {
+      ['click', 'touchstart'].forEach(event => {
+        document.removeEventListener(event, handleUnmute);
+      });
+    };
   }, []);
 
   return (
