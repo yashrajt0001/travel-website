@@ -81,7 +81,8 @@ const StarIcon = () => (
 
 export default function HeroSection() {
   const [current, setCurrent] = useState(-1) // Start with -1 for the special slide
-  const timerRef = useRef<NodeJS.Timeout>(null)
+  const timerRef = useRef<NodeJS.Timeout | null>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   // Function to start/reset the timer
   const resetTimer = () => {
@@ -118,14 +119,49 @@ export default function HeroSection() {
     }
   }, []) // Empty dependency array ensures this runs once on mount
 
+  // Add a dedicated effect for video playback
+  useEffect(() => {
+    // Explicitly play the video when component mounts
+    const playVideo = async () => {
+      try {
+        if (videoRef.current) {
+          // Try to play the video
+          await videoRef.current.play();
+        }
+      } catch (error) {
+        console.log("Video autoplay failed:", error);
+        // Fallback for browsers with strict autoplay policies
+        const handleUserInteraction = () => {
+          if (videoRef.current) {
+            videoRef.current.play();
+            // Remove event listeners once video starts
+            ['click', 'touchstart'].forEach(event => {
+              document.removeEventListener(event, handleUserInteraction);
+            });
+          }
+        };
+        
+        // Add event listeners for user interaction
+        ['click', 'touchstart'].forEach(event => {
+          document.addEventListener(event, handleUserInteraction);
+        });
+      }
+    };
+    
+    playVideo();
+  }, []);
+
   return (
     <section className="relative h-screen w-full overflow-hidden">      {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/70 z-10"></div>
         <video
+          ref={videoRef}
           autoPlay
+          muted
           loop
           playsInline
+          preload="auto"
           className="w-full h-full object-cover"
         >
           <source src="/videos/heroVideo.mp4" type="video/mp4" />
