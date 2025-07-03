@@ -89,7 +89,7 @@ export default function HeroSection() {
     if (timerRef.current) {
       clearInterval(timerRef.current)
     }
-    
+
     // Set a new timer
     timerRef.current = setInterval(() => {
       setCurrent(prev => (prev === slides.length - 1 ? -1 : prev + 1))
@@ -109,7 +109,7 @@ export default function HeroSection() {
   useEffect(() => {
     // Initialize timer when component mounts
     resetTimer()
-    
+
     // Clean up on unmount
     return () => {
       if (timerRef.current) {
@@ -122,16 +122,13 @@ export default function HeroSection() {
     <section className="relative h-screen w-full overflow-hidden">      {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/70 z-10"></div>
-        <video 
-          autoPlay 
-          muted 
-          loop 
+        <video
+          autoPlay
+          loop
           playsInline
           className="w-full h-full object-cover"
         >
-          {/* <source src="/videoplayback.mp4" type="video/mp4" /> */}
-          <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
+          <source src="/videos/heroVideo.mp4" type="video/mp4" />
         </video>
       </div>      {/* Content */}
       <div className="relative h-full flex flex-col justify-between z-20">
@@ -147,8 +144,8 @@ export default function HeroSection() {
                 transition={{ duration: 0.8 }}
                 className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full"
                 style={{ top: '35vh' }}
-              >                <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold font-serif text-center flex flex-col md:flex-row items-center justify-center gap-2 md:gap-1 relative">                  <span className="text-[var(--primary)]">Travel</span> <StarIcon /> 
-                  <span className="text-[var(--secondary)]">Art</span> <StarIcon /> 
+              >                <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold font-serif text-center flex flex-col md:flex-row items-center justify-center gap-2 md:gap-1 relative">                  <span className="text-[var(--primary)]">Travel</span> <StarIcon />
+                  <span className="text-[var(--secondary)]">Art</span> <StarIcon />
                   <span className="text-[var(--primary)]">Create</span>
                 </h1>
                 <div className="w-24 h-1 bg-[var(--secondary)] mx-auto mt-8 relative" />
@@ -171,8 +168,8 @@ export default function HeroSection() {
                 <Link
                   href={slides[current].cta.link}
                   className="flex items-center text-white pr-8 py-3 bg-primary rounded-full text-lg font-medium hover:bg-primary/90 transition-colors"
-                > 
-                  {slides[current].cta.text} <HiExternalLink className='ml-2 h-5 w-5 my-auto'/>
+                >
+                  {slides[current].cta.text} <HiExternalLink className='ml-2 h-5 w-5 my-auto' />
                 </Link>
               </motion.div>
             )}
@@ -204,11 +201,10 @@ export default function HeroSection() {
             {/* Special slide indicator */}
             <button
               onClick={() => setCurrent(-1)}
-              className={`w-2.5 h-2.5 rounded-full transition-all ${
-                current === -1
-                  ? 'bg-white w-8'
-                  : 'bg-white/40 hover:bg-white/60'
-              }`}
+              className={`w-2.5 h-2.5 rounded-full transition-all ${current === -1
+                ? 'bg-white w-8'
+                : 'bg-white/40 hover:bg-white/60'
+                }`}
               aria-label="Go to main slide"
             />
             {/* Regular slides indicators */}
@@ -216,11 +212,10 @@ export default function HeroSection() {
               <button
                 key={index}
                 onClick={() => setCurrent(index)}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${
-                  index === current
-                    ? 'bg-white w-8'
-                    : 'bg-white/40 hover:bg-white/60'
-                }`}
+                className={`w-2.5 h-2.5 rounded-full transition-all ${index === current
+                  ? 'bg-white w-8'
+                  : 'bg-white/40 hover:bg-white/60'
+                  }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
