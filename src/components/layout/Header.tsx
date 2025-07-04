@@ -169,7 +169,7 @@ export default function Header({
 
           {/* Book Now Button */}
           <Link
-            href="/book"
+            href="/contact"
             className={`hidden md:block px-7 py-4 rounded-full text-base font-medium transition-all ${
               staticStyle || isScrolled
                 ? "bg-[var(--secondary)] text-[var(--light)] hover:bg-[var(--secondary-dark)]"
@@ -288,7 +288,7 @@ export default function Header({
               {/* Mobile Book Now Button */}
               <div className="mt-8 mb-4">
                 <Link
-                  href="/book"
+                  href="/contact"
                   className="block w-full text-center px-6 py-5 bg-[var(--secondary)] text-white rounded-full shadow-md hover:bg-[var(--secondary-dark)] text-lg"
                   onClick={() => setMobileMenuOpen(false)}
                 >

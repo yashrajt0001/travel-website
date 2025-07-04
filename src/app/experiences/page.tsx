@@ -145,7 +145,7 @@ export default function ExperiencesPage() {
               Discover new landscapes, cultures, and artistic expressions.
             </p>
             <Link
-              href="/book"
+              href="/contact"
               className="inline-flex items-center px-8 py-3 bg-[var(--secondary)] text-white rounded-full hover:bg-[var(--secondary-dark)] transition-colors text-lg font-medium"
             >
               Book Your Creative Journey

@@ -36,7 +36,7 @@ export default function CtaSection() {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/book"
+              href="/contact"
               className="px-8 py-3  text-white font-medium rounded-full bg-[var(--secondary)] transition-colors"
             >
               Book Your Journey

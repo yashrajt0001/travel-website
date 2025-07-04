@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  // extensions = [postgis]
+}
+
+model Booking {
+  id          String  @id @default(uuid())
+  name        String
+  email       String?
+  phone       String
+  destination String // e.g., "Meghalaya – The Abode of Clouds"
+  packageName String // e.g., "Travel x Art"
+
+  amount    Float
+  status    String // PENDING, PAID, FAILED
+  createdAt DateTime @default(now())
+
+  payment Payment?
+}
+
+model Payment {
+  id            String   @id @default(uuid())
+  bookingId     String   @unique
+  orderId       String
+  razorpayId    String? // Filled after success
+  razorpayOrder String // Created before checkout
+  status        String // created, paid, failed
+  amount        Float?
+  createdAt     DateTime @default(now())
+
+  booking Booking @relation(fields: [bookingId], references: [id])
+}
