@@ -6,7 +6,7 @@ import axios from "axios";
 // import { s } from "framer-motion/client";
 declare global {
   interface Window {
-    Razorpay: any; // or RazorpayType if you want to define a custom type
+    Razorpay: new (options: any) => any;
   }
 }
 interface BookingModalProps {
