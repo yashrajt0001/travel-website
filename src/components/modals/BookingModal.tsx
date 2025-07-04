@@ -145,7 +145,7 @@ export default function BookingModal({
         },
       };
 
-      const rzp = new window.Razorpay(options);
+const rzp = new window.Razorpay(options) as { open: () => void };
 
       rzp.open();
     } catch (error) {
