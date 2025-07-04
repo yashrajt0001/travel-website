@@ -6,9 +6,10 @@ import axios from "axios";
 // import { s } from "framer-motion/client";
 declare global {
   interface Window {
-    Razorpay: new (options: any) => any;
+    Razorpay: new (options: unknown) => unknown;
   }
 }
+
 interface BookingModalProps {
   isOpen: boolean;
   onClose: () => void;
