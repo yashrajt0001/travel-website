@@ -81,7 +81,8 @@ const StarIcon = () => (
 
 export default function HeroSection() {
   const [current, setCurrent] = useState(-1) // Start with -1 for the special slide
-  const timerRef = useRef<NodeJS.Timeout>(null)
+  const timerRef = useRef<NodeJS.Timeout | null>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   // Function to start/reset the timer
   const resetTimer = () => {
@@ -89,7 +90,7 @@ export default function HeroSection() {
     if (timerRef.current) {
       clearInterval(timerRef.current)
     }
-    
+
     // Set a new timer
     timerRef.current = setInterval(() => {
       setCurrent(prev => (prev === slides.length - 1 ? -1 : prev + 1))
@@ -109,7 +110,7 @@ export default function HeroSection() {
   useEffect(() => {
     // Initialize timer when component mounts
     resetTimer()
-    
+
     // Clean up on unmount
     return () => {
       if (timerRef.current) {
@@ -118,20 +119,84 @@ export default function HeroSection() {
     }
   }, []) // Empty dependency array ensures this runs once on mount
 
+  // Add a dedicated effect for video playback
+  useEffect(() => {
+    // Explicitly play the video when component mounts
+    const playVideo = async () => {
+      try {
+        if (videoRef.current) {
+          // Try to play the video
+          await videoRef.current.play();
+        }
+      } catch (error) {
+        console.log("Video autoplay failed:", error);
+        // Fallback for browsers with strict autoplay policies
+        const handleUserInteraction = () => {
+          if (videoRef.current) {
+            videoRef.current.play()
+              .then(() => {
+                // Unmute the video after successful play
+                videoRef.current!.muted = false;
+              })
+              .catch(err => {
+                console.log("Video play after interaction failed:", err);
+              });
+            
+            // Remove event listeners once video starts
+            ['click', 'touchstart'].forEach(event => {
+              document.removeEventListener(event, handleUserInteraction);
+            });
+          }
+        };
+        
+        // Add event listeners for user interaction
+        ['click', 'touchstart'].forEach(event => {
+          document.addEventListener(event, handleUserInteraction);
+        });
+      }
+    };
+    
+    playVideo();
+    
+    // Add a separate listener for unmuting after initial autoplay
+    const handleUnmute = () => {
+      if (videoRef.current && videoRef.current.muted) {
+        videoRef.current.muted = false;
+        
+        // Remove event listeners once unmuted
+        ['click', 'touchstart'].forEach(event => {
+          document.removeEventListener(event, handleUnmute);
+        });
+      }
+    };
+    
+    // Add event listeners for unmuting on user interaction
+    ['click', 'touchstart'].forEach(event => {
+      document.addEventListener(event, handleUnmute);
+    });
+    
+    // Cleanup function
+    return () => {
+      ['click', 'touchstart'].forEach(event => {
+        document.removeEventListener(event, handleUnmute);
+      });
+    };
+  }, []);
+
   return (
     <section className="relative h-screen w-full overflow-hidden">      {/* Background Video */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/70 z-10"></div>
-        <video 
-          autoPlay 
-          muted 
-          loop 
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
           playsInline
+          preload="auto"
           className="w-full h-full object-cover"
         >
-          {/* <source src="/videoplayback.mp4" type="video/mp4" /> */}
-          <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
+          <source src="/videos/heroVideo.mp4" type="video/mp4" />
         </video>
       </div>      {/* Content */}
       <div className="relative h-full flex flex-col justify-between z-20">
@@ -147,8 +212,8 @@ export default function HeroSection() {
                 transition={{ duration: 0.8 }}
                 className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full"
                 style={{ top: '35vh' }}
-              >                <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold font-serif text-center flex flex-col md:flex-row items-center justify-center gap-2 md:gap-1 relative">                  <span className="text-[var(--primary)]">Travel</span> <StarIcon /> 
-                  <span className="text-[var(--secondary)]">Art</span> <StarIcon /> 
+              >                <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold font-serif text-center flex flex-col md:flex-row items-center justify-center gap-2 md:gap-1 relative">                  <span className="text-[var(--primary)]">Travel</span> <StarIcon />
+                  <span className="text-[var(--secondary)]">Art</span> <StarIcon />
                   <span className="text-[var(--primary)]">Create</span>
                 </h1>
                 <div className="w-24 h-1 bg-[var(--secondary)] mx-auto mt-8 relative" />
@@ -171,8 +236,8 @@ export default function HeroSection() {
                 <Link
                   href={slides[current].cta.link}
                   className="flex items-center text-white pr-8 py-3 bg-primary rounded-full text-lg font-medium hover:bg-primary/90 transition-colors"
-                > 
-                  {slides[current].cta.text} <HiExternalLink className='ml-2 h-5 w-5 my-auto'/>
+                >
+                  {slides[current].cta.text} <HiExternalLink className='ml-2 h-5 w-5 my-auto' />
                 </Link>
               </motion.div>
             )}
@@ -204,11 +269,10 @@ export default function HeroSection() {
             {/* Special slide indicator */}
             <button
               onClick={() => setCurrent(-1)}
-              className={`w-2.5 h-2.5 rounded-full transition-all ${
-                current === -1
-                  ? 'bg-white w-8'
-                  : 'bg-white/40 hover:bg-white/60'
-              }`}
+              className={`w-2.5 h-2.5 rounded-full transition-all ${current === -1
+                ? 'bg-white w-8'
+                : 'bg-white/40 hover:bg-white/60'
+                }`}
               aria-label="Go to main slide"
             />
             {/* Regular slides indicators */}
@@ -216,11 +280,10 @@ export default function HeroSection() {
               <button
                 key={index}
                 onClick={() => setCurrent(index)}
-                className={`w-2.5 h-2.5 rounded-full transition-all ${
-                  index === current
-                    ? 'bg-white w-8'
-                    : 'bg-white/40 hover:bg-white/60'
-                }`}
+                className={`w-2.5 h-2.5 rounded-full transition-all ${index === current
+                  ? 'bg-white w-8'
+                  : 'bg-white/40 hover:bg-white/60'
+                  }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
