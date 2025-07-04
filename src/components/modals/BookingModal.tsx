@@ -3,8 +3,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
-import { s } from "framer-motion/client";
-
+// import { s } from "framer-motion/client";
+declare global {
+  interface Window {
+    Razorpay: any; // or RazorpayType if you want to define a custom type
+  }
+}
 interface BookingModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -31,7 +35,10 @@ export default function BookingModal({
   });
   const [errors, setErrors] = useState<{ email?: string; phone?: string }>({});
   const [isLoading, setIsLoading] = useState(false);
-  const [alert, setAlert] = useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' });
+  const [alert, setAlert] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
 
   function validate() {
     const errs: { email?: string; phone?: string } = {};
@@ -58,8 +65,8 @@ export default function BookingModal({
     if (!validate()) return;
 
     if (!packageDetails) {
-      setAlert({ type: 'error', message: 'Package not selected!' });
-      setTimeout(() => setAlert({ type: null, message: '' }), 3000);
+      setAlert({ type: "error", message: "Package not selected!" });
+      setTimeout(() => setAlert({ type: null, message: "" }), 3000);
       return;
     }
 
@@ -81,8 +88,8 @@ export default function BookingModal({
 
       const razorpayLoaded = await loadRazorpayScript();
       if (!razorpayLoaded) {
-        setAlert({ type: 'error', message: 'Failed to load Razorpay SDK.' });
-        setTimeout(() => setAlert({ type: null, message: '' }), 3000);
+        setAlert({ type: "error", message: "Failed to load Razorpay SDK." });
+        setTimeout(() => setAlert({ type: null, message: "" }), 3000);
         return;
       }
 
@@ -94,26 +101,37 @@ export default function BookingModal({
         name: "Your Travel Brand",
         description: "Booking Payment",
         order_id: data.orderId,
-        handler: async function (response: any) {
+        handler: async function (response: unknown) {
+          const res = response as {
+            razorpay_payment_id: string;
+            razorpay_order_id: string;
+            razorpay_signature: string;
+          };
           try {
             // 3. Verify payment
             await axios.post("/api/verify-payment", {
-              razorpay_payment_id: response.razorpay_payment_id,
-              razorpay_order_id: response.razorpay_order_id,
-              razorpay_signature: response.razorpay_signature,
+              razorpay_payment_id: res.razorpay_payment_id,
+              razorpay_order_id: res.razorpay_order_id,
+              razorpay_signature: res.razorpay_signature,
               bookingId: data.bookingId,
             });
 
-            setAlert({ type: 'success', message: 'Payment Successful! We will contact you shortly.' });
+            setAlert({
+              type: "success",
+              message: "Payment Successful! We will contact you shortly.",
+            });
             setTimeout(() => {
-              setAlert({ type: null, message: '' });
+              setAlert({ type: null, message: "" });
               onClose();
               setFormData({ name: "", phone: "", email: "" });
             }, 3000);
           } catch (error) {
             console.error(error);
-            setAlert({ type: 'error', message: 'Payment verification failed.' });
-            setTimeout(() => setAlert({ type: null, message: '' }), 3000);
+            setAlert({
+              type: "error",
+              message: "Payment verification failed.",
+            });
+            setTimeout(() => setAlert({ type: null, message: "" }), 3000);
           }
         },
         prefill: {
@@ -126,13 +144,16 @@ export default function BookingModal({
         },
       };
 
-      const rzp = new (window as any).Razorpay(options);
-      rzp.open();
+      const rzp = new window.Razorpay(options);
 
+      rzp.open();
     } catch (error) {
       console.error(error);
-      setAlert({ type: 'error', message: 'Something went wrong during booking.' });
-      setTimeout(() => setAlert({ type: null, message: '' }), 3000);
+      setAlert({
+        type: "error",
+        message: "Something went wrong during booking.",
+      });
+      setTimeout(() => setAlert({ type: null, message: "" }), 3000);
     } finally {
       setIsLoading(false);
     }
@@ -163,11 +184,13 @@ export default function BookingModal({
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 className={`fixed top-4 left-1/2 transform -translate-x-1/2 p-4 rounded-lg shadow-lg ${
-                  alert.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                  alert.type === "success"
+                    ? "bg-green-100 text-green-800"
+                    : "bg-red-100 text-red-800"
                 } flex items-center max-w-sm w-full`}
               >
                 <span className="mr-2">
-                  {alert.type === 'success' ? '✅' : '❌'}
+                  {alert.type === "success" ? "✅" : "❌"}
                 </span>
                 <span>{alert.message}</span>
               </motion.div>
@@ -259,7 +282,9 @@ export default function BookingModal({
                 <button
                   type="submit"
                   className={`px-6 py-2 bg-primary border text-black rounded hover:bg-primary/90 flex items-center ${
-                    isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:cursor-pointer'
+                    isLoading
+                      ? "opacity-50 cursor-not-allowed"
+                      : "hover:cursor-pointer"
                   }`}
                   disabled={isLoading}
                 >
@@ -288,7 +313,7 @@ export default function BookingModal({
                       Processing...
                     </>
                   ) : (
-                    'Book Now'
+                    "Book Now"
                   )}
                 </button>
               </div>
