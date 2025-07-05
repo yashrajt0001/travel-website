@@ -152,7 +152,7 @@ const rzp = new window.Razorpay(options) as { open: () => void };
       console.error(error);
       setAlert({
         type: "error",
-        message: "Something went wrong during booking.",
+        message: "Something went wrong during booking." + error,
       });
       setTimeout(() => setAlert({ type: null, message: "" }), 3000);
     } finally {
