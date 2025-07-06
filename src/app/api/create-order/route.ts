@@ -138,7 +138,8 @@ export async function POST(req: NextRequest) {
     });
 
     return NextResponse.json({
-      key: process.env.RAZORPAY_KEY_ID,
+      // key: process.env.RAZORPAY_KEY_ID,
+      key: "rzp_test_qHJgCkKqVfIlsz",
       orderId: order.id,
       amount: amount * 100,
       bookingId: booking.id,

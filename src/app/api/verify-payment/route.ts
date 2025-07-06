@@ -14,7 +14,8 @@ export async function POST(req: NextRequest) {
     } = body;
 
     const expectedSignature = crypto
-      .createHmac('sha256', process.env.RAZORPAY_KEY_SECRET!)
+      // .createHmac('sha256', process.env.RAZORPAY_KEY_SECRET!)
+      .createHmac('sha256', "YPH4lW5W8xYQPnAkAezTdaRV")
       .update(`${razorpay_order_id}|${razorpay_payment_id}`)
       .digest('hex');
 
@@ -38,18 +39,21 @@ export async function POST(req: NextRequest) {
       // --- Send Email to User ---
       // Setup transporter (use your SMTP credentials in .env)
       const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST,
-        port: Number(process.env.SMTP_PORT) || 587,
+        // host: process.env.SMTP_HOST,
+        host: "smtp.gmail.com",
+        port: 587,
         secure: false,
         auth: {
-          user: process.env.SMTP_USER,
-          pass: process.env.SMTP_PASS,
+          // user: process.env.SMTP_USER,
+          user: "tarunloharwnsp2017@gmail.com",
+          // pass: process.env.SMTP_PASS,
+          pass: "brxf xras dqeh ixky",
         },
       });
 
       // Compose email
       await transporter.sendMail({
-        from: `"Antarabodh" <${process.env.SMTP_USER}>`,
+        from: `"Antarabodh" <tarunloharwnsp2017@gmail.com>`,
         to: booking.email ?? undefined,
         subject: `Booking Confirmation - ${booking.packageName}`,
         html: `

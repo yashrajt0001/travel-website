@@ -10,7 +10,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = "postgresql://postgres:Antarabodh123@antarabodh-db.cuf2ac0ii5ck.us-east-1.rds.amazonaws.com:5432/antarabodh?schema=public"
   // extensions = [postgis]
 }
 
