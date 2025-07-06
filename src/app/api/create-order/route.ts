@@ -147,7 +147,7 @@ export async function POST(req: NextRequest) {
   } catch (error) {
     console.error(error);
     return NextResponse.json(
-      { message: 'Failed to create order' },
+      { message: `Failed to create order ${error}` },
       { status: 500 }
     );
   }

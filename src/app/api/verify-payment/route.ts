@@ -84,7 +84,7 @@ export async function POST(req: NextRequest) {
   } catch (err) {
     console.error(err);
     return NextResponse.json(
-      { success: false, error: 'Verification failed' },
+      { success: false, error: 'Verification failed' + `: ${err}` },
       { status: 500 }
     );
   }
