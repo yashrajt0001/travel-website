@@ -1,5 +1,7 @@
 "use client";
 
+import axios from "axios";
+import { em } from "framer-motion/client";
 import { useState } from "react";
 import { FiSend } from "react-icons/fi";
 
@@ -13,8 +15,11 @@ export default function EnquirySection({
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
+    email: "",
     message: "",
   });
+  const [loading, setLoading] = useState(false);
+  const [errors, setErrors] = useState<{ phone?: string; email?: string }>({});
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -26,12 +31,49 @@ export default function EnquirySection({
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validate = () => {
+    let valid = true;
+    const newErrors: { phone?: string; email?: string } = {};
+    // Phone: allow 10-15 digits, optional +, spaces, dashes, parentheses
+    const phoneRegex = /^([+]?\d{1,3}[\s-]?)?(\(?\d{3,5}\)?[\s-]?)?\d{3,5}[\s-]?\d{3,5}$/;
+    if (!phoneRegex.test(formData.phone.replace(/\s+/g, ""))) {
+      newErrors.phone = "Please enter a valid phone number.";
+      valid = false;
+    }
+    // Email: basic email regex
+    const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,}$/;
+    if (!emailRegex.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address.";
+      valid = false;
+    }
+    setErrors(newErrors);
+    return valid;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Enquiry submitted:", formData);
-    // Here you would typically handle the form submission to your backend
-    alert("Thank you for your enquiry! We will get back to you soon.");
-    setFormData({ name: "", phone: "", message: "" });
+    if (!validate()) return;
+    setLoading(true);
+    try {
+      const response = await axios.post("/api/enquiry", {
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        discription: formData.message,
+      });
+      if (response.status === 200) {
+        alert("Thank you for your enquiry! We will get back to you soon.");
+        setFormData({ name: "", phone: "", email: "", message: "" });
+        setErrors({});
+      } else {
+        alert("There was an error submitting your enquiry. Please try again.");
+      }
+    } catch (err) {
+      console.error("Error submitting enquiry:", err);
+      alert("There was an error submitting your enquiry. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -84,11 +126,35 @@ export default function EnquirySection({
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary ${errors.phone ? 'border-red-500' : 'border-gray-300'}`}
                   placeholder="+1 (123) 456-7890"
                   required
                 />
+                {errors.phone && (
+                  <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+                )}
               </div>
+            </div>
+            <div className="mb-6">
+              <label
+                htmlFor="email"
+                className="block text-gray-700 font-medium mb-2"
+              >
+                Your Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className={`w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
+                placeholder="john@gmail.com"
+                required
+              />
+              {errors.email && (
+                <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+              )}
             </div>
             <div className="mb-6">
               <label
@@ -112,9 +178,17 @@ export default function EnquirySection({
               <button
                 type="submit"
                 className="inline-flex cursor bg-[var(--secondary)] items-center px-6 py-3 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors"
+                disabled={loading}
               >
-                <FiSend className="mr-2" />
-                Send Enquiry
+                {loading ? (
+                  <svg className="animate-spin mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+                  </svg>
+                ) : (
+                  <FiSend className="mr-2" />
+                )}
+                {loading ? "Sending..." : "Send Enquiry"}
               </button>
             </div>
           </form>

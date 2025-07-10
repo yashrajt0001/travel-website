@@ -9,6 +9,7 @@ import { FiStar, FiMapPin, FiSun, FiUsers, FiCheckCircle, FiAward, FiCamera } fr
 import { use } from "react";
 import ParallaxImage from '@/components/ui/ParallaxImage';
 import { destinations } from "@/lib/destinations"; 
+import Link from "next/link";
 
 
 export default function DestinationPage({
@@ -348,12 +349,15 @@ export default function DestinationPage({
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link 
+                  href="/contact">
                 <button
-                  onClick={() => setShowEnquiryModal(true)}
+                  // onClick={() => setShowEnquiryModal(true)}
                   className="px-8 py-3 bg-white text-[var(--primary)] rounded-full border border-[var(--primary)] hover:bg-[var(--primary)]/5"
-                >
+                  >
                   Make Enquiry
                 </button>
+                  </Link>
                 <button
                   onClick={() => setShowBookingModal(true)}
                   className="px-8 py-3 bg-[var(--secondary)] text-white rounded-full hover:bg-[var(--secondary-dark)]"

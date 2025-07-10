@@ -45,15 +45,15 @@ export async function POST(req: NextRequest) {
         secure: false,
         auth: {
           // user: process.env.SMTP_USER,
-          user: "tarunloharwnsp2017@gmail.com",
+          user: "antarabodh@gmail.com",
           // pass: process.env.SMTP_PASS,
-          pass: "brxf xras dqeh ixky",
+          pass: "ntkj cpry prql xspb",
         },
       });
 
       // Compose email
       await transporter.sendMail({
-        from: `"Antarabodh" <tarunloharwnsp2017@gmail.com>`,
+        from: `"Antarabodh" <antarabodh@gmail.com>`,
         to: booking.email ?? undefined,
         subject: `Booking Confirmation - ${booking.packageName}`,
         html: `
