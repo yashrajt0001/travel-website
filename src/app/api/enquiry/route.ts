@@ -1,6 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { prisma } from '@/prisma/client';
-import crypto from 'crypto';
 import nodemailer from 'nodemailer';
 export async function POST(req: NextRequest) {
   try {
