@@ -1,7 +1,6 @@
 "use client";
 
 import axios from "axios";
-import { em } from "framer-motion/client";
 import { useState } from "react";
 import { FiSend } from "react-icons/fi";
 
