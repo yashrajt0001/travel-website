@@ -66,7 +66,7 @@ export const destinations = {
         variants: [
           {
             name: "Double Occupancy",
-            price: 21999,
+            price: 24999,
             features: ["All standard inclusions with double occupancy instead of triple"]
           }
         ],
@@ -75,7 +75,7 @@ export const destinations = {
       {
         id: "travel-art",
         name: "Travel x Art",
-        price: 21999,
+        price: 24999,
         features: [
           "6 Nights/7 Days Stay (From June 21)",
           "Double Occupancy in Homestays",
@@ -89,12 +89,12 @@ export const destinations = {
         variants: [
           {
             name: "Standard Art Package",
-            price: 26999,
+            price: 36999,
             features: ["Black clay pottery", "Water color painting on valleys"]
           },
           {
             name: "Premium Art Package",
-            price: 39999,
+            price: 49999,
             features: ["Black clay pottery", "Water color painting", "Local folk music/dance jamming"]
           }
         ],
@@ -190,7 +190,7 @@ export const destinations = {
         variants: [
           {
             name: "Double Occupancy",
-            price: 21999,
+            price: 24999,
             features: ["All standard inclusions with double occupancy instead of triple"]
           }
         ],
@@ -199,7 +199,7 @@ export const destinations = {
       {
         id: "travel-art",
         name: "Travel x Art",
-        price: 21999,
+        price: 24999,
         features: [
           "6 Nights/7 Days Stay (From June 21)",
           "Double Occupancy in Homestays",
@@ -213,12 +213,12 @@ export const destinations = {
         variants: [
           {
             name: "Standard Art Package",
-            price: 26999,
+            price: 36999,
             features: ["Black clay pottery", "Water color painting on valleys"]
           },
           {
             name: "Premium Art Package",
-            price: 39999,
+            price: 49999,
             features: ["Black clay pottery", "Water color painting", "Local folk music/dance jamming"]
           }
         ],
@@ -313,7 +313,7 @@ export const destinations = {
         variants: [
           {
             name: "Double Occupancy",
-            price: 21999,
+            price: 24999,
             features: ["All standard inclusions with double occupancy instead of triple"]
           }
         ],
@@ -322,7 +322,7 @@ export const destinations = {
       {
         id: "travel-art",
         name: "Travel x Art",
-        price: 21999,
+        price: 24999,
         features: [
           "6 Nights/7 Days Stay (From June 21)",
           "Double Occupancy in Homestays",
@@ -336,12 +336,12 @@ export const destinations = {
         variants: [
           {
             name: "Standard Art Package",
-            price: 26999,
+            price: 36999,
             features: ["Block printing", "Miniature painting workshop"]
           },
           {
             name: "Premium Art Package",
-            price: 39999,
+            price: 49999,
             features: ["Block printing", "Miniature painting", "Traditional folk performance participation"]
           }
         ],
@@ -437,7 +437,7 @@ export const destinations = {
         variants: [
           {
             name: "Double Occupancy",
-            price: 21999,
+            price: 24999,
             features: ["All standard inclusions with double occupancy instead of triple"]
           }
         ],
@@ -446,7 +446,7 @@ export const destinations = {
       {
         id: "travel-art",
         name: "Travel x Art",
-        price: 21999,
+        price: 24999,
         features: [
           "6 Nights/7 Days Stay (From June 21)",
           "Double Occupancy in Homestays",
@@ -460,12 +460,12 @@ export const destinations = {
         variants: [
           {
             name: "Standard Art Package",
-            price: 26999,
+            price: 36999,
             features: ["Silk painting", "Ghats sketching workshop"]
           },
           {
             name: "Premium Art Package",
-            price: 39999,
+            price: 49999,
             features: ["Silk painting", "Ghats sketching", "Classical music appreciation session"]
           }
         ],
@@ -561,7 +561,7 @@ export const destinations = {
         variants: [
           {
             name: "Double Occupancy",
-            price: 21999,
+            price: 24999,
             features: ["All standard inclusions with double occupancy instead of triple"]
           }
         ],
@@ -570,7 +570,7 @@ export const destinations = {
       {
         id: "travel-art",
         name: "Travel x Art",
-        price: 21999,
+        price: 24999,
         features: [
           "6 Nights/7 Days Stay (From June 21)",
           "Double Occupancy in Homestays",
@@ -584,12 +584,12 @@ export const destinations = {
         variants: [
           {
             name: "Standard Art Package",
-            price: 26999,
+            price: 36999,
             features: ["Mountain landscape painting", "Nature journaling workshop"]
           },
           {
             name: "Premium Art Package",
-            price: 39999,
+            price: 49999,
             features: ["Mountain landscape painting", "Nature journaling", "Traditional craft learning session"]
           }
         ],
@@ -684,7 +684,7 @@ export const destinations = {
         variants: [
           {
             name: "Double Occupancy",
-            price: 21999,
+            price: 24999,
             features: ["All standard inclusions with double occupancy instead of triple"]
           }
         ],
@@ -693,7 +693,7 @@ export const destinations = {
       {
         id: "travel-art",
         name: "Travel x Art",
-        price: 21999,
+        price: 24999,
         features: [
           "6 Nights/7 Days Stay (From June 21)",
           "Double Occupancy in Homestays",
@@ -707,12 +707,12 @@ export const destinations = {
         variants: [
           {
             name: "Standard Art Package",
-            price: 26999,
+            price: 36999,
             features: ["Thangka painting basics", "Landscape photography workshop"]
           },
           {
             name: "Premium Art Package",
-            price: 39999,
+            price: 49999,
             features: ["Thangka painting", "Landscape photography", "Meditation and mindfulness sessions"]
           }
         ],

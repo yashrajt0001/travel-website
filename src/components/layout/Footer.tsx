@@ -45,8 +45,10 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4 pt-2">
               <a
-                href="#"
+                href="https://www.facebook.com/share/1Bmj9GuZGh/?mibextid=wwXIfr"
                 className="text-[var(--light)] hover:text-[var(--secondary)] transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <FaFacebookF className="w-5 h-5" />
               </a>
@@ -57,8 +59,10 @@ export default function Footer() {
                 <FaTwitter className="w-5 h-5" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/antarabodh?igsh=bWxiajVpcHljdGts&utm_source=qr"
                 className="text-[var(--light)] hover:text-[var(--secondary)] transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <FaInstagram className="w-5 h-5" />
               </a>
