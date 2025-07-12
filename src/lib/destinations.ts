@@ -52,7 +52,7 @@ export const destinations = {
       {
         id: "travel",
         name: "Travel - Offbeat Adventure",
-        price: 19999,
+        price: 22999,
         features: [
           "6 Nights/7 Days Stay",
           "Triple Occupancy in Homestays",
@@ -176,7 +176,7 @@ export const destinations = {
       {
         id: "travel",
         name: "Travel - Offbeat Adventure",
-        price: 19999,
+        price: 22999,
         features: [
           "6 Nights/7 Days Stay",
           "Triple Occupancy in Homestays",
@@ -299,7 +299,7 @@ export const destinations = {
       {
         id: "travel",
         name: "Travel - Offbeat Adventure",
-        price: 19999,
+        price: 22999,
         features: [
           "6 Nights/7 Days Stay",
           "Triple Occupancy in Homestays",
@@ -423,7 +423,7 @@ export const destinations = {
       {
         id: "travel",
         name: "Travel - Offbeat Adventure",
-        price: 19999,
+        price: 22999,
         features: [
           "6 Nights/7 Days Stay",
           "Triple Occupancy in Homestays",
@@ -547,7 +547,7 @@ export const destinations = {
       {
         id: "travel",
         name: "Travel - Offbeat Adventure",
-        price: 19999,
+        price: 22999,
         features: [
           "6 Nights/7 Days Stay",
           "Triple Occupancy in Homestays",
@@ -670,7 +670,7 @@ export const destinations = {
       {
         id: "travel",
         name: "Travel - Offbeat Adventure",
-        price: 19999,
+        price: 22999,
         features: [
           "6 Nights/7 Days Stay",
           "Triple Occupancy in Homestays",
