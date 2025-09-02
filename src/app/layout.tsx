@@ -21,10 +21,15 @@ const playfairDisplay = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "Antarabodh-Best Travel Agency in Mumbai",
-  description: "Travel with intention. Antarabodh offers personalized journeys that balance adventure, reflection, and real connection with the world around you.",
-  keywords: "travel, luxury retreats, yoga retreats, meditation, spa resorts, mindfulness",
+  description:
+    "Travel with intention. Antarabodh offers personalized journeys that balance adventure, reflection, and real connection with the world around you.",
+  keywords:
+    "travel, luxury retreats, yoga retreats, meditation, spa resorts, mindfulness",
   icons: {
-    icon: '/images/logo.png', // Add favicon here
+    icon: "/images/logo.png", // Add favicon here
+  },
+  alternates: {
+    canonical: "https://www.antarabodh.com/",
   },
 };
 
@@ -36,15 +41,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/images/logo.png" /> {/* Add fallback for older browsers */}
+        <link rel="icon" href="/images/logo.png" />{" "}
+        {/* Add fallback for older browsers */}
         <link rel="canonical" href="https://www.antarabodh.com/" />
-        <meta name="google-site-verification" content="HpVw1zueYiLcZpr3DQKFd6xe8JB01AG9G4hPxxaDqMY" />
+        <meta
+          name="google-site-verification"
+          content="HpVw1zueYiLcZpr3DQKFd6xe8JB01AG9G4hPxxaDqMY"
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} antialiased`}
       >
         {children}
-         <Script
+        <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-CWPC2KJBW9"
           strategy="afterInteractive"
         />
@@ -56,27 +65,27 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "TravelAgency",
-              "name": "antarabodh",
-              "image": "",
+              name: "antarabodh",
+              image: "",
               "@id": "",
-              "url": "https://www.antarabodh.com/",
-              "telephone": "+91 6361 420 321",
-              "address": {
+              url: "https://www.antarabodh.com/",
+              telephone: "+91 6361 420 321",
+              address: {
                 "@type": "PostalAddress",
-                "streetAddress":
+                streetAddress:
                   "S. no. 81/1/1, Road no. b2, Dighi, Pune, Maharashtra 411015",
-                "addressLocality": "Pune",
-                "postalCode": "411015",
-                "addressCountry": "IN",
+                addressLocality: "Pune",
+                postalCode: "411015",
+                addressCountry: "IN",
               },
-              "geo": {
+              geo: {
                 "@type": "GeoCoordinates",
-                "latitude": 18.5837922,
-                "longitude": 73.8876963,
+                latitude: 18.5837922,
+                longitude: 73.8876963,
               },
-              "openingHoursSpecification": {
+              openingHoursSpecification: {
                 "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
+                dayOfWeek: [
                   "Monday",
                   "Tuesday",
                   "Wednesday",
@@ -85,10 +94,10 @@ export default function RootLayout({
                   "Saturday",
                   "Sunday",
                 ],
-                "opens": "00:00",
-                "closes": "23:59",
+                opens: "00:00",
+                closes: "23:59",
               },
-              "sameAs": [
+              sameAs: [
                 "https://www.instagram.com/antarabodh/?igsh=bWxiajVpcHljdGts&utm_source=qr#",
                 "https://www.facebook.com/people/Antarabodh/61575123371169/?mibextid=wwXIfr&rdid=KEhlHJtRrOfMybR1&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Bmj9GuZGh%2F%3Fmibextid%3DwwXIfr",
               ],
