@@ -41,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/images/logo.png" />{" "}
+        <link rel="icon" href="/images/logo.png" />{" "} 
         {/* Add fallback for older browsers */}
         <link rel="canonical" href="https://www.antarabodh.com/" />
         <meta
@@ -57,6 +57,14 @@ export default function RootLayout({
           src="https://www.googletagmanager.com/gtag/js?id=G-CWPC2KJBW9"
           strategy="afterInteractive"
         />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-CWPC2KJBW9');
+          `}
+        </Script>
         <Script
           id="structured-data"
           type="application/ld+json"
