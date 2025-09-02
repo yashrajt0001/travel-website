@@ -37,6 +37,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/images/logo.png" /> {/* Add fallback for older browsers */}
+        <meta name="google-site-verification" content="HpVw1zueYiLcZpr3DQKFd6xe8JB01AG9G4hPxxaDqMY" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} antialiased`}
