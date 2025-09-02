@@ -67,11 +67,7 @@ export default function AboutSection() {
               variants={itemVariants}
               className="text-lg leading-relaxed text-dark/80"
             >
-              Antarabodh is a travel and art retreat program designed for seekers, dreamers, and creators.
-              We believe that art is not just something we make—but something we live. Through slow,
-              intentional travel and deep creative practices, Antarabodh invites you to reconnect with yourself,
-              nature, and community. Each retreat is a passage—into new landscapes, cultures, and the quiet
-              depths of your own imagination.
+              Travel with intention. Antarabodh offers personalized journeys that balance adventure, reflection, and real connection with the world around you.
             </motion.p>
             <motion.div
               variants={itemVariants}
