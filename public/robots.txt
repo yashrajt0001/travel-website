@@ -1,0 +1,7 @@
+User-agent: * 
+
+Disallow: /404.html
+Disallow: /403.html
+
+
+Sitemap: https://www.antarabodh.com/sitemap.xml
