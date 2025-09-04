@@ -5,12 +5,19 @@ import Image from "next/image";
 import MainLayout from "@/components/layout/MainLayout";
 import BookingModal from "@/components/modals/BookingModal";
 import { motion, useScroll, useTransform } from "@/lib/motion";
-import { FiStar, FiMapPin, FiSun, FiUsers, FiCheckCircle, FiAward, FiCamera } from "react-icons/fi";
+import {
+  FiStar,
+  FiMapPin,
+  FiSun,
+  FiUsers,
+  FiCheckCircle,
+  FiAward,
+  FiCamera,
+} from "react-icons/fi";
 import { use } from "react";
-import ParallaxImage from '@/components/ui/ParallaxImage';
-import { destinations } from "@/lib/destinations"; 
+import ParallaxImage from "@/components/ui/ParallaxImage";
+import { destinations } from "@/lib/destinations";
 import Link from "next/link";
-
 
 export default function DestinationPage({
   params,
@@ -44,7 +51,7 @@ export default function DestinationPage({
         />
         {/* Darker, more opaque gradient overlay for better text visibility */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/60 z-10" />
-        
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -67,7 +74,6 @@ export default function DestinationPage({
           </div>
         </motion.div>
       </motion.section>
-
       {/* Overview Section */}
       <section id="overview" className="py-20 bg-white">
         <div className="container mx-auto px-4">
@@ -80,44 +86,52 @@ export default function DestinationPage({
           >
             {/* Trip Overview */}
             <div className="space-y-6">
-              <h2 className="text-3xl font-serif font-extrabold text-[var(--primary)]">Trip Overview</h2>
+              <h2 className="text-3xl font-serif font-extrabold text-[var(--primary)]">
+                Trip Overview
+              </h2>
               <div className="w-16 h-1 bg-primary mb-6"></div>
-              
+
               {/* Good For Card */}
               <div className="bg-[var(--primary-extraLight)] p-6 rounded-lg shadow-sm border border-[var(--primary)]/10 mb-6">
                 <h3 className="font-bold text-[var(--primary)] mb-4 flex items-center gap-2">
-                  <FiUsers className="text-[var(--secondary)]" /> 
+                  <FiUsers className="text-[var(--secondary)]" />
                   Good For
                 </h3>
                 <p className="text-dark/80">{destination.goodFor}</p>
               </div>
-              
+
               {/* Weather Info Card */}
               <div className="bg-[var(--primary-extraLight)] p-6 rounded-lg shadow-sm border border-[var(--primary)]/10">
                 <h3 className="font-bold text-[var(--primary)] mb-3 flex items-center gap-2">
-                  <FiSun className="text-[var(--secondary)]" /> 
+                  <FiSun className="text-[var(--secondary)]" />
                   Weather & Climate
                 </h3>
                 <div className="grid grid-cols-3 gap-4">
                   <div className="flex flex-col">
                     <span className="text-sm text-gray-600">Condition</span>
-                    <span className="font-medium">{destination.weather.condition}</span>
+                    <span className="font-medium">
+                      {destination.weather.condition}
+                    </span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-sm text-gray-600">Temperature</span>
-                    <span className="font-medium">{destination.weather.temp}</span>
+                    <span className="font-medium">
+                      {destination.weather.temp}
+                    </span>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-sm text-gray-600">Humidity</span>
-                    <span className="font-medium">{destination.weather.humidity}</span>
+                    <span className="font-medium">
+                      {destination.weather.humidity}
+                    </span>
                   </div>
                 </div>
               </div>
-              
+
               <p className="text-lg text-gray-700 leading-relaxed">
                 {destination.longDescription}
               </p>
-              
+
               {/* Trip Extras */}
               <div className="grid grid-cols-2 gap-4 mt-6">
                 <div className="bg-[var(--primary-extraLight)] p-4 rounded-lg flex items-center gap-3">
@@ -126,7 +140,9 @@ export default function DestinationPage({
                   </div>
                   <div>
                     <p className="font-medium">Photography</p>
-                    <p className="text-sm text-gray-600">Perfect for photographers</p>
+                    <p className="text-sm text-gray-600">
+                      Perfect for photographers
+                    </p>
                   </div>
                 </div>
                 <div className="bg-[var(--primary-extraLight)] p-4 rounded-lg flex items-center gap-3">
@@ -135,7 +151,9 @@ export default function DestinationPage({
                   </div>
                   <div>
                     <p className="font-medium">Experienced Guides</p>
-                    <p className="text-sm text-gray-600">Expert local leaders</p>
+                    <p className="text-sm text-gray-600">
+                      Expert local leaders
+                    </p>
                   </div>
                 </div>
               </div>
@@ -143,7 +161,9 @@ export default function DestinationPage({
 
             {/* Highlights */}
             <div className="space-y-6">
-              <h2 className="text-3xl font-serif font-extrabold text-[var(--primary)]">Highlights</h2>
+              <h2 className="text-3xl font-serif font-extrabold text-[var(--primary)]">
+                Highlights
+              </h2>
               <div className="w-16 h-1 bg-primary mb-6"></div>
               <div className="grid gap-4">
                 {destination.highlights.map((highlight, index) => (
@@ -160,31 +180,49 @@ export default function DestinationPage({
                   </motion.div>
                 ))}
               </div>
-              
+
               {/* CTA Button */}
               <div className="mt-8">
-                <a href="#packages" className="inline-flex items-center gap-2 bg-[var(--secondary)] text-white px-6 py-3 rounded-full font-medium hover:bg-[var(--secondary-dark)] transition-colors">
+                <a
+                  href="#packages"
+                  className="inline-flex items-center gap-2 bg-[var(--secondary)] text-white px-6 py-3 rounded-full font-medium hover:bg-[var(--secondary-dark)] transition-colors"
+                >
                   View Available Packages
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={2}
+                    stroke="currentColor"
+                    className="w-4 h-4"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"
+                    />
                   </svg>
                 </a>
               </div>
             </div>
           </motion.div>
         </div>
-      </section>      {/* Gallery Section */}
+      </section>{" "}
+      {/* Gallery Section */}
       <section id="gallery" className="py-20 bg-[var(--primary-extraLight)]">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-serif font-extrabold text-[var(--primary)] mb-3">Destination Gallery</h2>
+            <h2 className="text-3xl font-serif font-extrabold text-[var(--primary)] mb-3">
+              Destination Gallery
+            </h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
             <p className="text-lg text-dark/80">
               Explore stunning visuals of this magical destination
             </p>
           </div>
           <div className="max-w-5xl mx-auto">
-            {/* Display the gallery without the first image (which is used as hero) */}            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-items-center">
+            {/* Display the gallery without the first image (which is used as hero) */}{" "}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-items-center">
               {destination.gallery.slice(1).map((image, index) => (
                 <motion.div
                   key={index}
@@ -211,12 +249,13 @@ export default function DestinationPage({
           </div>
         </div>
       </section>
-
       {/* Packages Section */}
       <section id="packages" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-serif font-extrabold text-[var(--primary)] mb-3">Choose Your Package</h2>
+            <h2 className="text-3xl md:text-4xl font-serif font-extrabold text-[var(--primary)] mb-3">
+              Choose Your Package
+            </h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
             <p className="text-lg text-dark/80">
               Select the perfect travel experience tailored to your interests
@@ -229,12 +268,14 @@ export default function DestinationPage({
                 key={pkg.id}
                 whileHover={{ y: -10 }}
                 className={`bg-white rounded-xl overflow-hidden shadow-lg ${
-                  selectedPackage === pkg.id ? "ring-2 ring-[var(--secondary)]" : ""
+                  selectedPackage === pkg.id
+                    ? "ring-2 ring-[var(--secondary)]"
+                    : ""
                 } relative`}
               >
                 {/* Package Color Bar */}
-                <div 
-                  className="h-2" 
+                <div
+                  className="h-2"
                   style={{ backgroundColor: pkg.color }}
                 ></div>
 
@@ -246,7 +287,7 @@ export default function DestinationPage({
                     </div>
                   </div>
                 )}
-                  {/* Content */}
+                {/* Content */}
                 <div className="p-8">
                   {/* Icon & Title */}
                   <div className="flex items-center gap-3 mb-4">
@@ -255,7 +296,7 @@ export default function DestinationPage({
                       {pkg.name}
                     </h3>
                   </div>
-                  
+
                   {/* Price */}
                   <div className="flex items-baseline gap-1 mb-6">
                     {pkg.price ? (
@@ -288,21 +329,30 @@ export default function DestinationPage({
                   {/* Variants if available */}
                   {pkg.variants && pkg.variants.length > 0 && (
                     <div className="mt-4 mb-6 space-y-4">
-                      <h4 className="font-medium text-[var(--primary)]">Package Options:</h4>
+                      <h4 className="font-medium text-[var(--primary)]">
+                        Package Options:
+                      </h4>
                       {pkg.variants.map((variant, idx) => (
-                        <div key={idx} className="bg-[var(--primary-extraLight)]/50 p-3 rounded-lg">
+                        <div
+                          key={idx}
+                          className="bg-[var(--primary-extraLight)]/50 p-3 rounded-lg"
+                        >
                           <div className="flex justify-between mb-2">
                             <span className="font-medium">{variant.name}</span>
-                            <span className="text-[var(--primary)] font-semibold">₹{variant.price}</span>
+                            <span className="text-[var(--primary)] font-semibold">
+                              ₹{variant.price}
+                            </span>
                           </div>
                           {variant.features && (
                             <ul className="text-sm text-dark/70">
-                              {variant.features.map((feat: string, fidx: number) => (
-                                <li key={fidx} className="flex items-start">
-                                  <FiCheckCircle className="w-3.5 h-3.5 text-[var(--secondary)] mr-2 mt-0.5" />
-                                  {feat}
-                                </li>
-                              ))}
+                              {variant.features.map(
+                                (feat: string, fidx: number) => (
+                                  <li key={fidx} className="flex items-start">
+                                    <FiCheckCircle className="w-3.5 h-3.5 text-[var(--secondary)] mr-2 mt-0.5" />
+                                    {feat}
+                                  </li>
+                                )
+                              )}
                             </ul>
                           )}
                         </div>
@@ -322,12 +372,16 @@ export default function DestinationPage({
                     onClick={() => setSelectedPackage(pkg.id)}
                     className={`w-full py-3 rounded-lg font-medium transition-all ${
                       selectedPackage === pkg.id
-                      ? "bg-[var(--secondary)] text-white"
-                      : "bg-[var(--primary-extraLight)] text-[var(--primary)] border border-[var(--primary)]/20 hover:bg-[var(--primary)]/5"
+                        ? "bg-[var(--secondary)] text-white"
+                        : "bg-[var(--primary-extraLight)] text-[var(--primary)] border border-[var(--primary)]/20 hover:bg-[var(--primary)]/5"
                     }`}
                     disabled={pkg.comingSoon}
                   >
-                    {selectedPackage === pkg.id ? "Selected" : pkg.comingSoon ? "Coming Soon" : "Select Package"}
+                    {selectedPackage === pkg.id
+                      ? "Selected"
+                      : pkg.comingSoon
+                      ? "Coming Soon"
+                      : "Select Package"}
                   </button>
                 </div>
               </motion.div>
@@ -335,77 +389,108 @@ export default function DestinationPage({
           </div>
 
           {selectedPackage && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="mt-12 text-center space-y-6"
             >
               <div className="p-6 bg-[var(--primary-extraLight)] inline-block rounded-lg">
-                <h3 className="mb-2 text-[var(--primary)] font-bold">Package Selected:</h3>
+                <h3 className="mb-2 text-[var(--primary)] font-bold">
+                  Package Selected:
+                </h3>
                 <p className="text-lg font-medium">
-                  {destination.packages.find(p => p.id === selectedPackage)?.name} - 
-                  ₹{destination.packages.find(p => p.id === selectedPackage)?.price}
+                  {
+                    destination.packages.find((p) => p.id === selectedPackage)
+                      ?.name
+                  }{" "}
+                  - ₹
+                  {
+                    destination.packages.find((p) => p.id === selectedPackage)
+                      ?.price
+                  }
                 </p>
               </div>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link 
-                  href="/contact">
-                <button
-                  // onClick={() => setShowEnquiryModal(true)}
-                  className="px-8 py-3 bg-white text-[var(--primary)] rounded-full border border-[var(--primary)] hover:bg-[var(--primary)]/5"
+                <Link href="/contact">
+                  <button
+                    // onClick={() => setShowEnquiryModal(true)}
+                    className="px-8 py-3 bg-white text-[var(--primary)] rounded-full border border-[var(--primary)] hover:bg-[var(--primary)]/5"
                   >
-                  Make Enquiry
-                </button>
-                  </Link>
+                    Make Enquiry
+                  </button>
+                </Link>
                 <button
                   onClick={() => setShowBookingModal(true)}
                   className="px-8 py-3 bg-[var(--secondary)] text-white rounded-full hover:bg-[var(--secondary-dark)]"
                 >
                   Book Now
                 </button>
+
+                {/* Show Itinerary button only for Meghalaya */}
+                {destination.title === "Meghalaya – The Abode of Clouds" && (
+                  <a
+                    href="/pdfs/meghalaya-itinerary.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-8 py-3 bg-[var(--secondary)] text-white rounded-full hover:bg-[var(--secondary-dark)] hover:cursor-pointer inline-block text-center"
+                  >
+                    Itinerary
+                  </a>
+                )}
               </div>
             </motion.div>
           )}
         </div>
       </section>
-
       {/* Testimonials */}
       <section className="py-20 bg-[var(--primary-extraLight)]">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-serif font-extrabold text-[var(--primary)] mb-3">Traveler Reviews</h2>
+            <h2 className="text-3xl font-serif font-extrabold text-[var(--primary)] mb-3">
+              Traveler Reviews
+            </h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
           </div>
-          
+
           <div className="bg-white rounded-xl shadow-md p-8 max-w-3xl mx-auto">
             <div className="flex flex-col md:flex-row gap-6 items-center">
               <div className="relative w-20 h-20 rounded-full overflow-hidden flex-shrink-0">
-                <Image src="/images/images.jpeg" alt="Reviewer" fill className="object-cover" />
-
+                <Image
+                  src="/images/images.jpeg"
+                  alt="Reviewer"
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="flex-1">
                 <div className="flex justify-between items-center mb-2">
                   <h3 className="text-lg font-bold">Sara Thompson</h3>
                   <div className="flex">
-                    {[1, 2, 3, 4, 5].map(star => (
-                      <FiStar key={star} className="text-[var(--secondary)] fill-current" />
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <FiStar
+                        key={star}
+                        className="text-[var(--secondary)] fill-current"
+                      />
                     ))}
                   </div>
                 </div>
                 <p className="text-dark/80 italic">
-                  &quot;The Meghalaya trip was absolutely breathtaking! The living root bridges were unlike anything I&apos;ve ever seen. Our guide was knowledgeable, and the entire experience was well-organized. I&apos;ll definitely book another trip with you all!&quot;
+                  &quot;The Meghalaya trip was absolutely breathtaking! The
+                  living root bridges were unlike anything I&apos;ve ever seen.
+                  Our guide was knowledgeable, and the entire experience was
+                  well-organized. I&apos;ll definitely book another trip with
+                  you all!&quot;
                 </p>
               </div>
             </div>
           </div>
         </div>
       </section>
-
       {/* CTA Section */}
       <section className="py-16 bg-primary/90 text-white">
         <div className="container mx-auto px-4 md:px-6">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -428,36 +513,43 @@ export default function DestinationPage({
               className="inline-flex items-center gap-2 bg-[var(--secondary)] text-white px-8 py-3 rounded-full font-medium hover:bg-[var(--secondary-dark)] transition-colors"
             >
               Book Your Journey Now
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="w-4 h-4"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                />
               </svg>
             </button>
           </motion.div>
         </div>
       </section>
-
       {/* Modals */}
       <BookingModal
         isOpen={showBookingModal}
         onClose={() => setShowBookingModal(false)}
-        packageDetails={
-          (() => {
-            const pkg = destination.packages.find(
-              (p) => p.id === selectedPackage && typeof p.price === "number"
-            );
-            return pkg
-              ? {
-                  id: pkg.id,
-                  name: pkg.name,
-                  price: pkg.price as number,
-                  features: pkg.features,
-                  destination: destination.title,
-                }
-              : undefined;
-          })()
-        }
+        packageDetails={(() => {
+          const pkg = destination.packages.find(
+            (p) => p.id === selectedPackage && typeof p.price === "number"
+          );
+          return pkg
+            ? {
+                id: pkg.id,
+                name: pkg.name,
+                price: pkg.price as number,
+                features: pkg.features,
+                destination: destination.title,
+              }
+            : undefined;
+        })()}
       />
-
       {showEnquiryModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
           <div
