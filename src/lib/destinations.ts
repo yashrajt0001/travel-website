@@ -52,7 +52,7 @@ export const destinations = {
       {
         id: "travel",
         name: "Travel - Offbeat Adventure",
-        price: 22999,
+        price: 24999,
         features: [
           "6 Nights/7 Days Stay",
           "Triple Occupancy in Homestays",
@@ -75,7 +75,7 @@ export const destinations = {
       {
         id: "travel-art",
         name: "Travel x Art",
-        price: 24999,
+        price: null,
         features: [
           "6 Nights/7 Days Stay (From June 21)",
           "Double Occupancy in Homestays",
@@ -86,18 +86,19 @@ export const destinations = {
         color: "#5e7e3e",
         icon: "🎨",
         popular: true,
-        variants: [
-          {
-            name: "Standard Art Package",
-            price: 36999,
-            features: ["Black clay pottery", "Water color painting on valleys"]
-          },
-          {
-            name: "Premium Art Package",
-            price: 49999,
-            features: ["Black clay pottery", "Water color painting", "Local folk music/dance jamming"]
-          }
-        ],
+        comingSoon:true,
+        // variants: [
+        //   {
+        //     name: "Standard Art Package",
+        //     price: 36999,
+        //     features: ["Black clay pottery", "Water color painting on valleys"]
+        //   },
+        //   {
+        //     name: "Premium Art Package",
+        //     price: 49999,
+        //     features: ["Black clay pottery", "Water color painting", "Local folk music/dance jamming"]
+        //   }
+        // ],
         note: "For hotels/resorts, prices vary depending on the days and package chosen"
       },
       {
@@ -209,6 +210,7 @@ export const destinations = {
         ],
         color: "#5e7e3e",
         icon: "🎨",
+        
         popular: true,
         variants: [
           {
