@@ -20,7 +20,7 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Antarabodh– Best Travel Agency in Mumbai for Customized India Tours, Honeymoon Packages & Senior Citizen Trips",
+  title: " India’s best travel agency in Mumbai",
   description:
     "Travel with intention. Antarabodh offers personalized journeys that balance adventure, reflection, and real connection with the world around you.",
   keywords:
