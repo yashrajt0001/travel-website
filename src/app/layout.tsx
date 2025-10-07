@@ -20,7 +20,7 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: " India’s best travel agency in Mumbai",
+  title: "India's first travel and art retreat",
   description:
     "Travel with intention. Antarabodh offers personalized journeys that balance adventure, reflection, and real connection with the world around you.",
   keywords:
