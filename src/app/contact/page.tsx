@@ -64,11 +64,11 @@ export default function ContactPage() {
                 Visit Us
               </h3>
               <p className="text-dark/80">
-                S. no. 81/1/1, Road no. b2,
+                Terminal 1, Rajiv Gandhi MIDC road, above Croma,
                 <br />
-                Dighi, Pune, Maharashtra
+                Phase 1, Hinjawadi, Pune, Maharashtra
                 <br />
-                411015, India
+                411057, India
               </p>
             </motion.div>
 
@@ -149,7 +149,7 @@ export default function ContactPage() {
             <div className="w-16 h-1 bg-primary mx-auto mb-10"></div>
             <div className="aspect-[16/9] w-full bg-white rounded-lg overflow-hidden shadow-lg border border-[var(--primary)]/20">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.8930300573383!2d73.87445937597327!3d18.621025982726134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c71bffffffffb%3A0xb8f9fc3f2aafffff!2sDighi%2C%20Pune%2C%20Maharashtra%20411015!5e0!3m2!1sen!2sin!4v1701234567890!5m2!1sen!2sin"
+                src="https://www.google.com/maps?q=Croma%20Hinjawadi%20Phase%201%2C%20Rajiv%20Gandhi%20MIDC%20road%2C%20Pune%2C%20Maharashtra%20411057&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

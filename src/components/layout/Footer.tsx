@@ -154,7 +154,8 @@ export default function Footer() {
             <div className="flex items-start space-x-3">
               <FiMapPin className="w-5 h-5 text-primary mt-1" />
               <p className="text-light/80">
-                S. no. 81/1/1, Road no. b2, Dighi, Pune, Maharashtra 411015
+                Terminal 1, Rajiv Gandhi MIDC road, above Croma, Phase 1,
+                Hinjawadi, Pune, Maharashtra 411057
               </p>
             </div>
             <div className="flex items-start space-x-3">

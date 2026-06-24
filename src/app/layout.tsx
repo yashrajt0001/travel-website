@@ -81,15 +81,15 @@ export default function RootLayout({
               address: {
                 "@type": "PostalAddress",
                 streetAddress:
-                  "S. no. 81/1/1, Road no. b2, Dighi, Pune, Maharashtra 411015",
+                  "Terminal 1, Rajiv Gandhi MIDC road, above Croma, Phase 1, Hinjawadi, Pune, Maharashtra 411057",
                 addressLocality: "Pune",
-                postalCode: "411015",
+                postalCode: "411057",
                 addressCountry: "IN",
               },
               geo: {
                 "@type": "GeoCoordinates",
-                latitude: 18.5837922,
-                longitude: 73.8876963,
+                latitude: 18.5921,
+                longitude: 73.738,
               },
               openingHoursSpecification: {
                 "@type": "OpeningHoursSpecification",
