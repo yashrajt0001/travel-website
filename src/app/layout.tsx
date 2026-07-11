@@ -81,9 +81,9 @@ export default function RootLayout({
               address: {
                 "@type": "PostalAddress",
                 streetAddress:
-                  "Terminal 1, Rajiv Gandhi MIDC road, above Croma, Phase 1, Hinjawadi, Pune, Maharashtra 411057",
+                  "S. No. 81/1/1, Krishna Nagar, Road No. B2, Dighi, Pune, Maharashtra 411015",
                 addressLocality: "Pune",
-                postalCode: "411057",
+                postalCode: "411015",
                 addressCountry: "IN",
               },
               geo: {
